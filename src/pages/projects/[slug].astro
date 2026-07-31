@@ -15,22 +15,111 @@ const { Content } = await render(project);
 const { title, description, date, tags, link, repo } = project.data;
 ---
 
-<Base title={title} description={description}>
+<Base title={`${title} — jbrous`} description={description}>
   <article>
+    <p class="meta back"><a href="/">← all projects</a></p>
     <h1>{title}</h1>
-    <p>
+    <p class="meta">
       <time datetime={date.toISOString()}>
         {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
       </time>
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
     </p>
-    {tags.length > 0 && <p>{tags.map((tag) => <span class="tag">{tag}</span>)}</p>}
-    {(link || repo) && (
-      <p>
-        {link && <a href={link}>View it live</a>}
-        {link && repo && ' · '}
-        {repo && <a href={repo}>Source code</a>}
-      </p>
-    )}
-    <Content />
+    {
+      (link || repo) && (
+        <p class="links">
+          {link && <a href={link}>View it live ↗</a>}
+          {link && repo && <span class="sep"> · </span>}
+          {repo && <a href={repo}>Source code ↗</a>}
+        </p>
+      )
+    }
+    <div class="prose">
+      <Content />
+    </div>
   </article>
 </Base>
+
+<style>
+  .back {
+    margin-bottom: 2.5rem;
+  }
+
+  .back a {
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    color: var(--ember);
+  }
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .meta :global(.tag) {
+    margin-left: 0.5rem;
+    margin-right: 0;
+  }
+
+  .links {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .sep {
+    color: var(--ink-faint);
+  }
+
+  .prose {
+    margin-top: 2.5rem;
+  }
+
+  .prose :global(h2) {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .prose :global(h3) {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+  }
+
+  .prose :global(blockquote) {
+    margin: 1.5rem 0;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--ember);
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+  }
+
+  .prose :global(pre) {
+    background: var(--bg-raised) !important;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 2.5rem 0;
+  }
+</style>

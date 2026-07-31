@@ -9,19 +9,24 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft)).so
 });
 ---
 
-<Base title="Project Hub">
+<Base title="jbrous — projects">
   <h1>Projects</h1>
+  <p class="intro">Things I've built, broken, and occasionally finished.</p>
   <ul class="project-list">
     {
-      projects.map(({ id, data }) => (
-        <li>
-          <a href={`/projects/${id}/`}>{data.title}</a>
-          {data.featured && <span class="tag">featured</span>}
-          <p>{data.description}</p>
-          <p>
-            <time datetime={data.date.toISOString()}>
-              {data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+      projects.map(({ id, data }, i) => (
+        <li style={`animation-delay: ${80 + i * 60}ms`}>
+          <div class="row">
+            <a class="title" href={`/projects/${id}/`}>
+              {data.featured && <span class="star" title="featured">✦ </span>}
+              {data.title}
+            </a>
+            <time class="meta" datetime={data.date.toISOString()}>
+              {data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
             </time>
+          </div>
+          <p class="desc">{data.description}</p>
+          <p class="tags">
             {data.tags.map((tag) => (
               <span class="tag">{tag}</span>
             ))}
@@ -33,23 +38,74 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft)).so
 </Base>
 
 <style>
+  .intro {
+    color: var(--ink-muted);
+    margin-top: -0.5rem;
+    margin-bottom: 3rem;
+  }
+
   .project-list {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
+
   .project-list li {
-    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+    animation: rise 480ms ease-out both;
   }
-  .project-list li > a {
-    font-size: 1.15rem;
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
     font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
   }
-  .project-list p {
-    margin: 0.25rem 0;
+
+  .title:hover {
+    color: var(--ember-bright);
   }
-  .project-list time {
-    font-size: 0.85rem;
-    color: #777;
-    margin-right: 0.5rem;
+
+  .star {
+    color: var(--ember);
+  }
+
+  time {
+    white-space: nowrap;
+  }
+
+  .desc {
+    margin: 0.35rem 0 0.6rem;
+    color: var(--ink-muted);
+  }
+
+  .tags {
+    margin: 0;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-list li {
+      animation: none;
+    }
   }
 </style>
