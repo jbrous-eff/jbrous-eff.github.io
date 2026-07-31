@@ -25,7 +25,27 @@ Dark mode, minimal, **no accent hue in the chrome**. Cool graphite background (`
 
 This replaced an earlier warm "workshop at night" theme (warm near-black + ember orange + radial glow + fade-up-on-load animation). The user's own critique: it read as obviously LLM-designed. The glow and the entry animation were deleted for the same reason — don't add them back.
 
-Type: Fraunces for display, IBM Plex Sans for body, IBM Plex Mono for dates/tags/nav (Google Fonts). The **wordmark is deliberately IBM Plex Sans, not Fraunces** — Fraunces' `f` has a long overhanging hook and the `ff` in "jeffbrous" collides. All colors are CSS variables in `Base.astro`. Keep new UI within this system.
+Type: **IBM Plex Sans everywhere** — headings, body, and wordmark are one family, separated by weight (600 vs 400) and tracking, not by typeface. IBM Plex Mono for dates, tags, and nav. No serif on the site. Fraunces was the original display face and was removed in both directions: the `ff` in "jeffbrous" collided on the wordmark, and a serif display face is part of the same LLM-default look as the old palette. Don't reintroduce one.
+
+All colors are CSS variables in `Base.astro`. Keep new UI within this system.
+
+### Chart palette
+
+The user's charts are made outside this repo (matplotlib, in the analysis projects) but they're the main content of the site, so the color system is recorded here. Fixed roles, never reused for anything else:
+
+| Role | Color |
+| --- | --- |
+| Positive / make / above expectation | `#3fb98a` teal-green |
+| Negative / miss / below expectation | `#e0576b` rose-red |
+| Reference / comparison / "other" | `#6a6a67` gray, and hollow rings for misses |
+| Highlight without judgment | `#f2efe9` bone |
+| Chart background | `#191b1e` (= `--bg-raised`, reads as a panel against the page) |
+
+Rules that go with it: chart type face is IBM Plex Sans, not matplotlib's default. **Never blue+orange** — that's `tab10`'s first two colors and reads as untouched defaults. Green/red keeps the user's sports-analytics convention but the hues are shifted (green leans teal, red leans rose) so they differ in lightness too, and outcome always carries a second channel (filled vs hollow) so it survives colorblindness. Don't color-encode a variable that position or length already encodes.
+
+Existing charts predating this system are already all dark-background, but inconsistent in color: the clutch dumbbell and the hex overperformance charts still use `tab10` blue/orange, and green currently means "make," "Top 5," and "just a bar" in three different charts. They need a pass when the projects are backfilled.
+
+(The white-background Clark hexmap was the prototype for the shot-selection piece and is retired — the dotmap replaced it. Don't resurrect it.)
 
 ## Deployment
 

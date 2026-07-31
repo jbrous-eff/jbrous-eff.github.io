@@ -24,7 +24,7 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -75,7 +75,9 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     --accent: #f2efe9;
     --accent-bright: #ffffff;
     --line: #26282c;
-    --font-display: 'Fraunces', georgia, serif;
+    /* One family, three roles. Display differs from body by weight and
+       tracking, not by typeface — no serif anywhere on the site. */
+    --font-display: 'IBM Plex Sans', sans-serif;
     --font-body: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
   }
@@ -117,14 +119,15 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
   h3 {
     font-family: var(--font-display);
     font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    line-height: 1.15;
+    /* Sans needs tighter tracking than the serif did to hold together at size */
+    letter-spacing: -0.025em;
     color: var(--ink);
   }
 
   h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 2.25rem;
+    letter-spacing: -0.035em;
   }
 
   a {
