@@ -3,7 +3,6 @@ title: "Welcome to Project Hub"
 description: "The site itself is the first project — a home for everything I build."
 date: 2026-07-31
 tags: ["meta", "web"]
-featured: true
 ---
 
 This site is where I post my various projects — data experiments, writing, freelance work, one-offs, whatever comes out of the workshop.
