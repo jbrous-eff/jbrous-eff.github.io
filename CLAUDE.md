@@ -19,16 +19,17 @@ Theme: "workshop at night" — user asked for minimal but not colorless, dark mo
 
 ## Deployment
 
-Target: GitHub Pages under the user's account **jbrous-eff**, repo name `jbrous-eff.github.io` (user site → serves at root, no `base` path). Workflow at `.github/workflows/deploy.yml` builds and deploys on every push to main. Custom domain **jbrous.com** (confirmed available 2026-07-31; user intends to buy it, ~$11/yr).
+Target: GitHub Pages under the user's account **jbrous-eff**, repo name `jbrous-eff.github.io` (user site → serves at root, no `base` path). Workflow at `.github/workflows/deploy.yml` builds and deploys on every push to main.
 
-When domain is purchased: set `site: 'https://jbrous.com'` in `astro.config.mjs`, add `public/CNAME` containing `jbrous.com`, set the custom domain in repo Pages settings, and have the user point DNS (A records to GitHub Pages IPs or ALIAS/CNAME per registrar).
+Custom domain: **jeffbrous.com**, registered at Cloudflare (2026-07-31). `site` in `astro.config.mjs` and `public/CNAME` both point at it. DNS lives in Cloudflare: four A records for the apex → GitHub Pages IPs (185.199.108–111.153), `www` CNAME → `jbrous-eff.github.io`. Records must be **DNS only** (grey cloud) — Cloudflare's proxy breaks GitHub's Let's Encrypt cert issuance.
 
 ## Status / roadmap
 
 - [x] Foundation: scaffold, content collection, list + detail pages, template
 - [x] Design pass (dark theme, see Design section)
 - [x] Deployed and LIVE at https://jbrous-eff.github.io (2026-07-31). Repo: https://github.com/jbrous-eff/jbrous-eff.github.io — every push to main auto-deploys. gh CLI is installed at `C:\Program Files\GitHub CLI\gh.exe` (may need PATH export in bash) and authed as jbrous-eff.
-- [ ] User buys jbrous.com, then: CNAME + DNS steps above
+- [x] Bought **jeffbrous.com** on Cloudflare (2026-07-31); repo config + `public/CNAME` updated
+- [ ] Cloudflare DNS records + GitHub Pages custom domain setting + Enforce HTTPS (user-side clicks)
 - [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` (the client, NYC.data, pro-sports, Writing_Creative, Fun_One_Offs, etc.)
 
 ## Development
