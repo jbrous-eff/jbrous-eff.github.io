@@ -1,10 +1,11 @@
 ---
-// Shared page shell. Deliberately minimal — real design pass comes later.
+// Shared page shell. Design: "workshop at night" — warm near-black,
+// ember accent, Fraunces display serif + IBM Plex Sans/Mono.
 interface Props {
   title: string;
   description?: string;
 }
-const { title, description = 'A collection of my projects.' } = Astro.props;
+const { title, description = 'Projects and experiments by jbrous.' } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,63 +14,161 @@ const { title, description = 'A collection of my projects.' } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body>
+    <div class="glow" aria-hidden="true"></div>
     <header>
       <nav>
-        <a href="/" class="site-name">Project Hub</a>
+        <a href="/" class="wordmark">jbrous<span class="ember">.</span></a>
       </nav>
     </header>
     <main>
       <slot />
     </main>
     <footer>
-      <p>© {new Date().getFullYear()}</p>
+      <span class="rule" aria-hidden="true"></span>
+      <p>© {new Date().getFullYear()} jbrous — built by hand, more or less</p>
     </footer>
   </body>
 </html>
 
 <style is:global>
-  /* Placeholder styles only — swap out during the design pass. */
+  :root {
+    --bg: #151210;
+    --bg-raised: #1e1a16;
+    --ink: #e9e1d5;
+    --ink-muted: #a4988a;
+    --ink-faint: #6e6459;
+    --ember: #f4a259;
+    --ember-bright: #ffbe7d;
+    --line: #2c2620;
+    --font-display: 'Fraunces', georgia, serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
   * {
     box-sizing: border-box;
   }
+
+  html {
+    background: var(--bg);
+    color-scheme: dark;
+  }
+
   body {
     margin: 0 auto;
-    max-width: 42rem;
-    padding: 1.5rem 1rem 4rem;
-    font-family: system-ui, sans-serif;
-    line-height: 1.6;
-    color: #1a1a1a;
+    max-width: 44rem;
+    padding: 2.5rem 1.25rem 4rem;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+    position: relative;
   }
-  header {
-    margin-bottom: 2.5rem;
+
+  /* Faint ember glow bleeding in from the top — the "lamp" in the workshop */
+  .glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(60rem 24rem at 50% -12rem, rgba(244, 162, 89, 0.09), transparent 70%);
   }
-  .site-name {
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  h1 {
+    font-size: 2.4rem;
     font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    color: inherit;
   }
+
   a {
-    color: #0a5dc2;
+    color: var(--ember);
+    text-decoration-color: color-mix(in srgb, var(--ember) 35%, transparent);
+    text-underline-offset: 3px;
+    transition: color 120ms ease;
   }
+
+  a:hover {
+    color: var(--ember-bright);
+  }
+
+  header {
+    margin-bottom: 3.5rem;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .wordmark .ember {
+    color: var(--ember);
+  }
+
   footer {
-    margin-top: 4rem;
-    font-size: 0.85rem;
-    color: #777;
+    margin-top: 5rem;
   }
+
+  footer .rule {
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: var(--ember);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+
+  footer p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+
   img {
     max-width: 100%;
+    border-radius: 4px;
   }
+
   .tag {
     display: inline-block;
-    font-size: 0.75rem;
-    background: #eee;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 0.1rem 0.6rem;
-    margin-right: 0.3rem;
-    color: #444;
+    padding: 0.05rem 0.6rem;
+    margin-right: 0.35rem;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--ember) 30%, transparent);
   }
 </style>
