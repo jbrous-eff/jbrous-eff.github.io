@@ -10,7 +10,7 @@ interface Props {
   /** Category slug to highlight in the sidebar, if the page belongs to one. */
   active?: string;
 }
-const { title, description = 'Projects and experiments by jbrous.', active } = Astro.props;
+const { title, description = 'Projects and experiments by Jeff Brous.', active } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,7 +32,7 @@ const { title, description = 'Projects and experiments by jbrous.', active } = A
     <div class="glow" aria-hidden="true"></div>
     <div class="shell">
       <header>
-        <a href="/" class="wordmark">jbrous<span class="ember">.</span></a>
+        <a href="/" class="wordmark">jeffbrous<span class="ember">.</span></a>
         <nav aria-label="Project categories">
           <ul>
             {
@@ -57,7 +57,7 @@ const { title, description = 'Projects and experiments by jbrous.', active } = A
         </main>
         <footer>
           <span class="rule" aria-hidden="true"></span>
-          <p>© {new Date().getFullYear()} jbrous</p>
+          <p>© {new Date().getFullYear()} jeffbrous.com</p>
         </footer>
       </div>
     </div>
