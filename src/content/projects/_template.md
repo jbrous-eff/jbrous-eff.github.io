@@ -7,6 +7,7 @@
 title: "My Cool Project"
 description: "One sentence that shows up on the homepage card."
 date: 2026-07-31
+category: misc # which bucket it goes in: sports, business, or misc
 tags: ["example", "template"]
 # link: "https://example.com"       # live demo (optional)
 # repo: "https://github.com/you/it" # source code (optional)

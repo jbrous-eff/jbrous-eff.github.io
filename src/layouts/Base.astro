@@ -1,11 +1,17 @@
 ---
-// Shared page shell. Design: "workshop at night" — warm near-black,
-// ember accent, Fraunces display serif + IBM Plex Sans/Mono.
+// Shared page shell. Design: bone on graphite, no accent hue anywhere in the
+// chrome — links carry an underline instead of a color, and emphasis is done
+// with brightness. All saturated color belongs to the charts inside projects.
+// Two columns on desktop: category nav on the left, page content on the right.
+import { CATEGORIES } from '../categories';
+
 interface Props {
   title: string;
   description?: string;
+  /** Category slug to highlight in the sidebar, if the page belongs to one. */
+  active?: string;
 }
-const { title, description = 'Projects and experiments by jbrous.' } = Astro.props;
+const { title, description = 'Projects and experiments by Jeff Brous.', active } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,39 +24,60 @@ const { title, description = 'Projects and experiments by jbrous.' } = Astro.pro
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
   </head>
   <body>
-    <div class="glow" aria-hidden="true"></div>
-    <header>
-      <nav>
-        <a href="/" class="wordmark">jbrous<span class="ember">.</span></a>
-      </nav>
-    </header>
-    <main>
-      <slot />
-    </main>
-    <footer>
-      <span class="rule" aria-hidden="true"></span>
-      <p>© {new Date().getFullYear()} jbrous</p>
-    </footer>
+    <div class="shell">
+      <header>
+        <a href="/" class="wordmark">jeffbrous<span class="dot">.</span></a>
+        <nav aria-label="Project categories">
+          <ul>
+            {
+              CATEGORIES.map((c) => (
+                <li>
+                  <a
+                    href={`/${c.slug}/`}
+                    class={active === c.slug ? 'active' : undefined}
+                    aria-current={active === c.slug ? 'page' : undefined}
+                  >
+                    {c.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </header>
+      <div class="column">
+        <main>
+          <slot />
+        </main>
+        <footer>
+          <span class="rule" aria-hidden="true"></span>
+          <p>© {new Date().getFullYear()} jeffbrous.com</p>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>
 
 <style is:global>
   :root {
-    --bg: #151210;
-    --bg-raised: #1e1a16;
-    --ink: #e9e1d5;
-    --ink-muted: #a4988a;
-    --ink-faint: #6e6459;
-    --ember: #f4a259;
-    --ember-bright: #ffbe7d;
-    --line: #2c2620;
-    --font-display: 'Fraunces', georgia, serif;
+    --bg: #111214;
+    --bg-raised: #191b1e;
+    --ink: #f2efe9;
+    --ink-muted: #9b9a96;
+    --ink-faint: #6a6a67;
+    /* Not a hue — "accent" here means brighter than the text around it. */
+    --accent: #f2efe9;
+    --accent-bright: #ffffff;
+    --line: #26282c;
+    /* One family, three roles. Display differs from body by weight and
+       tracking, not by typeface — no serif anywhere on the site. */
+    --font-display: 'IBM Plex Sans', sans-serif;
     --font-body: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
   }
@@ -66,7 +93,7 @@ const { title, description = 'Projects and experiments by jbrous.' } = Astro.pro
 
   body {
     margin: 0 auto;
-    max-width: 44rem;
+    max-width: 58rem;
     padding: 2.5rem 1.25rem 4rem;
     font-family: var(--font-body);
     font-size: 1.0625rem;
@@ -75,12 +102,16 @@ const { title, description = 'Projects and experiments by jbrous.' } = Astro.pro
     position: relative;
   }
 
-  /* Faint ember glow bleeding in from the top — the "lamp" in the workshop */
-  .glow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(60rem 24rem at 50% -12rem, rgba(244, 162, 89, 0.09), transparent 70%);
+  /* Nav column + content column. Collapses to a single stack on narrow screens. */
+  .shell {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .column {
+    min-width: 0;
   }
 
   h1,
@@ -88,41 +119,125 @@ const { title, description = 'Projects and experiments by jbrous.' } = Astro.pro
   h3 {
     font-family: var(--font-display);
     font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    line-height: 1.15;
+    /* Sans needs tighter tracking than the serif did to hold together at size */
+    letter-spacing: -0.025em;
     color: var(--ink);
   }
 
   h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 2.25rem;
+    letter-spacing: -0.035em;
   }
 
   a {
-    color: var(--ember);
-    text-decoration-color: color-mix(in srgb, var(--ember) 35%, transparent);
+    color: var(--accent);
+    text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
     text-underline-offset: 3px;
     transition: color 120ms ease;
   }
 
   a:hover {
-    color: var(--ember-bright);
+    color: var(--accent-bright);
   }
 
   header {
-    margin-bottom: 3.5rem;
+    position: sticky;
+    top: 2.5rem;
   }
 
+  /* Deliberately not the display serif: Fraunces' f has a long overhanging
+     hook, so the "ff" in jeffbrous collides. The grotesk keeps them apart. */
   .wordmark {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.35rem;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
     text-decoration: none;
     color: var(--ink);
   }
 
-  .wordmark .ember {
-    color: var(--ember);
+  .wordmark .dot {
+    color: var(--accent);
+  }
+
+  header nav ul {
+    list-style: none;
+    margin: 2.25rem 0 0;
+    padding: 0;
+  }
+
+  header nav a {
+    display: block;
+    position: relative;
+    padding: 0.35rem 0 0.35rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+
+  /* Marker bar on the section you're in */
+  header nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 140ms ease;
+  }
+
+  header nav a:hover {
+    color: var(--ink);
+  }
+
+  header nav a:hover::before {
+    opacity: 0.45;
+  }
+
+  header nav a.active {
+    color: var(--accent);
+  }
+
+  header nav a.active::before {
+    opacity: 1;
+  }
+
+  @media (max-width: 46rem) {
+    .shell {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    header {
+      position: static;
+    }
+
+    header nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    header nav a {
+      padding: 0.35rem 0;
+    }
+
+    header nav a::before {
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      width: auto;
+      height: 2px;
+    }
   }
 
   footer {
@@ -133,7 +248,7 @@ const { title, description = 'Projects and experiments by jbrous.' } = Astro.pro
     display: block;
     width: 3rem;
     height: 2px;
-    background: var(--ember);
+    background: var(--accent);
     opacity: 0.6;
     margin-bottom: 1rem;
   }
@@ -169,6 +284,6 @@ const { title, description = 'Projects and experiments by jbrous.' } = Astro.pro
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--ember) 30%, transparent);
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
   }
 </style>

@@ -5,10 +5,11 @@ My personal site for posting projects.
 ## How to add a project (the only thing you need to know)
 
 1. Go to `src/content/projects/`
-2. Copy `_template.md` and rename it — the filename becomes the web address (e.g. `nba-shot-charts.md` → `yoursite.com/projects/nba-shot-charts`)
+2. Copy `_template.md` and rename it — the filename becomes the web address (e.g. `nba-shot-charts.md` → `jeffbrous.com/projects/nba-shot-charts`)
 3. Fill in the title, description, date, and tags at the top
-4. Write about the project below the `---` line — normal text works, and so does markdown
-5. Delete the `draft: true` line when it's ready to go live
+4. Set `category:` to `sports`, `business`, or `misc` — that's which section of the site it shows up in
+5. Write about the project below the `---` line — normal text works, and so does markdown
+6. Delete the `draft: true` line when it's ready to go live
 
 That's it. Or just ask Claude to do it.
 

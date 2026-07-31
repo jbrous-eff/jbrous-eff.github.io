@@ -1,111 +1,54 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import ProjectList from '../components/ProjectList.astro';
+import { getPublishedProjects } from '../projects';
 
-const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => {
-  // Featured first, then newest first
-  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
-  return b.data.date.valueOf() - a.data.date.valueOf();
-});
+const recent = (await getPublishedProjects()).slice(0, 5);
 ---
 
-<Base title="jbrous — projects">
-  <h1>Projects</h1>
-  <p class="intro">Data analysis, writing, and other projects.</p>
-  <ul class="project-list">
-    {
-      projects.map(({ id, data }, i) => (
-        <li style={`animation-delay: ${80 + i * 60}ms`}>
-          <div class="row">
-            <a class="title" href={`/projects/${id}/`}>
-              {data.featured && <span class="star" title="featured">✦ </span>}
-              {data.title}
-            </a>
-            <time class="meta" datetime={data.date.toISOString()}>
-              {data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
-            </time>
-          </div>
-          <p class="desc">{data.description}</p>
-          <p class="tags">
-            {data.tags.map((tag) => (
-              <span class="tag">{tag}</span>
-            ))}
-          </p>
-        </li>
-      ))
-    }
-  </ul>
+<Base title="jeffbrous — projects and experiments">
+  <h1>Jeff Brous</h1>
+  <p class="kicker">Data analysis · writing · freelance work</p>
+  <p class="lede">
+    This is where I collect the things I build — shot-level sports analysis, client work,
+    essays, and the odd weekend experiment. Everything's sorted into the buckets on the left,
+    or you can start with what's newest below.
+  </p>
+
+  <section>
+    <h2 class="section-head">Recent</h2>
+    <ProjectList projects={recent} empty="First project coming soon." />
+  </section>
 </Base>
 
 <style>
-  .intro {
+  h1 {
+    margin-bottom: 0.35rem;
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    margin: 0 0 1.75rem;
+  }
+
+  .lede {
+    font-size: 1.15rem;
     color: var(--ink-muted);
-    margin-top: -0.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    max-width: 34rem;
   }
 
-  .project-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .project-list li {
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--line);
-    animation: rise 480ms ease-out both;
-  }
-
-  .row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .title {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .title:hover {
-    color: var(--ember-bright);
-  }
-
-  .star {
-    color: var(--ember);
-  }
-
-  time {
-    white-space: nowrap;
-  }
-
-  .desc {
-    margin: 0.35rem 0 0.6rem;
-    color: var(--ink-muted);
-  }
-
-  .tags {
-    margin: 0;
-  }
-
-  @keyframes rise {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-list li {
-      animation: none;
-    }
+  .section-head {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
   }
 </style>

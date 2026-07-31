@@ -8,14 +8,44 @@ Personal portfolio site where the user posts all their various projects (data ex
 
 - **One project = one markdown file** in `src/content/projects/`. The filename is the URL slug (`my-thing.md` → `/projects/my-thing/`).
 - `src/content/projects/_template.md` is the copy-me starter (files starting with `_` are excluded from the collection).
-- Frontmatter schema lives in `src/content.config.ts`: title, description, date, tags, optional link/repo, `featured` (pins to top of homepage), `draft` (hides from site). Change the schema there if new fields are needed.
-- `src/pages/index.astro` — homepage list, featured first then newest first.
-- `src/pages/projects/[slug].astro` — project detail page.
-- `src/layouts/Base.astro` — shared shell and global styles.
+- Frontmatter schema lives in `src/content.config.ts`: title, description, date, `category`, tags, optional link/repo, `featured` (pins to top), `draft` (hides from site). Change the schema there if new fields are needed.
+- **Categories** are defined once in `src/categories.ts` (slug, label, blurb) — currently Sports / Business / Misc. That list drives the sidebar nav, the zod enum in the content schema, and the generated category pages. Adding a bucket = adding an entry there; nothing else needs touching. Projects default to `misc`.
+- `src/pages/index.astro` — welcome/landing page: intro plus the 5 most recent projects.
+- `src/pages/[category].astro` — one page per bucket (`/sports/`, `/business/`, `/misc/`), header + that bucket's projects.
+- `src/pages/projects/[slug].astro` — project detail page; back link returns to the project's category.
+- `src/components/ProjectList.astro` — the project list markup, shared by the homepage and category pages.
+- `src/projects.ts` — `getPublishedProjects()` / `sortProjects()` (featured first, then newest).
+- `src/layouts/Base.astro` — shared shell and global styles. Two-column grid: sticky category nav on the left, content on the right; collapses to a stacked layout with a horizontal nav under 46rem.
 
 ## Design
 
-Theme: "workshop at night" — user asked for minimal but not colorless, dark mode. Warm near-black (`#151210`), ember-orange accent (`#f4a259`), Fraunces for display type, IBM Plex Sans body, IBM Plex Mono for dates/tags (Google Fonts). All colors are CSS variables in `Base.astro`. Keep new UI within this system.
+Dark mode, minimal, **no accent hue in the chrome**. Cool graphite background (`#111214`), bone text (`#f2efe9`), and that's the whole palette — links carry an underline rather than a color, and emphasis (active nav item, featured star, hover) is done with brightness. `--accent` / `--accent-bright` are still the variable names but they hold bone/white, not a hue.
+
+**The reason matters:** the user is a data-analysis writer, and their charts encode meaning in color (green/red = make/miss in the Clark piece). A colored chrome would both compete with and muddy that. Saturated color belongs to the charts; the page stays quiet. Don't reintroduce an accent hue without asking.
+
+This replaced an earlier warm "workshop at night" theme (warm near-black + ember orange + radial glow + fade-up-on-load animation). The user's own critique: it read as obviously LLM-designed. The glow and the entry animation were deleted for the same reason — don't add them back.
+
+Type: **IBM Plex Sans everywhere** — headings, body, and wordmark are one family, separated by weight (600 vs 400) and tracking, not by typeface. IBM Plex Mono for dates, tags, and nav. No serif on the site. Fraunces was the original display face and was removed in both directions: the `ff` in "jeffbrous" collided on the wordmark, and a serif display face is part of the same LLM-default look as the old palette. Don't reintroduce one.
+
+All colors are CSS variables in `Base.astro`. Keep new UI within this system.
+
+### Chart palette
+
+The user's charts are made outside this repo — **R/ggplot2, in `C:\Users\jbrou\Documents\Projects\pro-sports\WNBA\scripts`** — but they're the main content of the site, so the color system is recorded here. Fixed roles, never reused for anything else:
+
+| Role | Color |
+| --- | --- |
+| Positive / make / above expectation | `#3fb98a` teal-green |
+| Negative / miss / below expectation | `#e0576b` rose-red |
+| Reference / comparison / "other" | `#6a6a67` gray, and hollow rings for misses |
+| Highlight without judgment | `#f2efe9` bone |
+| Chart background | `#191b1e` (= `--bg-raised`, reads as a panel against the page) |
+
+Rules that go with it: chart type face is IBM Plex Sans, matching the site. **Never a blue/orange pair for categories** — it's the generic default pairing and reads as untouched tooling. Green/red keeps the user's sports-analytics convention but the hues are shifted (green leans teal, red leans rose) so they differ in lightness too, and outcome always carries a second channel (filled vs hollow) so it survives colorblindness. Don't color-encode a variable that position or length already encodes.
+
+Existing charts predating this system are already all dark-background, but inconsistent in color: the clutch dumbbell and the hex overperformance charts still use `tab10` blue/orange, and green currently means "make," "Top 5," and "just a bar" in three different charts. They need a pass when the projects are backfilled.
+
+(The white-background Clark hexmap was the prototype for the shot-selection piece and is retired — the dotmap replaced it. Don't resurrect it.)
 
 ## Deployment
 
