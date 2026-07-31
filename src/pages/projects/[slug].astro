@@ -122,4 +122,41 @@ const { title, description, date, tags, link, repo } = project.data;
     border-top: 1px solid var(--line);
     margin: 2.5rem 0;
   }
+
+  .prose :global(figure) {
+    margin: 1.5rem 0;
+  }
+
+  .prose :global(figcaption) {
+    margin-top: 0.6rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink-faint);
+  }
+
+  .prose :global(table) {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    padding: 0.5rem 1rem 0.5rem 0;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .prose :global(th) {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
 </style>
