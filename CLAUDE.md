@@ -31,7 +31,7 @@ All colors are CSS variables in `Base.astro`. Keep new UI within this system.
 
 ### Chart palette
 
-The user's charts are made outside this repo (matplotlib, in the analysis projects) but they're the main content of the site, so the color system is recorded here. Fixed roles, never reused for anything else:
+The user's charts are made outside this repo — **R/ggplot2, in `C:\Users\jbrou\Documents\Projects\pro-sports\WNBA\scripts`** — but they're the main content of the site, so the color system is recorded here. Fixed roles, never reused for anything else:
 
 | Role | Color |
 | --- | --- |
@@ -41,7 +41,7 @@ The user's charts are made outside this repo (matplotlib, in the analysis projec
 | Highlight without judgment | `#f2efe9` bone |
 | Chart background | `#191b1e` (= `--bg-raised`, reads as a panel against the page) |
 
-Rules that go with it: chart type face is IBM Plex Sans, not matplotlib's default. **Never blue+orange** — that's `tab10`'s first two colors and reads as untouched defaults. Green/red keeps the user's sports-analytics convention but the hues are shifted (green leans teal, red leans rose) so they differ in lightness too, and outcome always carries a second channel (filled vs hollow) so it survives colorblindness. Don't color-encode a variable that position or length already encodes.
+Rules that go with it: chart type face is IBM Plex Sans, matching the site. **Never a blue/orange pair for categories** — it's the generic default pairing and reads as untouched tooling. Green/red keeps the user's sports-analytics convention but the hues are shifted (green leans teal, red leans rose) so they differ in lightness too, and outcome always carries a second channel (filled vs hollow) so it survives colorblindness. Don't color-encode a variable that position or length already encodes.
 
 Existing charts predating this system are already all dark-background, but inconsistent in color: the clutch dumbbell and the hex overperformance charts still use `tab10` blue/orange, and green currently means "make," "Top 5," and "just a bar" in three different charts. They need a pass when the projects are backfilled.
 
