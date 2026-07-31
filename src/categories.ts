@@ -1,0 +1,27 @@
+// The buckets projects are filed under. Adding an entry here is all it takes:
+// the sidebar link and the /<slug>/ page are both generated from this list.
+export const CATEGORIES = [
+  {
+    slug: 'sports',
+    label: 'Sports',
+    blurb: 'Analysis of games, players, and the numbers underneath them.',
+  },
+  {
+    slug: 'business',
+    label: 'Business',
+    blurb: 'Freelance work, client projects, and applied business analysis.',
+  },
+  {
+    slug: 'misc',
+    label: 'Misc',
+    blurb: 'Writing, one-offs, and everything that resists a tidy label.',
+  },
+] as const;
+
+export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
+
+export const CATEGORY_SLUGS = CATEGORIES.map((c) => c.slug) as [CategorySlug, ...CategorySlug[]];
+
+export function categoryBySlug(slug: string) {
+  return CATEGORIES.find((c) => c.slug === slug);
+}

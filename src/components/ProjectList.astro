@@ -1,0 +1,113 @@
+---
+// The list of project links used on the homepage and every category page.
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  /** Shown in place of the list when there's nothing filed here yet. */
+  empty?: string;
+}
+const { projects, empty = 'Nothing here yet.' } = Astro.props;
+---
+
+{
+  projects.length === 0 ? (
+    <p class="empty">{empty}</p>
+  ) : (
+    <ul class="project-list">
+      {projects.map(({ id, data }, i) => (
+        <li style={`animation-delay: ${80 + i * 60}ms`}>
+          <div class="row">
+            <a class="title" href={`/projects/${id}/`}>
+              {data.featured && <span class="star" title="featured">✦ </span>}
+              {data.title}
+            </a>
+            <time class="meta" datetime={data.date.toISOString()}>
+              {data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+            </time>
+          </div>
+          <p class="desc">{data.description}</p>
+          <p class="tags">
+            {data.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </p>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-list li {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+    animation: rise 480ms ease-out both;
+  }
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title:hover {
+    color: var(--ember-bright);
+  }
+
+  .star {
+    color: var(--ember);
+  }
+
+  time {
+    white-space: nowrap;
+  }
+
+  .desc {
+    margin: 0.35rem 0 0.6rem;
+    color: var(--ink-muted);
+  }
+
+  .tags {
+    margin: 0;
+  }
+
+  .empty {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-list li {
+      animation: none;
+    }
+  }
+</style>

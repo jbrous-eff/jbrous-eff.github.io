@@ -1,0 +1,45 @@
+---
+// One page per bucket: /sports/, /business/, /misc/ — driven by src/categories.ts.
+import Base from '../layouts/Base.astro';
+import ProjectList from '../components/ProjectList.astro';
+import { CATEGORIES } from '../categories';
+import { getPublishedProjects } from '../projects';
+
+export async function getStaticPaths() {
+  const published = await getPublishedProjects();
+  return CATEGORIES.map((category) => ({
+    params: { category: category.slug },
+    props: {
+      category,
+      projects: published.filter((p) => p.data.category === category.slug),
+    },
+  }));
+}
+
+const { category, projects } = Astro.props;
+---
+
+<Base
+  title={`${category.label} — jbrous`}
+  description={category.blurb}
+  active={category.slug}
+>
+  <h1>{category.label}</h1>
+  <p class="lede">{category.blurb}</p>
+  <ProjectList
+    projects={projects}
+    empty={`No ${category.label.toLowerCase()} projects posted yet.`}
+  />
+</Base>
+
+<style>
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .lede {
+    color: var(--ink-muted);
+    margin: 0 0 3rem;
+    max-width: 34rem;
+  }
+</style>
