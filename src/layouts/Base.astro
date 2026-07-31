@@ -1,0 +1,75 @@
+---
+// Shared page shell. Deliberately minimal — real design pass comes later.
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'A collection of my projects.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="site-name">Project Hub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>© {new Date().getFullYear()}</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  /* Placeholder styles only — swap out during the design pass. */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0 auto;
+    max-width: 42rem;
+    padding: 1.5rem 1rem 4rem;
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .site-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  a {
+    color: #0a5dc2;
+  }
+  footer {
+    margin-top: 4rem;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  img {
+    max-width: 100%;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: #eee;
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+    margin-right: 0.3rem;
+    color: #444;
+  }
+</style>
