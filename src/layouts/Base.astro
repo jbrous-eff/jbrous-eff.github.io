@@ -1,6 +1,7 @@
 ---
-// Shared page shell. Design: "workshop at night" — warm near-black,
-// ember accent, Fraunces display serif + IBM Plex Sans/Mono.
+// Shared page shell. Design: bone on graphite, no accent hue anywhere in the
+// chrome — links carry an underline instead of a color, and emphasis is done
+// with brightness. All saturated color belongs to the charts inside projects.
 // Two columns on desktop: category nav on the left, page content on the right.
 import { CATEGORIES } from '../categories';
 
@@ -29,10 +30,9 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     <title>{title}</title>
   </head>
   <body>
-    <div class="glow" aria-hidden="true"></div>
     <div class="shell">
       <header>
-        <a href="/" class="wordmark">jeffbrous<span class="ember">.</span></a>
+        <a href="/" class="wordmark">jeffbrous<span class="dot">.</span></a>
         <nav aria-label="Project categories">
           <ul>
             {
@@ -66,14 +66,15 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
 
 <style is:global>
   :root {
-    --bg: #151210;
-    --bg-raised: #1e1a16;
-    --ink: #e9e1d5;
-    --ink-muted: #a4988a;
-    --ink-faint: #6e6459;
-    --ember: #f4a259;
-    --ember-bright: #ffbe7d;
-    --line: #2c2620;
+    --bg: #111214;
+    --bg-raised: #191b1e;
+    --ink: #f2efe9;
+    --ink-muted: #9b9a96;
+    --ink-faint: #6a6a67;
+    /* Not a hue — "accent" here means brighter than the text around it. */
+    --accent: #f2efe9;
+    --accent-bright: #ffffff;
+    --line: #26282c;
     --font-display: 'Fraunces', georgia, serif;
     --font-body: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
@@ -111,14 +112,6 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     min-width: 0;
   }
 
-  /* Faint ember glow bleeding in from the top — the "lamp" in the workshop */
-  .glow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(60rem 24rem at 50% -12rem, rgba(244, 162, 89, 0.09), transparent 70%);
-  }
-
   h1,
   h2,
   h3 {
@@ -135,14 +128,14 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
   }
 
   a {
-    color: var(--ember);
-    text-decoration-color: color-mix(in srgb, var(--ember) 35%, transparent);
+    color: var(--accent);
+    text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
     text-underline-offset: 3px;
     transition: color 120ms ease;
   }
 
   a:hover {
-    color: var(--ember-bright);
+    color: var(--accent-bright);
   }
 
   header {
@@ -150,17 +143,20 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     top: 2.5rem;
   }
 
+  /* Deliberately not the display serif: Fraunces' f has a long overhanging
+     hook, so the "ff" in jeffbrous collides. The grotesk keeps them apart. */
   .wordmark {
     display: inline-block;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.35rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
     text-decoration: none;
     color: var(--ink);
   }
 
-  .wordmark .ember {
-    color: var(--ember);
+  .wordmark .dot {
+    color: var(--accent);
   }
 
   header nav ul {
@@ -181,7 +177,7 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     text-decoration: none;
   }
 
-  /* Ember bar that lights up on the section you're in */
+  /* Marker bar on the section you're in */
   header nav a::before {
     content: '';
     position: absolute;
@@ -189,7 +185,7 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     top: 0.5rem;
     bottom: 0.5rem;
     width: 2px;
-    background: var(--ember);
+    background: var(--accent);
     opacity: 0;
     transition: opacity 140ms ease;
   }
@@ -203,7 +199,7 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
   }
 
   header nav a.active {
-    color: var(--ember);
+    color: var(--accent);
   }
 
   header nav a.active::before {
@@ -249,7 +245,7 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
     display: block;
     width: 3rem;
     height: 2px;
-    background: var(--ember);
+    background: var(--accent);
     opacity: 0.6;
     margin-bottom: 1rem;
   }
@@ -285,6 +281,6 @@ const { title, description = 'Projects and experiments by Jeff Brous.', active }
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--ember) 30%, transparent);
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
   }
 </style>

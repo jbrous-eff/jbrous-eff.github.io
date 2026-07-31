@@ -19,7 +19,13 @@ Personal portfolio site where the user posts all their various projects (data ex
 
 ## Design
 
-Theme: "workshop at night" — user asked for minimal but not colorless, dark mode. Warm near-black (`#151210`), ember-orange accent (`#f4a259`), Fraunces for display type, IBM Plex Sans body, IBM Plex Mono for dates/tags (Google Fonts). All colors are CSS variables in `Base.astro`. Keep new UI within this system.
+Dark mode, minimal, **no accent hue in the chrome**. Cool graphite background (`#111214`), bone text (`#f2efe9`), and that's the whole palette — links carry an underline rather than a color, and emphasis (active nav item, featured star, hover) is done with brightness. `--accent` / `--accent-bright` are still the variable names but they hold bone/white, not a hue.
+
+**The reason matters:** the user is a data-analysis writer, and their charts encode meaning in color (green/red = make/miss in the Clark piece). A colored chrome would both compete with and muddy that. Saturated color belongs to the charts; the page stays quiet. Don't reintroduce an accent hue without asking.
+
+This replaced an earlier warm "workshop at night" theme (warm near-black + ember orange + radial glow + fade-up-on-load animation). The user's own critique: it read as obviously LLM-designed. The glow and the entry animation were deleted for the same reason — don't add them back.
+
+Type: Fraunces for display, IBM Plex Sans for body, IBM Plex Mono for dates/tags/nav (Google Fonts). The **wordmark is deliberately IBM Plex Sans, not Fraunces** — Fraunces' `f` has a long overhanging hook and the `ff` in "jeffbrous" collides. All colors are CSS variables in `Base.astro`. Keep new UI within this system.
 
 ## Deployment
 
