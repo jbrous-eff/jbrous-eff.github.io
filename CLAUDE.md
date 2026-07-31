@@ -8,10 +8,14 @@ Personal portfolio site where the user posts all their various projects (data ex
 
 - **One project = one markdown file** in `src/content/projects/`. The filename is the URL slug (`my-thing.md` → `/projects/my-thing/`).
 - `src/content/projects/_template.md` is the copy-me starter (files starting with `_` are excluded from the collection).
-- Frontmatter schema lives in `src/content.config.ts`: title, description, date, tags, optional link/repo, `featured` (pins to top of homepage), `draft` (hides from site). Change the schema there if new fields are needed.
-- `src/pages/index.astro` — homepage list, featured first then newest first.
-- `src/pages/projects/[slug].astro` — project detail page.
-- `src/layouts/Base.astro` — shared shell and global styles.
+- Frontmatter schema lives in `src/content.config.ts`: title, description, date, `category`, tags, optional link/repo, `featured` (pins to top), `draft` (hides from site). Change the schema there if new fields are needed.
+- **Categories** are defined once in `src/categories.ts` (slug, label, blurb) — currently Sports / Business / Misc. That list drives the sidebar nav, the zod enum in the content schema, and the generated category pages. Adding a bucket = adding an entry there; nothing else needs touching. Projects default to `misc`.
+- `src/pages/index.astro` — welcome/landing page: intro plus the 5 most recent projects.
+- `src/pages/[category].astro` — one page per bucket (`/sports/`, `/business/`, `/misc/`), header + that bucket's projects.
+- `src/pages/projects/[slug].astro` — project detail page; back link returns to the project's category.
+- `src/components/ProjectList.astro` — the project list markup, shared by the homepage and category pages.
+- `src/projects.ts` — `getPublishedProjects()` / `sortProjects()` (featured first, then newest).
+- `src/layouts/Base.astro` — shared shell and global styles. Two-column grid: sticky category nav on the left, content on the right; collapses to a stacked layout with a horizontal nav under 46rem.
 
 ## Design
 
