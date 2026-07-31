@@ -27,8 +27,7 @@ When domain is purchased: set `site: 'https://jbrous.com'` in `astro.config.mjs`
 
 - [x] Foundation: scaffold, content collection, list + detail pages, template
 - [x] Design pass (dark theme, see Design section)
-- [x] Deploy workflow staged (`.github/workflows/deploy.yml`)
-- [ ] User installs GitHub CLI + `gh auth login`, then: create `jbrous-eff.github.io` repo, push, enable Pages
+- [x] Deployed and LIVE at https://jbrous-eff.github.io (2026-07-31). Repo: https://github.com/jbrous-eff/jbrous-eff.github.io — every push to main auto-deploys. gh CLI is installed at `C:\Program Files\GitHub CLI\gh.exe` (may need PATH export in bash) and authed as jbrous-eff.
 - [ ] User buys jbrous.com, then: CNAME + DNS steps above
 - [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` (Bloch, NYC.data, pro-sports, Writing_Creative, Fun_One_Offs, etc.)
 
