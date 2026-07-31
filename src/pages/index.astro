@@ -11,7 +11,7 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft)).so
 
 <Base title="jbrous — projects">
   <h1>Projects</h1>
-  <p class="intro">Things I've built, broken, and occasionally finished.</p>
+  <p class="intro">Data analysis, writing, and other projects.</p>
   <ul class="project-list">
     {
       projects.map(({ id, data }, i) => (
