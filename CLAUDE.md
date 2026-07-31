@@ -11,13 +11,25 @@ Personal portfolio site where the user posts all their various projects (data ex
 - Frontmatter schema lives in `src/content.config.ts`: title, description, date, tags, optional link/repo, `featured` (pins to top of homepage), `draft` (hides from site). Change the schema there if new fields are needed.
 - `src/pages/index.astro` — homepage list, featured first then newest first.
 - `src/pages/projects/[slug].astro` — project detail page.
-- `src/layouts/Base.astro` — shared shell. **Styling is placeholder-only**; a real design pass is planned but hasn't happened yet — discuss UI direction with the user before restyling.
+- `src/layouts/Base.astro` — shared shell and global styles.
+
+## Design
+
+Theme: "workshop at night" — user asked for minimal but not colorless, dark mode. Warm near-black (`#151210`), ember-orange accent (`#f4a259`), Fraunces for display type, IBM Plex Sans body, IBM Plex Mono for dates/tags (Google Fonts). All colors are CSS variables in `Base.astro`. Keep new UI within this system.
+
+## Deployment
+
+Target: GitHub Pages under the user's account **jbrous-eff**, repo name `jbrous-eff.github.io` (user site → serves at root, no `base` path). Workflow at `.github/workflows/deploy.yml` builds and deploys on every push to main. Custom domain **jbrous.com** (confirmed available 2026-07-31; user intends to buy it, ~$11/yr).
+
+When domain is purchased: set `site: 'https://jbrous.com'` in `astro.config.mjs`, add `public/CNAME` containing `jbrous.com`, set the custom domain in repo Pages settings, and have the user point DNS (A records to GitHub Pages IPs or ALIAS/CNAME per registrar).
 
 ## Status / roadmap
 
 - [x] Foundation: scaffold, content collection, list + detail pages, template
-- [ ] Design pass (user wants to discuss UI direction first)
-- [ ] Deployment (likely GitHub Pages or Netlify — not yet decided; will need `site` set in `astro.config.mjs` when it happens)
+- [x] Design pass (dark theme, see Design section)
+- [x] Deploy workflow staged (`.github/workflows/deploy.yml`)
+- [ ] User installs GitHub CLI + `gh auth login`, then: create `jbrous-eff.github.io` repo, push, enable Pages
+- [ ] User buys jbrous.com, then: CNAME + DNS steps above
 - [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` (the client, NYC.data, pro-sports, Writing_Creative, Fun_One_Offs, etc.)
 
 ## Development
