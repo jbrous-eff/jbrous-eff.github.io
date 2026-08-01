@@ -15,6 +15,7 @@ const projects = defineCollection({
     tags: z.array(z.string()).default([]), // e.g. ["data", "nba"]
     link: z.string().url().optional(), // live demo / external link
     repo: z.string().url().optional(), // GitHub repo, if any
+    image: z.string().optional(), // social-preview image, e.g. /images/foo/chart.png
     featured: z.boolean().default(false), // pin to top of homepage
     draft: z.boolean().default(false), // true = hidden from the site
   }),

@@ -7,39 +7,25 @@ const recent = (await getPublishedProjects()).slice(0, 5);
 ---
 
 <Base title="jeffbrous — projects and experiments">
-  <h1>Jeff Brous</h1>
-  <p class="kicker">Data analysis · writing · freelance work</p>
-  <p class="lede">
-    This is where I collect the things I build — shot-level sports analysis, client work,
-    essays, and the odd weekend experiment. Everything's sorted into the buckets on the left,
-    or you can start with what's newest below.
-  </p>
+  <h1>A portfolio of sports analysis and consulting.</h1>
+  <p class="lede">Browse by category in the nav, or start with what's newest below.</p>
 
   <section>
     <h2 class="section-head">Recent</h2>
-    <ProjectList projects={recent} empty="First project coming soon." />
+    <ProjectList projects={recent} empty="Check back soon." />
   </section>
 </Base>
 
 <style>
   h1 {
-    margin-bottom: 0.35rem;
-  }
-
-  .kicker {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    color: var(--accent);
-    margin: 0 0 1.75rem;
+    font-size: 1.85rem;
+    margin: 0 0 1rem;
   }
 
   .lede {
-    font-size: 1.15rem;
-    color: var(--ink-muted);
-    margin-bottom: 4rem;
-    max-width: 34rem;
+    font-size: 0.95rem;
+    color: var(--ink-faint);
+    margin-bottom: 3rem;
   }
 
   .section-head {

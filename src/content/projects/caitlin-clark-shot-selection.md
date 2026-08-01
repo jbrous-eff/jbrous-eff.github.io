@@ -1,11 +1,12 @@
 ---
 title: "Caitlin Clark's Signature Shot Is Killing Her Efficiency"
-description: "A shot-by-shot breakdown of catch-and-shoot vs. pull-up threes shows her efficiency problem is about shot selection, not shooting."
+description: "A shot-by-shot breakdown of catch-and-shoot vs. pull-up threes shows true efficiency is masked by shot selection, not shooting."
 date: 2026-07-30
 category: sports
 tags: ["data", "wnba", "basketball"]
 featured: true
 draft: false
+image: "/images/caitlin-clark-shots/shot-dotmap.png"
 ---
 
 *A shot-level analysis of creation type, distance, and expected value, 2024-2026*

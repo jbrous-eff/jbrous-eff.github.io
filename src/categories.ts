@@ -9,7 +9,7 @@ export const CATEGORIES = [
   {
     slug: 'business',
     label: 'Business',
-    blurb: 'Freelance work, client projects, and applied business analysis.',
+    blurb: 'Consulting engagements and applied business analysis.',
   },
   {
     slug: 'misc',

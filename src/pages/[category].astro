@@ -26,10 +26,7 @@ const { category, projects } = Astro.props;
 >
   <h1>{category.label}</h1>
   <p class="lede">{category.blurb}</p>
-  <ProjectList
-    projects={projects}
-    empty={`No ${category.label.toLowerCase()} projects posted yet.`}
-  />
+  <ProjectList projects={projects} empty="Check back soon." />
 </Base>
 
 <style>
