@@ -1,6 +1,6 @@
 ---
 title: "The Positional Shot-Quality Leaderboard: Who Beats Her Own Shot Chart"
-description: "A zone-based, position-adjusted model shows Angel Reese's rim volume is elite and her rim finishing is not."
+description: "A zone-based, position-adjusted model shows Angel Reese doesn't need a new shot, just a league-average finish rate on the shots she already gets."
 date: 2026-08-01
 category: sports
 tags: ["data", "wnba", "basketball"]
