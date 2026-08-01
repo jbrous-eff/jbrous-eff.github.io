@@ -1,5 +1,5 @@
 ---
-title: "Caitlin Clark's Signature Shot Is Killing Her Efficiency"
+title: "Caitlin Clark's Signature Shot Is Tanking Her Efficiency"
 description: "A shot-by-shot breakdown of catch-and-shoot vs. pull-up threes shows true efficiency is masked by shot selection, not shooting."
 date: 2026-07-30
 category: sports
