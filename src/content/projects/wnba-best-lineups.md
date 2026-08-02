@@ -1,5 +1,5 @@
 ---
-title: "You Can't Tell a Good Lineup From a Bad One by Watching It Play"
+title: "Good Lineups Don't Play Differently. The Shots Just Go In."
 description: "A substitution-level reconstruction of every WNBA lineup shows shot selection and pace are flat from the worst group to the best."
 date: 2026-08-01
 category: sports
@@ -40,11 +40,13 @@ Every 100-plus-minute lineup-season from 2013 through 2026, sorted into five equ
 | Best fifth | +21.2 | 74.4 | .279 | .246 | .671 |
 
 <figure>
-  <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing pace, three-point rate, rim rate, and assists per make all staying within a few percent of league average across lineup groups ranging from a minus 10.3 to a plus 21.2 net rating" />
-  <figcaption>245 lineup-seasons, split into five equal groups by net rating — a 31-point swing from worst to best. How each group plays stays within a few percent of the league norm, with no pattern from bad to good.</figcaption>
+  <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing effective field goal percentage rising and opponent effective field goal percentage falling from the worst lineup group to the best, while pace, three-point rate, rim rate, and assists per make stay flat near league average" />
+  <figcaption>245 lineup-seasons, split into five equal groups by net rating, a 31-point swing from worst to best. Each metric is scaled by its own spread across lineups. Shooting separates the groups at both ends; the style traits barely move, with no pattern from bad to good.</figcaption>
 </figure>
 
 A 31-point swing in net rating, and the best lineups play half a possession per 40 faster than the worst, take two more threes per 100 shots, and get to the rim at literally the same rate, .246 in both groups. Underneath that flat style line, offensive rating runs from 102.6 to 120.7 and defensive rating from 112.9 to 99.5 across the same five groups. Good lineups are not running a different offense. They are running the same one and making it, and stopping the other team from making theirs.
+
+That claim can be checked directly rather than inferred from the ratings. Rebuilding shooting for the same 245 lineup-seasons, effective field-goal percentage climbs from .475 in the worst group to .556 in the best, and opponents' falls from .519 to .455. Turnovers move a little, 10.7% of possessions in the worst group against 8.7% in the best. Offensive rebounding and free-throw rate show no pattern at all. The gap is the ball going in, at both ends.
 
 Continuity is a different matter, and it can be isolated in a way most lineup questions cannot. Three separate 2024 Indiana lineups cleared 150 minutes with the identical core of Kelsey Mitchell, NaLyssa Smith, Aliyah Boston and Caitlin Clark. Only the fifth player changed.
 
