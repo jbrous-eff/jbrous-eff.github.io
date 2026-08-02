@@ -61,7 +61,7 @@ Custom domain: **jeffbrous.com**, registered at Cloudflare (2026-07-31). `site` 
 - [x] Deployed and LIVE at **https://jeffbrous.com** (custom domain verified working 2026-08-02; jbrous-eff.github.io 301s to it, HTTP redirects to HTTPS). Repo: https://github.com/jbrous-eff/jbrous-eff.github.io — every push to main auto-deploys. gh CLI is installed at `C:\Program Files\GitHub CLI\gh.exe` (may need PATH export in bash) and authed as jbrous-eff.
 - [x] Bought **jeffbrous.com** on Cloudflare (2026-07-31); repo config + `public/CNAME` updated
 - [x] Cloudflare DNS records + GitHub Pages custom domain setting + Enforce HTTPS (verified 2026-08-02: apex resolves to GitHub Pages IPs, HTTPS serves, HTTP→HTTPS redirect on)
-- [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` — sports is underway (4 WNBA pieces live: Clark shot selection, xPTS leaderboard, assist networks, lineups); **business and misc are still empty** (the client, NYC.data, Writing_Creative, Fun_One_Offs, etc.)
+- [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` — sports is underway (3 WNBA pieces live: Clark shot selection, xPTS leaderboard, assist networks; the lineups piece is unpublished, `draft: true`, being expanded into a WNBA-vs-NBA "make or miss league" cross-league piece — the NBA pilot found the identical pattern, data + scripts in the WNBA project as `nba_lineup_shooting*`); **business and misc are still empty** (the client, NYC.data, Writing_Creative, Fun_One_Offs, etc.)
 
 ## Development
 
