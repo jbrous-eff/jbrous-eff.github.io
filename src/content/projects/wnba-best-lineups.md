@@ -74,18 +74,10 @@ Continuity itself is not a fading practice. A team's single most-used lineup typ
 
 Best five-player lineups on record, minimum 150 minutes together in a season (net rating per 100 possessions, regular season only, from reconstructed stints):
 
-| Team-season | Lineup | Net rating | Minutes |
-| --- | --- | --- | --- |
-| 2014 PHX | D. Taurasi / E. Phillips / C. Dupree / D. Bonner / B. Griner | +39.3 | 159 |
-| 2013 MIN | L. Whalen / R. Brunson / J. McCarville / S. Augustus / M. Moore | +32.8 | 315 |
-| 2014 PHX | P. Taylor / D. Taurasi / C. Dupree / D. Bonner / B. Griner | +26.7 | 402 |
-| 2013 CHI | S. Cash / S. Fowles / E. Prince / C. Vandersloot / E. Delle Donne | +25.5 | 326 |
-| 2021 PHX | D. Taurasi / B. Griner / S. Diggins-Smith / B. Turner / K. Nurse | +25.0 | 221 |
-| 2018 WSH | L. Sanders / K. Toliver / E. Delle Donne / N. Cloud / A. Atkins | +24.8 | 278 |
-| 2023 WSH | E. Delle Donne / N. Cloud / B. Sykes / A. Atkins / S. Austin | +24.5 | 206 |
-| 2023 LV | C. Parker / C. Gray / K. Plum / A. Wilson / J. Young | +22.1 | 239 |
-| 2018 SEA | S. Bird / A. Clark / N. Howard / J. Loyd / B. Stewart | +21.7 | 522 |
-| 2017 MIN | L. Whalen / R. Brunson / S. Augustus / S. Fowles / M. Moore | +21.6 | 314 |
+<figure>
+  <img src="/images/wnba-lineups/best-lineups-alltime.png" alt="Horizontal bar chart of the twelve best five-player lineup-seasons since 2013 by net rating, led by 2014 Phoenix's Diana Taurasi, Erin Phillips, Candice Dupree, DeWanna Bonner, and Brittney Griner at plus 39.3 over 159 minutes" />
+  <figcaption>The twelve best lineup-seasons since 2013. Each bar shows net rating per 100 possessions, with the lineup's minutes together in parentheses.</figcaption>
+</figure>
 
 The all-time board is a continuity board. Every group on it logged at least 150 minutes and most logged double that, which is the point: a lineup cannot post a number like this without being kept together long enough to post one at all. The 2014 Phoenix and 2013 Minnesota entries are the same rosters that anchor the top of the team-level net rating list, seen from five players in rather than twelve.
 
