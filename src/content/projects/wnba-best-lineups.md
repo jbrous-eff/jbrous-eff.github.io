@@ -5,7 +5,7 @@ date: 2026-08-01
 category: sports
 tags: ["data", "wnba", "basketball"]
 featured: false
-draft: false
+draft: true
 image: "/images/wnba-lineups/style-vs-net-rating.png"
 ---
 
