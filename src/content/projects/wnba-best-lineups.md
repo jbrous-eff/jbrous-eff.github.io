@@ -46,27 +46,27 @@ Every 100-plus-minute lineup-season from 2013 through 2026, sorted into five equ
 
 A 31-point swing in net rating, and the best lineups play half a possession per 40 faster than the worst, take two more threes per 100 shots, and get to the rim at literally the same rate, .246 in both groups. Underneath that flat style line, offensive rating runs from 102.6 to 120.7 and defensive rating from 112.9 to 99.5 across the same five groups. Good lineups are not running a different offense. They are running the same one and making it, and stopping the other team from making theirs.
 
-Continuity is a different matter, and it can be isolated in a way most lineup questions cannot. Three separate 2024 Indiana lineups cleared 150 minutes with the identical core of Mitchell, N. Smith, Boston and Clark. Only the fifth player changed.
+Continuity is a different matter, and it can be isolated in a way most lineup questions cannot. Three separate 2024 Indiana lineups cleared 150 minutes with the identical core of Kelsey Mitchell, NaLyssa Smith, Aliyah Boston and Caitlin Clark. Only the fifth player changed.
 
 | Fifth player | Minutes | Net |
 | --- | --- | --- |
-| Hull | 195 | +6.3 |
-| Samuelson | 193 | -6.2 |
-| Wallace | 175 | -15.0 |
+| Lexie Hull | 195 | +6.3 |
+| Katie Lou Samuelson | 193 | -6.2 |
+| Kristy Wallace | 175 | -15.0 |
 
 Nearly equal minutes for all three and a 21-point spread in outcome. This reads as a fifth-starter story rather than a story about any of the four constants; Clark is on the floor for all three.
 
-A similar swap shows up in 2026 Los Angeles. Ogwumike, Wheeler and Hamby appear in all three of the team's qualifying lineups, and the fourth and fifth spots rotate among Atkins, Burrell and Plum.
+A similar swap shows up in 2026 Los Angeles. Nneka Ogwumike, Erica Wheeler and Dearica Hamby appear in all three of the team's qualifying lineups, and the fourth and fifth spots rotate among Ariel Atkins, Rae Burrell and Kelsey Plum.
 
 | LA lineup | Minutes | Net |
 | --- | --- | --- |
-| Ogwumike/Wheeler/Hamby/Atkins + Burrell | 233 | -6.2 |
-| Ogwumike/Wheeler/Hamby/Atkins + Plum | 82 | +7.0 |
-| Ogwumike/Wheeler/Hamby/Burrell + Plum | 62 | +13.2 |
+| Ogwumike, Wheeler, Hamby, Atkins + Burrell | 233 | -6.2 |
+| Ogwumike, Wheeler, Hamby, Atkins + Plum | 82 | +7.0 |
+| Ogwumike, Wheeler, Hamby, Burrell + Plum | 62 | +13.2 |
 
 The first two rows are the clean comparison: four players held fixed, Burrell swapped for Plum, and a 13-point move. The third row is not a single-player swap off either of the others and should be read as corroboration rather than as a third point on the same line. Plum played 413 of LA's 1,082 total minutes, and the two lineups that include her are the team's only positive ones on record. 82 and 62 minutes is a thin sample; this is a fact about a small window, not a verdict on a season.
 
-Two 2026 teams gave heavy minutes to lineups running well below zero: LA's most-used five, 233 minutes at -6.2 net, and Portland's Carleton/Gustafson/Engstler/Barker/Leite, 236 minutes at -7.6. Both look on their face like a coach trusting a losing group. Checked against each team's own level, neither is. LA's five was playing at -6.2 on a team that finished at -6.2 overall; Portland's was at -7.6 on a team at -7.1. Both teams were simply bad, third- and second-worst in the league by this measure, and neither had an obviously better alternative sitting on the bench: LA's other qualifying fives average -4.4 net, Portland's average -5.8.
+Two 2026 teams gave heavy minutes to lineups running well below zero: LA's most-used five, 233 minutes at -6.2 net, and Portland's Bridget Carleton, Megan Gustafson, Emily Engstler, Sarah Ashlee Barker and Carla Leite, 236 minutes at -7.6. Both look on their face like a coach trusting a losing group. Checked against each team's own level, neither is. LA's five was playing at -6.2 on a team that finished at -6.2 overall; Portland's was at -7.6 on a team at -7.1. Both teams were simply bad, third- and second-worst in the league by this measure, and neither had an obviously better alternative sitting on the bench: LA's other qualifying fives average -4.4 net, Portland's average -5.8.
 
 The real minutes-allocation gap in 2026 sat elsewhere. Golden State finished at +6.0 net overall and gave 223 minutes to a most-used five running at -3.7, a 9.7-point gap and the only heavily used lineup on a winning team performing meaningfully below its own team's level. Phoenix's most-used five showed a larger gap still, -13.3, but on only 87 minutes.
 
