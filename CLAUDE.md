@@ -8,7 +8,7 @@ Personal portfolio site where the user posts all their various projects (data ex
 
 - **One project = one markdown file** in `src/content/projects/`. The filename is the URL slug (`my-thing.md` → `/projects/my-thing/`).
 - `src/content/projects/_template.md` is the copy-me starter (files starting with `_` are excluded from the collection).
-- Frontmatter schema lives in `src/content.config.ts`: title, description, date, `category`, tags, optional link/repo, `featured` (pins to top), `draft` (hides from site). Change the schema there if new fields are needed.
+- Frontmatter schema lives in `src/content.config.ts`: title, description, date, `category`, tags, optional link/repo, optional `image` (social-preview/OG image path under `public/images/`), `featured` (pins to top), `draft` (hides from site). Change the schema there if new fields are needed.
 - **Categories** are defined once in `src/categories.ts` (slug, label, blurb) — currently Sports / Business / Misc. That list drives the sidebar nav, the zod enum in the content schema, and the generated category pages. Adding a bucket = adding an entry there; nothing else needs touching. Projects default to `misc`.
 - `src/pages/index.astro` — welcome/landing page: intro plus the 5 most recent projects.
 - `src/pages/[category].astro` — one page per bucket (`/sports/`, `/business/`, `/misc/`), header + that bucket's projects.
@@ -57,10 +57,10 @@ Custom domain: **jeffbrous.com**, registered at Cloudflare (2026-07-31). `site` 
 
 - [x] Foundation: scaffold, content collection, list + detail pages, template
 - [x] Design pass (dark theme, see Design section)
-- [x] Deployed and LIVE at https://jbrous-eff.github.io (2026-07-31). Repo: https://github.com/jbrous-eff/jbrous-eff.github.io — every push to main auto-deploys. gh CLI is installed at `C:\Program Files\GitHub CLI\gh.exe` (may need PATH export in bash) and authed as jbrous-eff.
+- [x] Deployed and LIVE at **https://jeffbrous.com** (custom domain verified working 2026-08-02; jbrous-eff.github.io 301s to it, HTTP redirects to HTTPS). Repo: https://github.com/jbrous-eff/jbrous-eff.github.io — every push to main auto-deploys. gh CLI is installed at `C:\Program Files\GitHub CLI\gh.exe` (may need PATH export in bash) and authed as jbrous-eff.
 - [x] Bought **jeffbrous.com** on Cloudflare (2026-07-31); repo config + `public/CNAME` updated
-- [ ] Cloudflare DNS records + GitHub Pages custom domain setting + Enforce HTTPS (user-side clicks)
-- [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` (the client, NYC.data, pro-sports, Writing_Creative, Fun_One_Offs, etc.)
+- [x] Cloudflare DNS records + GitHub Pages custom domain setting + Enforce HTTPS (verified 2026-08-02: apex resolves to GitHub Pages IPs, HTTPS serves, HTTP→HTTPS redirect on)
+- [ ] Backfill real projects from `C:\Users\jbrou\Documents\Projects` — sports is underway (4 WNBA pieces live: Clark shot selection, xPTS leaderboard, assist networks, lineups); **business and misc are still empty** (the client, NYC.data, Writing_Creative, Fun_One_Offs, etc.)
 
 ## Development
 
