@@ -31,13 +31,13 @@ There is no wins column, so team net rating is derived the same way as elsewhere
 
 Every 100-plus-minute lineup-season from 2013 through 2026, sorted into five equal groups by net rating:
 
-| Group | Net | Pace/40 | 3PA rate | Rim rate | Assists per make |
-| --- | --- | --- | --- | --- | --- |
-| Worst fifth | -10.3 | 74.0 | .259 | .246 | .647 |
-| 2nd | +0.3 | 75.0 | .269 | .241 | .649 |
-| 3rd | +6.6 | 74.6 | .253 | .264 | .666 |
-| 4th | +12.1 | 75.0 | .264 | .259 | .654 |
-| Best fifth | +21.2 | 74.4 | .279 | .246 | .671 |
+| Group | eFG% | Opp eFG% | Pace/40 | 3PA rate | Rim rate | Assists per make | Net |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Worst fifth | .475 | .519 | 74.0 | .259 | .246 | .647 | -10.3 |
+| 2nd | .493 | .490 | 75.0 | .269 | .241 | .649 | +0.3 |
+| 3rd | .505 | .480 | 74.6 | .253 | .264 | .666 | +6.6 |
+| 4th | .522 | .477 | 75.0 | .264 | .259 | .654 | +12.1 |
+| Best fifth | .556 | .455 | 74.4 | .279 | .246 | .671 | +21.2 |
 
 <figure>
   <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing effective field goal percentage rising and opponent effective field goal percentage falling from the worst lineup group to the best, while pace, three-point rate, rim rate, and assists per make stay flat near league average" />
