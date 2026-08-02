@@ -1,6 +1,6 @@
 ---
 title: "Good Lineups Don't Play Differently. The Shots Just Go In."
-description: "A substitution-level reconstruction of every WNBA lineup shows shot selection and pace are flat from the worst group to the best."
+description: "A substitution-level reconstruction of every WNBA lineup shows the gap between the best and worst lineups is shot-making at both ends, not style."
 date: 2026-08-01
 category: sports
 tags: ["data", "wnba", "basketball"]
@@ -17,7 +17,7 @@ Announcers describe good lineups by their style. They push pace, they get to the
 
 This piece rebuilds every WNBA lineup's playing time from raw substitution data, 2013 through 2026, and asks whether the way a lineup plays looks different for a great one than for a bad one, separate from whether the shots go in. The results break into three parts.
 
-First, it does not. Sort every lineup in fourteen years by net rating and the style numbers, pace, shot selection, how often they get to the rim, are essentially flat from the worst group to the best; the entire 31-point gap in net rating lives in shooting and defense. Second, continuity is worth real points on its own: the same four Indiana players with three different fifth starters in a single season produced a 21-point swing in net rating, and a near-identical exercise for a 2026 Los Angeles lineup points the same way. Third, two teams that looked from a distance like they were making an obvious coaching mistake, trusting a bad lineup with heavy minutes, were not; their most-used lineups were performing almost exactly at the level of the team around them.
+First, it does not. Sort every lineup in fourteen years by net rating and the style numbers, pace, shot selection, how often they get to the rim, are essentially flat from the worst group to the best. The entire 31-point gap in net rating is shot-making at both ends: effective field-goal percentage climbs from .475 in the worst group to .556 in the best while opponents' falls from .519 to .455, on shots that look the same going up. Second, continuity is worth real points on its own: the same four Indiana players with three different fifth starters in a single season produced a 21-point swing in net rating, and a near-identical exercise for a 2026 Los Angeles lineup points the same way. Third, two teams that looked from a distance like they were making an obvious coaching mistake, trusting a bad lineup with heavy minutes, were not; their most-used lineups were performing almost exactly at the level of the team around them.
 
 ## Data and methodology
 
@@ -78,22 +78,22 @@ Best five-player lineups on record, minimum 150 minutes together in a season (ne
 
 | Team-season | Lineup | Net rating | Minutes |
 | --- | --- | --- | --- |
-| 2014 PHX | Diana Taurasi, Erin Phillips, Candice Dupree, DeWanna Bonner, Brittney Griner | +39.3 | 159 |
-| 2013 MIN | Lindsay Whalen, Rebekkah Brunson, Janel McCarville, Seimone Augustus, Maya Moore | +32.8 | 315 |
-| 2014 PHX | Penny Taylor, Diana Taurasi, Candice Dupree, DeWanna Bonner, Brittney Griner | +26.7 | 402 |
-| 2013 CHI | Swin Cash, Sylvia Fowles, Epiphanny Prince, Courtney Vandersloot, Elena Delle Donne | +25.5 | 326 |
-| 2021 PHX | Diana Taurasi, Brittney Griner, Skylar Diggins-Smith, Brianna Turner, Kia Nurse | +25.0 | 221 |
-| 2018 WSH | LaToya Sanders, Kristi Toliver, Elena Delle Donne, Natasha Cloud, Ariel Atkins | +24.8 | 278 |
-| 2023 WSH | Elena Delle Donne, Natasha Cloud, Brittney Sykes, Ariel Atkins, Shakira Austin | +24.5 | 206 |
-| 2023 LV | Candace Parker, Chelsea Gray, Kelsey Plum, A'ja Wilson, Jackie Young | +22.1 | 239 |
-| 2018 SEA | Sue Bird, Alysha Clark, Natasha Howard, Jewell Loyd, Breanna Stewart | +21.7 | 522 |
-| 2017 MIN | Lindsay Whalen, Rebekkah Brunson, Seimone Augustus, Sylvia Fowles, Maya Moore | +21.6 | 314 |
+| 2014 PHX | D. Taurasi, E. Phillips, C. Dupree, D. Bonner, B. Griner | +39.3 | 159 |
+| 2013 MIN | L. Whalen, R. Brunson, J. McCarville, S. Augustus, M. Moore | +32.8 | 315 |
+| 2014 PHX | P. Taylor, D. Taurasi, C. Dupree, D. Bonner, B. Griner | +26.7 | 402 |
+| 2013 CHI | S. Cash, S. Fowles, E. Prince, C. Vandersloot, E. Delle Donne | +25.5 | 326 |
+| 2021 PHX | D. Taurasi, B. Griner, S. Diggins-Smith, B. Turner, K. Nurse | +25.0 | 221 |
+| 2018 WSH | L. Sanders, K. Toliver, E. Delle Donne, N. Cloud, A. Atkins | +24.8 | 278 |
+| 2023 WSH | E. Delle Donne, N. Cloud, B. Sykes, A. Atkins, S. Austin | +24.5 | 206 |
+| 2023 LV | C. Parker, C. Gray, K. Plum, A. Wilson, J. Young | +22.1 | 239 |
+| 2018 SEA | S. Bird, A. Clark, N. Howard, J. Loyd, B. Stewart | +21.7 | 522 |
+| 2017 MIN | L. Whalen, R. Brunson, S. Augustus, S. Fowles, M. Moore | +21.6 | 314 |
 
 The all-time board is a continuity board. Every group on it logged at least 150 minutes and most logged double that, which is the point: a lineup cannot post a number like this without being kept together long enough to post one at all. The 2014 Phoenix and 2013 Minnesota entries are the same rosters that anchor the top of the team-level net rating list, seen from five players in rather than twelve.
 
 ## Discussion
 
-The most obvious pushback is that the style table proves only that box-score style stats can't separate good lineups from bad, and that the real signal is somewhere else entirely. It is somewhere else, and it isn't invisible: offensive and defensive rating separate the five groups cleanly across a 31-point swing. What doesn't separate them is shot selection, pace, or ball movement. The gap is entirely in whether the shots go in and whether the other team's do, not in what kind of shots either lineup chooses to take.
+The most obvious pushback is that the style table proves only that box-score style stats can't separate good lineups from bad, and that the real signal is somewhere else entirely. It is somewhere else, and it isn't invisible: effective field-goal percentage at both ends separates the five groups cleanly, and the ratings move with it across a 31-point swing. What doesn't separate them is shot selection, pace, or ball movement. The gap is entirely in whether the shots go in and whether the other team's do, not in what kind of shots either lineup chooses to take.
 
 LA and Portland raise a more specific version of the same complaint: doesn't giving 230-plus minutes to a negative lineup count as a real mistake, whatever the team's overall level? Not once the comparison is to the team's own level rather than to zero. A -6 lineup on a -6 team is baseline performance for that roster, not a coaching failure, and neither team had a clearly better five waiting in reserve. Golden State is what an actual mistake looks like by the same standard.
 
