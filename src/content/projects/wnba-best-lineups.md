@@ -103,4 +103,4 @@ Indiana's numbers invite a Clark-specific question: doesn't a lineup analysis ev
 
 ## Conclusion
 
-The lineups that win are not running a visibly different style of basketball than the lineups that lose. They are taking the same shots from the same places at the same pace and making more of them. What that leaves is a strange situation for anyone watching a game: the part of a lineup that is legible in real time, the part broadcasts are built around describing, is the part carrying none of the information. The part that decides games is the one nobody can see until the shots have already gone up.
+The lineups that win are not running a visibly different style of basketball than the lineups that lose. They are taking the same shots from the same places at the same pace and making more of them. What that leaves is a strange situation for anyone watching a game: everything a broadcast can describe about a lineup while it plays turns out to carry none of the information. The part that decides games is the one nobody can see until the shots have already gone up.
