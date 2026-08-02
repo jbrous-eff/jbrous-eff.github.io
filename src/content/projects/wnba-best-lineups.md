@@ -40,8 +40,8 @@ Every 100-plus-minute lineup-season from 2013 through 2026, sorted into five equ
 | Best fifth | +21.2 | 74.4 | .279 | .246 | .671 |
 
 <figure>
-  <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing net rating rising sharply from the worst to best lineup quintile while pace, three-point rate, rim rate, and assists per make stay essentially flat" />
-  <figcaption>245 lineup-seasons, sorted into five net-rating quintiles. Each style metric is scaled by its own league-wide standard deviation; net rating is the only line that moves.</figcaption>
+  <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing net rating rising sharply from the worst fifth of lineups to the best while pace, three-point rate, rim rate, and assists per make stay essentially flat" />
+  <figcaption>245 lineup-seasons, split into five equal groups from worst to best. Each stat is measured against how much it normally varies across lineups; net rating is the only line that moves.</figcaption>
 </figure>
 
 A 31-point swing in net rating, and the best lineups play half a possession per 40 faster than the worst, take two more threes per 100 shots, and get to the rim at literally the same rate, .246 in both groups. Underneath that flat style line, offensive rating runs from 102.6 to 120.7 and defensive rating from 112.9 to 99.5 across the same five groups. Good lineups are not running a different offense. They are running the same one and making it, and stopping the other team from making theirs.
