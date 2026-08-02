@@ -31,16 +31,16 @@ There is no wins column, so team net rating is derived the same way as elsewhere
 
 Every 100-plus-minute lineup-season from 2013 through 2026, sorted into five equal groups by net rating:
 
-| Group | eFG% | Opp eFG% | Pace/40 | 3PA rate | Rim rate | Assists per make | Net |
+| Group | eFG% | Opp eFG% | Pace/40 | 3PA rate | Rim rate | Assist rate | Net rating |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Worst fifth | .475 | .519 | 74.0 | .259 | .246 | .647 | -10.3 |
+| Worst quintile | .475 | .519 | 74.0 | .259 | .246 | .647 | -10.3 |
 | 2nd | .493 | .490 | 75.0 | .269 | .241 | .649 | +0.3 |
 | 3rd | .505 | .480 | 74.6 | .253 | .264 | .666 | +6.6 |
 | 4th | .522 | .477 | 75.0 | .264 | .259 | .654 | +12.1 |
-| Best fifth | .556 | .455 | 74.4 | .279 | .246 | .671 | +21.2 |
+| Best quintile | .556 | .455 | 74.4 | .279 | .246 | .671 | +21.2 |
 
 <figure>
-  <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing effective field goal percentage rising and opponent effective field goal percentage falling from the worst lineup group to the best, while pace, three-point rate, rim rate, and assists per make stay flat near league average" />
+  <img src="/images/wnba-lineups/style-vs-net-rating.png" alt="Line chart showing effective field goal percentage rising and opponent effective field goal percentage falling from the worst lineup group to the best, while pace, three-point rate, rim rate, and assist rate stay flat near league average" />
   <figcaption>245 lineup-seasons, split into five equal groups by net rating, a 31-point swing from worst to best. Each metric is scaled by its own spread across lineups. Shooting separates the groups at both ends; the style traits barely move, with no pattern from bad to good.</figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ That claim can be checked directly rather than inferred from the ratings. Rebuil
 
 Continuity is a different matter, and it can be isolated in a way most lineup questions cannot. Three separate 2024 Indiana lineups cleared 150 minutes with the identical core of Kelsey Mitchell, NaLyssa Smith, Aliyah Boston and Caitlin Clark. Only the fifth player changed.
 
-| Fifth player | Minutes | Net |
+| Fifth player | Minutes | Net rating |
 | --- | --- | --- |
 | Lexie Hull | 195 | +6.3 |
 | Katie Lou Samuelson | 193 | -6.2 |
@@ -60,7 +60,7 @@ Nearly equal minutes for all three and a 21-point spread in outcome. This reads 
 
 A similar swap shows up in 2026 Los Angeles. Nneka Ogwumike, Erica Wheeler and Dearica Hamby appear in all three of the team's qualifying lineups, and the fourth and fifth spots rotate among Ariel Atkins, Rae Burrell and Kelsey Plum.
 
-| LA lineup | Minutes | Net |
+| LA lineup | Minutes | Net rating |
 | --- | --- | --- |
 | Ogwumike, Wheeler, Hamby, Atkins + Burrell | 233 | -6.2 |
 | Ogwumike, Wheeler, Hamby, Atkins + Plum | 82 | +7.0 |
