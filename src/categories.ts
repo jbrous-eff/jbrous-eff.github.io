@@ -6,16 +6,6 @@ export const CATEGORIES = [
     label: 'Sports',
     blurb: 'Analysis of games, players, and the numbers underneath them.',
   },
-  {
-    slug: 'business',
-    label: 'Business',
-    blurb: 'Consulting engagements and applied business analysis.',
-  },
-  {
-    slug: 'misc',
-    label: 'Misc',
-    blurb: 'Writing, one-offs, and everything that resists a tidy label.',
-  },
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];

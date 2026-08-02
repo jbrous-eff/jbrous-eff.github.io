@@ -9,7 +9,7 @@ Personal portfolio site where the user posts all their various projects (data ex
 - **One project = one markdown file** in `src/content/projects/`. The filename is the URL slug (`my-thing.md` → `/projects/my-thing/`).
 - `src/content/projects/_template.md` is the copy-me starter (files starting with `_` are excluded from the collection).
 - Frontmatter schema lives in `src/content.config.ts`: title, description, date, `category`, tags, optional link/repo, optional `image` (social-preview/OG image path under `public/images/`), `featured` (pins to top), `draft` (hides from site). Change the schema there if new fields are needed.
-- **Categories** are defined once in `src/categories.ts` (slug, label, blurb) — currently Sports / Business / Misc. That list drives the sidebar nav, the zod enum in the content schema, and the generated category pages. Adding a bucket = adding an entry there; nothing else needs touching. Projects default to `misc`.
+- **Categories** are defined once in `src/categories.ts` (slug, label, blurb) — currently just Sports. Business and Misc were removed 2026-08-02 (empty sections looked bad live; they come back when there's real content — the user wants better versions of the redacted business work first). That list drives the sidebar nav, the zod enum in the content schema, and the generated category pages. Adding a bucket = adding an entry there; nothing else needs touching. Projects default to `sports`.
 - `src/pages/index.astro` — welcome/landing page: intro plus the 5 most recent projects.
 - `src/pages/[category].astro` — one page per bucket (`/sports/`, `/business/`, `/misc/`), header + that bucket's projects.
 - `src/pages/projects/[slug].astro` — project detail page; back link returns to the project's category.
@@ -43,7 +43,7 @@ The user's charts are made outside this repo — **R/ggplot2, in `C:\Users\jbrou
 
 Rules that go with it: chart type face is IBM Plex Sans, matching the site. **Never a blue/orange pair for categories** — it's the generic default pairing and reads as untouched tooling. Green/red keeps the user's sports-analytics convention but the hues are shifted (green leans teal, red leans rose) so they differ in lightness too, and outcome always carries a second channel (filled vs hollow) so it survives colorblindness. Don't color-encode a variable that position or length already encodes.
 
-Existing charts predating this system are already all dark-background, but inconsistent in color: the clutch dumbbell and the hex overperformance charts still use `tab10` blue/orange, and green currently means "make," "Top 5," and "just a bar" in three different charts. They need a pass when the projects are backfilled.
+Chart-consistency pass: done for everything on the site (2026-08-02 — the last fix was the lineup style-vs-net chart, whose right-edge labels blurred into the gray line cluster; labels now sit brighter than the lines with leader ticks, per `phase_charts.R`). The clutch dumbbell lives only in the R project, not on the site.
 
 (The white-background Clark hexmap was the prototype for the shot-selection piece and is retired — the dotmap replaced it. Don't resurrect it.)
 

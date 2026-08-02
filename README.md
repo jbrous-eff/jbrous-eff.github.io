@@ -7,7 +7,7 @@ My personal site for posting projects.
 1. Go to `src/content/projects/`
 2. Copy `_template.md` and rename it — the filename becomes the web address (e.g. `nba-shot-charts.md` → `jeffbrous.com/projects/nba-shot-charts`)
 3. Fill in the title, description, date, and tags at the top
-4. Set `category:` to `sports`, `business`, or `misc` — that's which section of the site it shows up in
+4. Leave `category:` as `sports` — it's the only section right now (more can be added later)
 5. Write about the project below the `---` line — normal text works, and so does markdown
 6. Delete the `draft: true` line when it's ready to go live
 
