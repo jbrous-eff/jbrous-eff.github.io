@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import { categoryBySlug } from '../../categories';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects', ({ data }) => !data.draft);
+  // cardImage projects are self-contained portfolio cards — no detail page.
+  const projects = await getCollection('projects', ({ data }) => !data.draft && !data.cardImage);
   return projects.map((project) => ({
     params: { slug: project.id },
     props: { project },

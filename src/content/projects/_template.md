@@ -7,11 +7,15 @@
 title: "My Cool Project"
 description: "One sentence that shows up on the homepage card."
 date: 2026-07-31
-category: sports # which bucket it goes in (only "sports" for now)
+category: sports # which bucket it goes in: sports, business, or misc
 tags: ["example", "template"]
 # link: "https://example.com"       # live demo (optional)
 # repo: "https://github.com/you/it" # source code (optional)
 # featured: true                    # pins it to the top (optional)
+# --- portfolio-card option. Add cardImage and the project shows as a
+# --- self-contained card (chart + title + description), with NO page of
+# --- its own — good for work samples that are just a chart and a headline.
+# cardImage: "/images/my-cool-project/chart.png"
 draft: true # delete this line (or set false) when ready to publish
 ---
 

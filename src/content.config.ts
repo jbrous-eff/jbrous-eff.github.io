@@ -16,6 +16,10 @@ const projects = defineCollection({
     link: z.string().url().optional(), // live demo / external link
     repo: z.string().url().optional(), // GitHub repo, if any
     image: z.string().optional(), // social-preview image, e.g. /images/foo/chart.png
+    cardImage: z.string().optional(), // chart shown big on the project card, path under public/images/
+    question: z.string().optional(), // the one-line question the piece answers
+    methodology: z.string().optional(), // 2-4 lines on how it was done (markdown ok)
+    finding: z.string().optional(), // the one-line answer
     featured: z.boolean().default(false), // pin to top of homepage
     draft: z.boolean().default(false), // true = hidden from the site
   }),

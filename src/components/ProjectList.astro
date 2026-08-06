@@ -1,5 +1,8 @@
 ---
 // The list of project links used on the homepage and every category page.
+// Two card shapes: the classic text row linking to a detail page, and a
+// self-contained portfolio card when the project has a cardImage (chart +
+// headline + byline, no link — the card IS the piece).
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -17,11 +20,23 @@ const { projects, empty = 'Nothing here yet.' } = Astro.props;
     <ul class="project-list">
       {projects.map(({ id, data }) => (
         <li>
+          {data.cardImage && (
+            <span class="chart">
+              <img src={data.cardImage} alt={data.title} loading="lazy" />
+            </span>
+          )}
           <div class="row">
-            <a class="title" href={`/projects/${id}/`}>
-              {data.featured && <span class="star" title="featured">✦ </span>}
-              {data.title}
-            </a>
+            {data.cardImage ? (
+              <span class="title">
+                {data.featured && <span class="star" title="featured">✦ </span>}
+                {data.title}
+              </span>
+            ) : (
+              <a class="title" href={`/projects/${id}/`}>
+                {data.featured && <span class="star" title="featured">✦ </span>}
+                {data.title}
+              </a>
+            )}
             <time class="meta" datetime={data.date.toISOString()}>
               {data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
             </time>
@@ -50,6 +65,21 @@ const { projects, empty = 'Nothing here yet.' } = Astro.props;
     border-top: 1px solid var(--line);
   }
 
+  .chart {
+    display: block;
+    margin-bottom: 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-raised);
+  }
+
+  .chart img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   .row {
     display: flex;
     align-items: baseline;
@@ -66,7 +96,7 @@ const { projects, empty = 'Nothing here yet.' } = Astro.props;
     text-decoration: none;
   }
 
-  .title:hover {
+  a.title:hover {
     color: var(--accent-bright);
   }
 
