@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USA national player card</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: #111214; }
+</style>
+</head>
+<body>
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">A video-game style player attribute card for the United States. Overall rating 64. Category ratings: Wealth 87, Governance 73, Health 68, Safety and Society 52, Environment 40. Individual attributes range from GDP per capita 95 down to Incarceration 26.</h2>
+<div style="max-width: 720px; margin: 0 auto; background: linear-gradient(160deg, #1c2733 0%, #10161d 100%); border-radius: 14px; padding: 22px 24px; color: #e8e6e1; font-family: system-ui, sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+    <div>
+      <div style="font-size:11px; letter-spacing:2px; color:#8a97a5; text-transform:uppercase;">National Build · 2025 Season</div>
+      <div style="font-size:26px; font-weight:800; letter-spacing:0.5px;">UNITED STATES</div>
+      <div style="font-size:12px; color:#b9c2cc; margin-top:2px;">Archetype: <span style="color:#f3c14b; font-weight:600;">Offense-Only Scorer</span> · Elite finisher, does not defend</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:46px; font-weight:900; line-height:1; color:#f3c14b;">64</div>
+      <div style="font-size:10px; letter-spacing:2px; color:#8a97a5;">OVERALL</div>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; margin:16px 0 18px;">
+    <div style="background:#141d26; border-radius:8px; padding:8px; text-align:center;"><div style="font-size:22px;font-weight:800;color:#37c99e;">87</div><div style="font-size:10px;color:#8a97a5;letter-spacing:1px;">WEALTH</div></div>
+    <div style="background:#141d26; border-radius:8px; padding:8px; text-align:center;"><div style="font-size:22px;font-weight:800;color:#a4d65e;">73</div><div style="font-size:10px;color:#8a97a5;letter-spacing:1px;">GOVERNANCE</div></div>
+    <div style="background:#141d26; border-radius:8px; padding:8px; text-align:center;"><div style="font-size:22px;font-weight:800;color:#f3c14b;">68</div><div style="font-size:10px;color:#8a97a5;letter-spacing:1px;">HEALTH</div></div>
+    <div style="background:#141d26; border-radius:8px; padding:8px; text-align:center;"><div style="font-size:22px;font-weight:800;color:#ef8a3c;">52</div><div style="font-size:10px;color:#8a97a5;letter-spacing:1px;">SAFETY &amp; SOCIETY</div></div>
+    <div style="background:#141d26; border-radius:8px; padding:8px; text-align:center;"><div style="font-size:22px;font-weight:800;color:#e34948;">40</div><div style="font-size:10px;color:#8a97a5;letter-spacing:1px;">ENVIRONMENT</div></div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 22px; font-size:12px;" id="attrs"></div>
+
+  <div style="margin-top:16px; font-size:11px; color:#8a97a5;">Ratings scale each metric's world percentile to 25-99 (best country = 99). Latest available year per metric, 114-213 countries ranked. Badges earned: <span style="color:#f3c14b;">Deep Pockets (HOF)</span> · <span style="color:#e34948;">Lockdown Defender: Not Equipped</span></div>
+</div>
+<script>
+const attrs = [
+  ["GDP per Capita", 95],["HDI", 92],["Labor Share of GDP", 92],["Happiness", 88],
+  ["Corruption Control", 87],["Rule of Law", 86],["Education Quality (LAYS)", 84],["Gender Equality", 80],
+  ["Life Expectancy", 79],["Democracy (V-Dem)", 78],["Press Freedom", 75],["Maternal Safety", 74],
+  ["Work-Life Hours", 73],["Road Safety", 70],["Free Expression", 63],["Academic Freedom", 50],
+  ["Renewables", 50],["Homicide Defense", 49],["Income Equality", 36],["Obesity Defense", 32],
+  ["Carbon Footprint", 29],["Incarceration", 26]
+];
+function col(v){ return v>=90?'#37c99e':v>=80?'#a4d65e':v>=70?'#f3c14b':v>=60?'#ef8a3c':'#e34948'; }
+document.getElementById('attrs').innerHTML = attrs.map(([n,v]) =>
+  `<div style="display:flex;align-items:center;gap:8px;">
+     <div style="width:150px;color:#b9c2cc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${n}</div>
+     <div style="flex:1;background:#0c1218;border-radius:4px;height:8px;overflow:hidden;">
+       <div style="width:${(v-25)/74*100}%;height:100%;background:${col(v)};"></div>
+     </div>
+     <div style="width:26px;text-align:right;font-weight:700;color:${col(v)};">${v}</div>
+   </div>`).join('');
+</script>
+</body>
+</html>

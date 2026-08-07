@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Cup 2026 — Quarterfinal Review</title>
+</head>
+<body>
+<style>
+  :root {
+    --paper: #faf9f5;
+    --card: #ffffff;
+    --ink: #131511;
+    --ink-2: #4e5248;
+    --ink-3: #83867c;
+    --hairline: #e3e2d8;
+    --gold: #a97e0f;
+    --gold-soft: #f3ead2;
+    --team-a: #2a78d6;
+    --team-b: #eb6834;
+    --team-a-soft: #e2edfa;
+    --team-b-soft: #fbe8de;
+    --draw: #c9c8bd;
+    --heat-1: #eef4fc; --heat-2: #cde2fb; --heat-3: #9ec5f4; --heat-4: #6da7ec;
+    --heat-5: #3987e5; --heat-6: #2a78d6; --heat-7: #1c5cab; --heat-8: #104281;
+    --heat-ink-hi: #ffffff;
+    --shadow: 0 1px 2px rgba(19,21,17,.05), 0 4px 16px rgba(19,21,17,.06);
+    --mono: "Cascadia Code", Consolas, "SF Mono", ui-monospace, monospace;
+    --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121410;
+      --card: #1a1d18;
+      --ink: #f2f1ea;
+      --ink-2: #b9bcae;
+      --ink-3: #85887c;
+      --hairline: #2b2e27;
+      --gold: #e3b341;
+      --gold-soft: #2b2411;
+      --team-a: #3987e5;
+      --team-b: #d95926;
+      --team-a-soft: #16283e;
+      --team-b-soft: #3a2013;
+      --draw: #4a4d43;
+      --heat-1: #1c1f1a; --heat-2: #16283e; --heat-3: #184f95; --heat-4: #1c5cab;
+      --heat-5: #256abf; --heat-6: #3987e5; --heat-7: #6da7ec; --heat-8: #9ec5f4;
+      --heat-ink-hi: #0b0b0b;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 18px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121410; --card: #1a1d18; --ink: #f2f1ea; --ink-2: #b9bcae; --ink-3: #85887c;
+    --hairline: #2b2e27; --gold: #e3b341; --gold-soft: #2b2411;
+    --team-a: #3987e5; --team-b: #d95926; --team-a-soft: #16283e; --team-b-soft: #3a2013;
+    --draw: #4a4d43;
+    --heat-1: #1c1f1a; --heat-2: #16283e; --heat-3: #184f95; --heat-4: #1c5cab;
+    --heat-5: #256abf; --heat-6: #3987e5; --heat-7: #6da7ec; --heat-8: #9ec5f4;
+    --heat-ink-hi: #0b0b0b;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 18px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --paper: #faf9f5; --card: #ffffff; --ink: #131511; --ink-2: #4e5248; --ink-3: #83867c;
+    --hairline: #e3e2d8; --gold: #a97e0f; --gold-soft: #f3ead2;
+    --team-a: #2a78d6; --team-b: #eb6834; --team-a-soft: #e2edfa; --team-b-soft: #fbe8de;
+    --draw: #c9c8bd;
+    --heat-1: #eef4fc; --heat-2: #cde2fb; --heat-3: #9ec5f4; --heat-4: #6da7ec;
+    --heat-5: #3987e5; --heat-6: #2a78d6; --heat-7: #1c5cab; --heat-8: #104281;
+    --heat-ink-hi: #ffffff;
+    --shadow: 0 1px 2px rgba(19,21,17,.05), 0 4px 16px rgba(19,21,17,.06);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); line-height: 1.55; font-size: 16px;
+  }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px 96px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold); font-weight: 600;
+  }
+  .eyebrow--muted { color: var(--ink-3); }
+
+  header.hero { padding: 72px 0 40px; text-align: left; }
+
+  nav.toc {
+    position: sticky; top: 0; z-index: 40;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+    margin: 0 -20px 34px; padding: 10px 20px;
+    display: flex; gap: 4px 18px; flex-wrap: wrap; align-items: baseline;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+  }
+  nav.toc a { color: var(--ink-2); text-decoration: none; text-transform: uppercase; padding: 2px 0; }
+  nav.toc a:hover, nav.toc a:focus-visible { color: var(--gold); text-decoration: none; }
+  nav.toc a b { color: var(--gold); font-weight: 700; }
+  nav.toc .sep { color: var(--ink-3); opacity: .5; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  section.match, #sim, #boot, #lab, #method { scroll-margin-top: 58px; }
+  h1 {
+    font-size: clamp(40px, 7vw, 76px); line-height: .95; margin: 14px 0 18px;
+    font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; text-wrap: balance;
+  }
+  h1 .thin { font-weight: 250; }
+  .standfirst { max-width: 62ch; color: var(--ink-2); font-size: 18px; margin: 0; }
+  .standfirst strong { color: var(--ink); }
+
+  .bracket {
+    margin: 44px 0 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .bracket-side { display: grid; gap: 14px; align-content: start; }
+  .tie {
+    background: var(--card); border: 1px solid var(--hairline); border-radius: 6px;
+    box-shadow: var(--shadow); padding: 12px 14px; display: grid; gap: 6px;
+  }
+  .tie a { color: inherit; text-decoration: none; display: grid; gap: 6px; }
+  .tie .meta { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; }
+  .tie .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .tie .name { font-weight: 800; font-size: 15.5px; letter-spacing: .01em; }
+  .tie .pct { font-family: var(--mono); font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .tie .fav .pct { color: var(--gold); font-weight: 700; }
+  .tie:hover { border-color: var(--gold); }
+  .bracket-showpiece { grid-column: 1 / -1; display: grid; grid-template-columns: 3fr 2fr; gap: 14px; }
+  .tie.gold-card { border-top: 3px solid var(--gold); }
+
+  .keyline { border: 0; border-top: 1px solid var(--hairline); margin: 56px 0; }
+
+  .howto {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px;
+  }
+  .howto .cell {
+    background: var(--card); border: 1px solid var(--hairline); border-radius: 6px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .howto .cell h3 { margin: 6px 0 6px; font-size: 15px; }
+  .howto .cell p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+  .bignum { font-family: var(--mono); font-weight: 700; font-size: 26px; color: var(--gold); }
+
+  section.match { margin-top: 64px; }
+  .board {
+    background: var(--card); border: 1px solid var(--hairline); border-radius: 8px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .board.showpiece { border-top: 3px solid var(--gold); }
+  .board-head { padding: 26px 28px 20px; border-bottom: 1px solid var(--hairline); }
+  .matchup {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 12px; margin-top: 10px;
+  }
+  .matchup .team { font-size: clamp(24px, 4vw, 42px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; }
+  .matchup .team.b { text-align: right; }
+  .matchup .vs { font-family: var(--mono); color: var(--ink-3); font-size: 14px; }
+  .team-a-ink { color: var(--team-a); }
+  .team-b-ink { color: var(--team-b); }
+
+  .prob-strip { margin-top: 18px; }
+  .prob-bar { display: flex; height: 14px; border-radius: 4px; overflow: hidden; gap: 2px; background: var(--paper); }
+  .prob-bar span { display: block; height: 100%; }
+  .prob-legend { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin-top: 7px; font-variant-numeric: tabular-nums; flex-wrap: wrap; gap: 4px 12px; }
+  .advline { margin-top: 12px; font-size: 14px; color: var(--ink-2); }
+  .advline b { color: var(--ink); }
+
+  .board-body { padding: 26px 28px; display: grid; gap: 34px; }
+  .board-body h3 { margin: 0 0 12px; font-size: 13px; font-family: var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .prose { max-width: 68ch; }
+  .prose p { margin: 0 0 12px; color: var(--ink-2); font-size: 15.5px; }
+  .prose p strong, .prose p b { color: var(--ink); }
+
+  .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .path h4 { margin: 0 0 8px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+  .path ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+  .path li { display: flex; gap: 10px; font-size: 13.5px; align-items: baseline; }
+  .path .st { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); min-width: 34px; letter-spacing: .05em; }
+  .path .sc { font-family: var(--mono); font-weight: 700; min-width: 66px; font-variant-numeric: tabular-nums; }
+  .path .op { color: var(--ink-2); }
+  .path li.hl .sc { color: var(--gold); }
+
+  .tape { display: grid; gap: 9px; }
+  .tape-row { display: grid; grid-template-columns: 64px 1fr 170px 1fr 64px; gap: 10px; align-items: center; }
+  .tape-row .val { font-family: var(--mono); font-size: 13.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .tape-row .val.a { text-align: right; }
+  .tape-row .lbl { text-align: center; font-size: 12px; color: var(--ink-3); font-family: var(--mono); letter-spacing: .03em; }
+  .tape-row .bar { height: 10px; border-radius: 3px 4px 4px 3px; background: transparent; position: relative; }
+  .tape-row .bar i { position: absolute; top: 0; bottom: 0; display: block; border-radius: 3px; }
+  .tape-row .bar.a i { right: 0; background: var(--team-a); }
+  .tape-row .bar.b i { left: 0; background: var(--team-b); border-radius: 3px; }
+  .tape-note { font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+
+  .players { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pcard {
+    border: 1px solid var(--hairline); border-radius: 6px; padding: 13px 15px;
+    display: grid; gap: 4px; background: var(--paper);
+  }
+  .pcard .who { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .pcard .nm { font-weight: 800; font-size: 15px; }
+  .pcard .tm { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; }
+  .pcard .proj { display: flex; gap: 16px; font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .pcard .proj b { color: var(--ink); font-size: 14px; }
+  .pcard .note { font-size: 12.5px; color: var(--ink-2); }
+  .pmeter { height: 6px; border-radius: 3px; background: var(--hairline); overflow: hidden; margin-top: 3px; }
+  .pmeter i { display: block; height: 100%; border-radius: 3px; }
+  .pcard.a .pmeter i { background: var(--team-a); } .pcard.a .tm { color: var(--team-a); }
+  .pcard.b .pmeter i { background: var(--team-b); } .pcard.b .tm { color: var(--team-b); }
+
+  .duo { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 30px; align-items: start; }
+
+  .heat { display: grid; grid-template-columns: auto repeat(5, 1fr); gap: 2px; max-width: 380px; }
+  .heat .corner, .heat .hx, .heat .hy { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); display: flex; align-items: center; justify-content: center; }
+  .heat .hy { justify-content: flex-end; padding-right: 7px; }
+  .heat .cell {
+    aspect-ratio: 1.35; border-radius: 3px; display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 11px; font-variant-numeric: tabular-nums; cursor: default;
+  }
+  .heat-axis { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); margin-top: 6px; }
+  .axis-a { color: var(--team-a); font-weight: 700; } .axis-b { color: var(--team-b); font-weight: 700; }
+
+  .verdict {
+    border-left: 3px solid var(--gold); background: var(--gold-soft);
+    padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 14.5px; color: var(--ink-2);
+  }
+  .verdict b { color: var(--ink); }
+  .verdict .vh { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 5px; font-weight: 700; }
+
+  .history li { margin-bottom: 4px; }
+  .history ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 14px; }
+
+  .simgrid { display: grid; gap: 8px; margin-top: 20px; }
+  .simrow { display: grid; grid-template-columns: 110px 1fr 200px; gap: 12px; align-items: center; }
+  .simrow .nm { font-weight: 800; font-size: 14.5px; text-transform: uppercase; letter-spacing: .02em; }
+  .simrow .track { height: 16px; background: var(--card); border: 1px solid var(--hairline); border-radius: 4px; overflow: hidden; }
+  .simrow .track i { display: block; height: 100%; background: var(--heat-5); border-radius: 3px; }
+  .simrow.champ .track i { background: var(--gold); }
+  .simrow .nums { font-family: var(--mono); font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; text-align: right; }
+  .simrow .nums b { color: var(--ink); font-size: 13.5px; }
+
+  .boot { display: grid; gap: 13px; margin-top: 22px; }
+  .bootrow { display: grid; grid-template-columns: 150px 1fr 96px; gap: 14px; align-items: center; }
+  .bootrow .nm { font-weight: 700; font-size: 14px; }
+  .bootrow .nm small { display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .1em; }
+  .dumbtrack { position: relative; height: 22px; }
+  .dumbtrack .rail { position: absolute; top: 10px; height: 3px; border-radius: 2px; background: var(--hairline); left: 0; right: 0; }
+  .dumbtrack .span { position: absolute; top: 10px; height: 3px; background: var(--gold); opacity: .5; }
+  .dumbtrack .dot { position: absolute; top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--paper); }
+  .dumbtrack .now { background: var(--ink-3); }
+  .dumbtrack .fut { background: var(--gold); }
+  .bootrow .nums { font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .bootrow .nums b { color: var(--gold); }
+
+  .method p { max-width: 72ch; color: var(--ink-2); font-size: 14px; margin: 0 0 10px; }
+  .method h3 { font-size: 14px; margin: 22px 0 8px; }
+  .srcs { font-size: 13px; color: var(--ink-2); columns: 2; column-gap: 30px; padding-left: 18px; margin: 8px 0 0; }
+  .srcs li { margin-bottom: 4px; break-inside: avoid; }
+  .srcs a { color: var(--gold); text-decoration: none; }
+  .srcs a:hover, .tie a:focus-visible, a:focus-visible { text-decoration: underline; outline: none; }
+
+  h2 { font-size: clamp(24px, 3.6vw, 34px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin: 10px 0 6px; text-wrap: balance; }
+  .sect-sub { color: var(--ink-2); max-width: 66ch; margin: 0 0 8px; font-size: 15.5px; }
+
+  #tip {
+    position: fixed; pointer-events: none; z-index: 50; background: var(--ink); color: var(--paper);
+    font-family: var(--mono); font-size: 12px; padding: 5px 9px; border-radius: 4px;
+    transform: translate(-50%, calc(-100% - 9px)); white-space: nowrap; opacity: 0; transition: opacity .12s;
+  }
+  @media (prefers-reduced-motion: reduce) { #tip { transition: none; } }
+
+  @media (max-width: 760px) {
+    .bracket { grid-template-columns: 1fr; }
+    .bracket-showpiece { grid-template-columns: 1fr; }
+    .howto { grid-template-columns: 1fr; }
+    .paths, .players, .duo { grid-template-columns: 1fr; }
+    .tape-row { grid-template-columns: 52px 1fr 118px 1fr 52px; gap: 6px; }
+    .board-head, .board-body { padding-left: 18px; padding-right: 18px; }
+    .simrow { grid-template-columns: 86px 1fr 120px; }
+    .bootrow { grid-template-columns: 110px 1fr 88px; }
+    .srcs { columns: 1; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">World Cup 2026 &middot; Written July 9 before kickoff &middot; Updated July 18 &mdash; knockouts complete, the Final is set</div>
+  <h1>Knockout<br><span class="thin">Review</span></h1>
+  <p class="standfirst">This started as a quarterfinal preview built on <strong>123 matches of StatsBomb event data</strong>, <strong>964 historical World Cup matches</strong>, and a Poisson model &mdash; published before a ball was kicked, previews preserved below, receipts and all. Since then: <strong>six knockout matches, six pre-registered forecasts</strong>, a model scoreboard with a winner, and the ending the simulation called its single most likely &mdash; <strong>Argentina vs Spain</strong>, tomorrow, 3pm ET at MetLife. The full breakdown of the Final is below. Predictions are for fun; the numbers are real.</p>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#final"><b>THE FINAL</b> Arg&ndash;Esp</a>
+  <span class="sep">&middot;</span>
+  <a href="#qf1"><b>QF1</b> Fra&ndash;Mar</a>
+  <a href="#qf2"><b>QF2</b> Esp&ndash;Bel</a>
+  <a href="#qf3"><b>QF3</b> Nor&ndash;Eng</a>
+  <a href="#qf4"><b>QF4</b> Arg&ndash;Sui</a>
+  <a href="#sf1"><b>SF1</b> Fra&ndash;Esp</a>
+  <a href="#sf2"><b>SF2</b> Eng&ndash;Arg</a>
+  <span class="sep">&middot;</span>
+  <a href="#sim">Bracket sim</a>
+  <a href="#boot">Golden Boot</a>
+  <a href="#lab">Forecast Lab</a>
+  <a href="#method">Method</a>
+</nav>
+
+<div class="eyebrow eyebrow--muted">The bracket &mdash; how it actually went &middot; &#10003; = advanced</div>
+<div class="bracket">
+  <div class="bracket-side">
+    <div class="tie"><a href="#qf1">
+      <div class="meta">QF1 &middot; FULL TIME &middot; Foxborough &middot; Jul 9</div>
+      <div class="row fav"><span class="name">France &#10003;</span><span class="pct">2</span></div>
+      <div class="row"><span class="name" style="color:var(--ink-3)">Morocco</span><span class="pct">0</span></div>
+    </a></div>
+    <div class="tie"><a href="#qf2">
+      <div class="meta">QF2 &middot; FULL TIME &middot; Inglewood &middot; Jul 10</div>
+      <div class="row fav"><span class="name">Spain &#10003;</span><span class="pct">2</span></div>
+      <div class="row"><span class="name" style="color:var(--ink-3)">Belgium</span><span class="pct">1</span></div>
+    </a></div>
+    <div class="tie"><a href="#sf1">
+      <div class="meta">Semifinal 1 &middot; FULL TIME &middot; Arlington &middot; Jul 14</div>
+      <div class="row"><span class="name" style="color:var(--ink-3)">France</span><span class="pct">0</span></div>
+      <div class="row fav"><span class="name">Spain &#10003;</span><span class="pct">2</span></div>
+    </a></div>
+  </div>
+  <div class="bracket-side">
+    <div class="tie"><a href="#qf3">
+      <div class="meta">QF3 &middot; AFTER EXTRA TIME &middot; Miami Gardens &middot; Jul 11</div>
+      <div class="row"><span class="name" style="color:var(--ink-3)">Norway</span><span class="pct">1</span></div>
+      <div class="row fav"><span class="name">England &#10003;</span><span class="pct">2</span></div>
+    </a></div>
+    <div class="tie"><a href="#qf4">
+      <div class="meta">QF4 &middot; AFTER EXTRA TIME &middot; Kansas City &middot; Jul 11</div>
+      <div class="row fav"><span class="name">Argentina &#10003;</span><span class="pct">3</span></div>
+      <div class="row"><span class="name" style="color:var(--ink-3)">Switzerland</span><span class="pct">1</span></div>
+    </a></div>
+    <div class="tie"><a href="#sf2">
+      <div class="meta">Semifinal 2 &middot; FULL TIME &middot; Atlanta &middot; Jul 15</div>
+      <div class="row"><span class="name" style="color:var(--ink-3)">England</span><span class="pct">1</span></div>
+      <div class="row fav"><span class="name">Argentina &#10003;</span><span class="pct">2</span></div>
+    </a></div>
+  </div>
+  <div class="bracket-showpiece">
+    <div class="tie gold-card"><a href="#final">
+      <div class="meta">THE FINAL &middot; Sunday July 19 &middot; 3:00pm ET &middot; MetLife Stadium</div>
+      <div class="row"><span class="name">Argentina</span><span class="pct">40.7%</span></div>
+      <div class="row fav"><span class="name">Spain</span><span class="pct">59.3%</span></div>
+    </a></div>
+    <div class="tie">
+      <div class="meta">3rd place &middot; Today Jul 18 &middot; 5:00pm ET &middot; Miami Gardens</div>
+      <div class="row fav"><span class="name">France</span><span class="pct">60.6%</span></div>
+      <div class="row"><span class="name">England</span><span class="pct">39.4%</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="howto">
+  <div class="cell">
+    <div class="bignum">xG</div>
+    <h3>Expected goals, in one breath</h3>
+    <p>Every shot gets a probability of scoring based on where and how it was taken. Add them up and you get xG &mdash; a measure of the chances a team <em>created</em>, stripped of luck. A team that wins 2&ndash;0 on 3.04&ndash;0.14 xG (France, QF1) earned every bit of it.</p>
+  </div>
+  <div class="cell">
+    <div class="bignum">&lambda;</div>
+    <h3>The models</h3>
+    <p>Six forecasters live on this page: the launch Poisson blend (Model A) plus a five-model ensemble &mdash; dynamic state-space, tournament form, Elo, and a club-form prior, weighted by measured backtest skill. Every forecast was published <em>before</em> its match. The scoreboard is in the <a href="#lab" style="color:var(--gold)">Forecast Lab</a>.</p>
+  </div>
+  <div class="cell">
+    <div class="bignum">2px</div>
+    <h3>Read the colors</h3>
+    <p>In every chart, the <b style="color:var(--team-a)">first-named team is blue</b> and the <b style="color:var(--team-b)">second is orange</b> &mdash; always, in every match. Gold marks the model's verdicts. Hover anything that looks like data.</p>
+  </div>
+</div>
+
+<hr class="keyline">
+
+<!-- ================= THE FINAL ================= -->
+<section class="match" id="final">
+  <div class="eyebrow">The Final &middot; Sunday July 19 &middot; 3:00pm ET &middot; MetLife Stadium, East Rutherford NJ</div>
+  <h2>The Machine and the Miracle</h2>
+  <div class="board showpiece">
+    <div class="board-head">
+      <div class="matchup">
+        <div class="team a team-a-ink">Argentina</div><div class="vs">vs</div><div class="team b team-b-ink">Spain</div>
+      </div>
+      <div class="prob-strip">
+        <div class="prob-bar" role="img" aria-label="Regulation probabilities: Argentina 27.6%, draw 28.8%, Spain 43.6%">
+          <span style="width:27.6%;background:var(--team-a)" data-tip="Argentina win in 90&prime;: 27.6%"></span>
+          <span style="width:28.8%;background:var(--draw)" data-tip="Draw after 90&prime;: 28.8%"></span>
+          <span style="width:43.6%;background:var(--team-b)" data-tip="Spain win in 90&prime;: 43.6%"></span>
+        </div>
+        <div class="prob-legend"><span>Argentina in 90&prime; &middot; 27.6%</span><span>Draw &middot; 28.8%</span><span>Spain in 90&prime; &middot; 43.6%</span></div>
+        <p class="advline">Lift the trophy (incl. extra time &amp; penalties): <b class="team-b-ink">Spain 59.3%</b> &middot; <b class="team-a-ink">Argentina 40.7%</b> &mdash; but the ensemble is hiding a genuine argument. Four of the six models sit within five points of a coin flip; only <b>tournament form screams Spain (79/21)</b>. The 28.8% draw probability is the highest of the entire knockout stage &mdash; extra time is live, and so is Dibu Mart&iacute;nez. Full model fight in the <a href="#lab" style="color:var(--gold)">Forecast Lab</a>.</p>
+      </div>
+    </div>
+    <div class="board-body">
+      <div class="prose">
+        <h3>The story</h3>
+        <p>Spain have played seven matches at this World Cup and conceded <b>one goal</b> &mdash; De Ketelaere's, in the quarterfinal &mdash; with <b>six clean sheets, the first team ever to keep six at a single World Cup</b>. They are unbeaten in 37 straight matches, have won 8 consecutive knockout games at major tournaments, and just held the French front four that terrorized everyone to <b>0.31 xG</b> in a semifinal that was never close. The reigning European champions have been the best team in this tournament from the opening week, and it isn't particularly arguable.</p>
+        <p>Argentina's counter-argument is not an argument; it's a fact pattern. A tournament-high <b>19 goals, 12 of them after the 75th minute</b>. Two knockout wins secured by goals in second-half stoppage time &mdash; no team had ever done that twice in one World Cup. Fourteen consecutive wins, 19 straight major-tournament matches unbeaten, and a 39-year-old captain with <b>8 goals and 4 assists</b> &mdash; 33 career World Cup goal contributions, the all-time record &mdash; playing, by his own account, the last World Cup match of his life. They have trailed in the 75th minute or later in three knockout games this month. They won all three.</p>
+        <p>Tactically it's the cleanest contrast a final has offered in years: <b>control against chaos</b>. Both teams are expected at full strength in mirrored 4&ndash;3&ndash;3s &mdash; Rodri, Fabi&aacute;n Ruiz and Olmo trying to strangle the midfield Argentina likes to flood; Oyarzabal ahead of Yamal and Baena against the tournament's stingiest back line by xG; Messi central between &Aacute;lvarez and Simeone, hunting the one transition Spain's press concedes per half. The stakes ledger, for history: Argentina are one win from a <b>fourth consecutive major title</b> (no nation has done it); Spain are one win from holding the <b>men's and women's World Cups simultaneously</b> (no nation has done that either). Something unprecedented happens at MetLife regardless.</p>
+      </div>
+      <div class="paths">
+        <div class="path">
+          <h4 class="team-a-ink">Argentina's road (19 GF / 7 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;0</span><span class="op">Algeria</span></li>
+            <li><span class="st">GRP</span><span class="sc">2&ndash;0</span><span class="op">Austria &mdash; Messi &times;2</span></li>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;1</span><span class="op">Jordan &mdash; Lo Celso, Lautaro, Messi</span></li>
+            <li><span class="st">R32</span><span class="sc">3&ndash;2*</span><span class="op">Cape Verde aet &mdash; survived a scare</span></li>
+            <li><span class="st">R16</span><span class="sc">3&ndash;2</span><span class="op">Egypt &mdash; from 2&ndash;0 down at 75&prime;; Enzo 90+2&prime;</span></li>
+            <li><span class="st">QF</span><span class="sc">3&ndash;1*</span><span class="op">Switzerland aet &mdash; &Aacute;lvarez 112&prime;, Lautaro 120+1&prime;</span></li>
+            <li class="hl"><span class="st">SF</span><span class="sc">2&ndash;1</span><span class="op">England &mdash; Enzo 85&prime;, Lautaro 90+2&prime;, Messi both assists</span></li>
+          </ul>
+        </div>
+        <div class="path">
+          <h4 class="team-b-ink">Spain's road (13 GF / 1 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">0&ndash;0</span><span class="op">Cape Verde &mdash; 27 shots, Vozinha &times;7 saves</span></li>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;0</span><span class="op">Saudi Arabia &mdash; Yamal 10&prime;, Oyarzabal &times;2, OG</span></li>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;0</span><span class="op">Uruguay &mdash; Baena</span></li>
+            <li><span class="st">R32</span><span class="sc">3&ndash;0</span><span class="op">Austria &mdash; Oyarzabal &times;2, Porro</span></li>
+            <li><span class="st">R16</span><span class="sc">1&ndash;0</span><span class="op">Portugal &mdash; Merino 90+1&prime;, ends Ronaldo's last WC</span></li>
+            <li><span class="st">QF</span><span class="sc">2&ndash;1</span><span class="op">Belgium &mdash; Ruiz 30&prime;, Merino 88&prime;</span></li>
+            <li class="hl"><span class="st">SF</span><span class="sc">2&ndash;0</span><span class="op">France &mdash; Oyarzabal pen 22&prime;, Porro 58&prime;</span></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Tale of the tape &mdash; seven matches each</h3>
+        <div class="tape">
+          <div class="tape-row"><span class="val a">2.71</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">goals / match &rsquo;26</span><div class="bar b"><i style="width:69%"></i></div><span class="val">1.86</span></div>
+          <div class="tape-row"><span class="val a">1.00</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">conceded / match &rsquo;26</span><div class="bar b"><i style="width:14%"></i></div><span class="val">0.14</span></div>
+          <div class="tape-row"><span class="val a">2.09</span><div class="bar a"><i style="width:98%"></i></div><span class="lbl">xG / match &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">2.14</span></div>
+          <div class="tape-row"><span class="val a">0.72</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">xGA / match &rsquo;26</span><div class="bar b"><i style="width:53%"></i></div><span class="val">0.38</span></div>
+          <div class="tape-row"><span class="val a">2</span><div class="bar a"><i style="width:33%"></i></div><span class="lbl">clean sheets &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">6</span></div>
+          <div class="tape-row"><span class="val a">2250</span><div class="bar a"><i style="width:99.6%"></i></div><span class="lbl">Elo rating, today</span><div class="bar b"><i style="width:100%"></i></div><span class="val">2259</span></div>
+        </div>
+        <p class="tape-note">xG rows from live match data plus reported figures (available for 6 of Argentina's 7 matches, 4 of Spain's 7). Elo recomputed from the full results history through the semifinals &mdash; Spain took the #1 spot from Argentina in Arlington; nine points now separate the two best-rated teams in the world.</p>
+      </div>
+      <div>
+        <h3>Players to watch &mdash; projected for this match</h3>
+        <div class="players">
+          <div class="pcard a">
+            <div class="who"><span class="nm">Lionel Messi</span><span class="tm">Argentina</span></div>
+            <div class="proj"><span>proj. goals <b>0.39</b></span><span>scores anytime <b>32%</b></span></div>
+            <div class="pmeter"><i style="width:32%"></i></div>
+            <div class="note">8 goals, 4 assists, and the all-time WC goal-contributions record (33). His nine-game WC scoring streak ended vs Switzerland &mdash; he answered by assisting three of the four goals since. His last World Cup match. The second player ever to appear in three WC finals.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Mikel Oyarzabal</span><span class="tm">Spain</span></div>
+            <div class="proj"><span>proj. goals <b>0.48</b></span><span>scores anytime <b>38%</b></span></div>
+            <div class="pmeter"><i style="width:38%"></i></div>
+            <div class="note">The highest projection on either team. 5 goals, 3 of them in knockouts, plus the Euro 2024 final winner &mdash; the least famous big-game striker in world football keeps ending tournaments.</div>
+          </div>
+          <div class="pcard a">
+            <div class="who"><span class="nm">Lautaro Mart&iacute;nez</span><span class="tm">Argentina</span></div>
+            <div class="proj"><span>proj. goals <b>0.15</b></span><span>scores anytime <b>14%</b></span></div>
+            <div class="pmeter"><i style="width:14%"></i></div>
+            <div class="note">The closer. Winners in the 120+1&prime; (Switzerland) and 90+2&prime; (England) &mdash; 12 of Argentina's 19 goals have come after the 75th, and he is the tip of the late-game siege. The projection can't see game state; he can.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Lamine Yamal</span><span class="tm">Spain</span></div>
+            <div class="proj"><span>proj. goals <b>0.10</b></span><span>scores anytime <b>9%</b></span></div>
+            <div class="pmeter"><i style="width:9%"></i></div>
+            <div class="note">22 completed dribbles, second only to Messi's 25 &mdash; the torch-passing subplot writes itself &mdash; but zero goals or assists in the knockout rounds. Just turned 19. Due, in every sense.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Rodri</span><span class="tm">Spain</span></div>
+            <div class="proj"><span><b>63</b> line-breaking passes into the final third</span></div>
+            <div class="pmeter"><i style="width:63%"></i></div>
+            <div class="note">The metronome of the whole enterprise, fresh off a semifinal masterclass against France. If Argentina's midfield flood can't reach him, the game is played entirely on Spain's terms.</div>
+          </div>
+          <div class="pcard a">
+            <div class="who"><span class="nm">Emiliano Mart&iacute;nez</span><span class="tm">Argentina</span></div>
+            <div class="proj"><span>P(draw after 90&prime;) <b>28.8%</b></span><span>highest of the knockouts</span></div>
+            <div class="pmeter"><i style="width:29%"></i></div>
+            <div class="note">Nearly a three-in-ten chance this reaches extra time, and every minute past the 90th bends toward Argentina: their late-game record, and the single most feared penalty goalkeeper alive.</div>
+          </div>
+        </div>
+      </div>
+      <div class="duo">
+        <div>
+          <h3>Scoreline probabilities &mdash; ensemble</h3>
+          <div class="heat" data-heat="11.3,14.1,8.8,3.7,1.1;10.5,13.1,8.2,3.4,1.1;4.9,6.1,3.8,1.6,0.5;1.5,1.9,1.2,0.5,0.2;0.4,0.4,0.3,0.1,0.0" data-a="Argentina" data-b="Spain"></div>
+          <div class="heat-axis">rows = <span class="axis-a">Argentina</span> goals &middot; columns = <span class="axis-b">Spain</span> goals &middot; most likely: <b>0&ndash;1 (14.1%)</b>, then 1&ndash;1 (13.1%), 0&ndash;0 (11.3%)</div>
+        </div>
+        <div>
+          <h3>History</h3>
+          <div class="history"><ul>
+            <li>14 all-time meetings: <b>Argentina 6, Spain 6, drawn 2</b> &mdash; you could not write it more evenly.</li>
+            <li>Only prior World Cup meeting: <b>1966 group stage, Argentina 2&ndash;1</b>. Sixty years ago.</li>
+            <li>Spain have won <b>4 of the last 6</b> encounters &mdash; but none in a knockout, and never in a final.</li>
+            <li>The market (closing odds): Spain +115, draw +200, Argentina +285 &mdash; normalized &asymp; 44 / 31 / 25 in 90&prime;. The ensemble's regulation line: 44 / 29 / 28. Model and market agree on Spain to the decimal; the model is two points warmer on the champions.</li>
+          </ul></div>
+          <div class="verdict" style="margin-top:18px">
+            <span class="vh">The model says</span>
+            <b>Spain 59.3 / Argentina 40.7</b>, likeliest score 0&ndash;1 &mdash; but read the disagreement, because it <em>is</em> the analysis. The two long-memory systems (Elo: 51/49 Spain; the dynamic filter: 50/50) say these are simply the two best teams alive and refuse to pick. Tournament form &mdash; the scoreboard's sharpest QF forecaster &mdash; says Spain 79/21, because a 0.38 xGA/match suppression machine doesn't usually leak to anyone. The whole final reduces to <b>one number against one number: Argentina's 12 goals after the 75th minute, Spain's 1 conceded in a month</b>. An irresistible force with a Nobel-grade sense of timing meets the most immovable object in World Cup history. Somebody's identity breaks at MetLife.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="sect-sub" style="margin-top:18px">Meanwhile, today in Miami Gardens: the bronze final, <b>France vs England</b>, 5pm ET. The ensemble says France 60.6/39.4 (form 72.2, the filter 52.6), likeliest score 1&ndash;1. The stakes are pride, seeding &mdash; and one last Golden Boot audition for Mbapp&eacute;, Kane and Bellingham before Messi gets the final word on Sunday.</p>
+</section>
+
+<hr class="keyline">
+
+<!-- ================= QF1 ================= -->
+<section class="match" id="qf1">
+  <div class="eyebrow">Quarterfinal 1 &middot; FULL TIME &middot; Gillette Stadium, Foxborough MA &middot; preview below preserved as written</div>
+  <h2>The Rematch, With the Roles Rewritten</h2>
+  <div class="verdict" style="margin:14px 0 18px">
+    <span class="vh">Full time &mdash; France 2, Morocco 0</span>
+    Mbapp&eacute; 60&prime; (his 8th of the tournament and 20th career World Cup goal &mdash; after Bounou saved his first-half penalty, because Bounou saving penalties is a law of nature), Demb&eacute;l&eacute; 66&prime; (his 5th). Shots <b>21&ndash;4</b>, on target <b>8&ndash;1</b>, xG <b>3.04&ndash;0.14</b> &mdash; the most one-sided quarterfinal imaginable. The ensemble said 65% France; the <b>tournament-form model's 80/20 was closest to the truth</b>, and the dynamic filter's coin-flip call is the Lab's first casualty. France await the Spain&ndash;Belgium winner in Dallas &mdash; and are now the simulation's title favorite (32.4%).
+  </div>
+  <div class="board">
+    <div class="board-head">
+      <div class="matchup">
+        <div class="team a team-a-ink">France</div><div class="vs">vs</div><div class="team b team-b-ink">Morocco</div>
+      </div>
+      <div class="prob-strip">
+        <div class="prob-bar" role="img" aria-label="Regulation probabilities: France 40.4%, draw 27.4%, Morocco 32.2%">
+          <span style="width:40.4%;background:var(--team-a)" data-tip="France win in 90&prime;: 40.4%"></span>
+          <span style="width:27.4%;background:var(--draw)" data-tip="Draw after 90&prime;: 27.4%"></span>
+          <span style="width:32.2%;background:var(--team-b)" data-tip="Morocco win in 90&prime;: 32.2%"></span>
+        </div>
+        <div class="prob-legend"><span>France in 90&prime; &middot; 40.4%</span><span>Draw &middot; 27.4%</span><span>Morocco in 90&prime; &middot; 32.2%</span></div>
+        <p class="advline">Advance (incl. extra time &amp; penalties): <b class="team-a-ink">France 54.7%</b> &middot; <b class="team-b-ink">Morocco 45.3%</b> &mdash; Model A's closest quarterfinal, much tighter than the pundit consensus. <b style="color:var(--gold)">Ensemble v2: France 65.1%</b> &mdash; but see the <a href="#lab" style="color:var(--gold)">Forecast Lab</a>: the model with the longest memory calls this a coin flip.</p>
+      </div>
+    </div>
+    <div class="board-body">
+      <div class="prose">
+        <h3>The story</h3>
+        <p>Fourteen years of history compressed into one fixture: the 2022 semifinal, replayed in Foxborough &mdash; except Morocco is no longer the team that defended its way to fourth place. At Qatar 2022 they held <b>38.8% possession</b> and threw bodies in front of everything. At AFCON 2023 that number jumped to 54.9%. This tournament it's <b>60.4% &mdash; functionally identical to France's 60.5%</b>. Walid Regragui's successors didn't just keep the wall; they learned to hold the ball. This is a genuine stylistic mirror match now, and the event data saw the transformation coming three years ago.</p>
+        <p>France, meanwhile, are the tournament's steamroller: <b>14 goals, a tournament-best 17.8 shots per game, 10.7 xG</b>, and a front four &mdash; Mbapp&eacute;, Demb&eacute;l&eacute;, Olise, Barcola &mdash; that Norway's coach flatly called "the best in the competition by far." The one crack: Aur&eacute;lien Tchouam&eacute;ni's adductor is a game-time question, and Morocco's biggest blow is bigger &mdash; breakout star <b>Ismael Saibari (3 goals, new &euro;50m Bayern signing) is out with a hamstring injury</b>. Morocco's false-nine system was built around him.</p>
+      </div>
+      <div class="paths">
+        <div class="path">
+          <h4 class="team-a-ink">France's road (14 GF / 2 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;1</span><span class="op">Senegal &mdash; Mbapp&eacute; &times;2, Barcola</span></li>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;0</span><span class="op">Iraq &mdash; Mbapp&eacute; &times;2</span></li>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;1</span><span class="op">Norway &mdash; Demb&eacute;l&eacute; hat-trick</span></li>
+            <li><span class="st">R32</span><span class="sc">3&ndash;0</span><span class="op">Sweden &mdash; Mbapp&eacute; 45&prime;, 74&prime;, Barcola 53&prime;</span></li>
+            <li class="hl"><span class="st">R16</span><span class="sc">1&ndash;0</span><span class="op">Paraguay &mdash; Mbapp&eacute; (pen)</span></li>
+          </ul>
+        </div>
+        <div class="path">
+          <h4 class="team-b-ink">Morocco's road (10 GF / 4 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;1</span><span class="op">Brazil &mdash; Saibari</span></li>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;0</span><span class="op">Scotland &mdash; Saibari, 2&prime; (fastest Moroccan WC goal)</span></li>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;2</span><span class="op">Haiti &mdash; Saibari, Rahimi, Hakimi, Yassine</span></li>
+            <li class="hl"><span class="st">R32</span><span class="sc">1&ndash;1*</span><span class="op">Netherlands &mdash; won 4&ndash;2 on pens, Bounou &times;3 saves</span></li>
+            <li><span class="st">R16</span><span class="sc">3&ndash;0</span><span class="op">Canada &mdash; Ounahi &times;2, Rahimi</span></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Tale of the tape</h3>
+        <div class="tape">
+          <div class="tape-row"><span class="val a">2.80</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">goals / match &rsquo;26</span><div class="bar b"><i style="width:71%"></i></div><span class="val">2.00</span></div>
+          <div class="tape-row"><span class="val a">2.14</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">xG / match &rsquo;26</span><div class="bar b"><i style="width:78%"></i></div><span class="val">1.66</span></div>
+          <div class="tape-row"><span class="val a">0.40</span><div class="bar a"><i style="width:50%"></i></div><span class="lbl">conceded / match &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">0.80</span></div>
+          <div class="tape-row"><span class="val a">60.5</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">possession % &rsquo;26</span><div class="bar b"><i style="width:99.8%"></i></div><span class="val">60.4</span></div>
+          <div class="tape-row"><span class="val a">1.37</span><div class="bar a"><i style="width:70%"></i></div><span class="lbl">xG / match, last major</span><div class="bar b"><i style="width:100%"></i></div><span class="val">1.97</span></div>
+          <div class="tape-row"><span class="val a">0.81</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">xGA / match, last major</span><div class="bar b"><i style="width:93%"></i></div><span class="val">0.75</span></div>
+        </div>
+        <p class="tape-note">"Last major" = Euro 2024 (France) / AFCON 2023 (Morocco), computed from StatsBomb event data. Morocco's AFCON attack numbers came against weaker opposition &mdash; one reason the model is friendlier to them than the market.</p>
+      </div>
+      <div>
+        <h3>Players to watch &mdash; projected for this match</h3>
+        <div class="players">
+          <div class="pcard a">
+            <div class="who"><span class="nm">Kylian Mbapp&eacute;</span><span class="tm">France</span></div>
+            <div class="proj"><span>proj. goals <b>0.65</b></span><span>scores anytime <b>48%</b></span></div>
+            <div class="pmeter"><i style="width:48%"></i></div>
+            <div class="note">7 goals this tournament &mdash; half of France's 14 &mdash; and he's scored in 4 of 5 games, including both knockout rounds. 10 career WC knockout goals, the all-time record.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Azzedine Ounahi</span><span class="tm">Morocco</span></div>
+            <div class="proj"><span>proj. goals <b>0.34</b></span><span>scores anytime <b>29%</b></span></div>
+            <div class="pmeter"><i style="width:29%"></i></div>
+            <div class="note">Two goals vs Canada in the R16. The 2022 data flagged him as Morocco's silkiest progressor; with Saibari out, he becomes the attacking hub.</div>
+          </div>
+          <div class="pcard a">
+            <div class="who"><span class="nm">Michael Olise</span><span class="tm">France</span></div>
+            <div class="proj"><span>assists <b>5</b> this WC</span><span>chasing Pel&eacute;'s 6 (1970)</span></div>
+            <div class="pmeter"><i style="width:83%"></i></div>
+            <div class="note">Tournament assist leader. One more and he ties the most famous creative season in World Cup history.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Yassine Bounou</span><span class="tm">Morocco</span></div>
+            <div class="proj"><span>last 12 pens faced: <b>4</b> scored</span><span>5 saved / 3 missed</span></div>
+            <div class="pmeter"><i style="width:67%"></i></div>
+            <div class="note">Three shootout saves vs the Netherlands. If this reaches penalties, all history says Morocco wins from there.</div>
+          </div>
+        </div>
+      </div>
+      <div class="duo">
+        <div>
+          <h3>Scoreline probabilities</h3>
+          <div class="heat" data-heat="8.9,10.0,5.6,2.1,0.6;11.5,13.0,7.3,2.7,0.8;7.5,8.4,4.7,1.8,0.5;3.2,3.6,2.0,0.8,0.2;1.0,1.2,0.7,0.2,0.1" data-a="France" data-b="Morocco"></div>
+          <div class="heat-axis">rows = <span class="axis-a">France</span> goals &middot; columns = <span class="axis-b">Morocco</span> goals &middot; most likely: <b>1&ndash;1 (13%)</b></div>
+        </div>
+        <div>
+          <h3>World Cup history</h3>
+          <div class="history"><ul>
+            <li><b>2022 semifinal:</b> France 2&ndash;0 (Theo Hern&aacute;ndez 5&prime;, Kolo Muani 79&prime;) &mdash; the only prior WC meeting.</li>
+            <li>Morocco &rsquo;22 conceded <b>0.95 xGA/match over 7 games</b> and no open-play goal until the semi.</li>
+            <li>France have reached the final in 3 of the last 4 World Cups.</li>
+          </ul></div>
+          <div class="verdict" style="margin-top:18px">
+            <span class="vh">The model says</span>
+            <b>France 54.7 / Morocco 45.3.</b> A coin-flip with a thumb on it. The market says France comfortably; the data says Morocco's underlying defense (0.75&ndash;0.95 xGA/match across three straight tournaments) travels, and Saibari's absence is worth less to a suppression game than to a shootout. <b>One stat to watch:</b> France's 17.8 shots per game vs a Morocco defense that has never allowed more than 10 in a knockout match. Whoever wins that number wins the day.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QF2 ================= -->
+<section class="match" id="qf2">
+  <div class="eyebrow">Quarterfinal 2 &middot; FULL TIME &middot; SoFi Stadium, Inglewood CA &middot; preview below preserved as written</div>
+  <h2>The Wall Meets the Wave</h2>
+  <div class="verdict" style="margin:14px 0 18px">
+    <span class="vh">Full time &mdash; Spain 2, Belgium 1</span>
+    Fabi&aacute;n Ruiz 30&prime;, De Ketelaere 41&prime;, Merino 88&prime; &mdash; the winner a rebound spilled by backup keeper Lammens after Courtois went off injured, which is the second straight round Merino has ended in the closing minutes. Unai Sim&oacute;n's record shutout streak died at <b>650 minutes</b>; De Ketelaere's equalizer remains, as of the eve of the Final, <b>the only goal Spain have conceded all tournament</b>. xG <b>1.96&ndash;0.34</b>, possession 68/32 &mdash; the "wall meets wave" script below played out almost line by line, except the wave crested exactly once. The ensemble's 71.4% was the Lab's most confident call of the round, and its most correct: Belgium never led, Tielemans never played, and Spain moved on to France with the trophy odds to match.
+  </div>
+  <div class="board">
+    <div class="board-head">
+      <div class="matchup">
+        <div class="team a team-a-ink">Spain</div><div class="vs">vs</div><div class="team b team-b-ink">Belgium</div>
+      </div>
+      <div class="prob-strip">
+        <div class="prob-bar" role="img" aria-label="Regulation probabilities: Spain 55.8%, draw 25.3%, Belgium 18.8%">
+          <span style="width:55.8%;background:var(--team-a)" data-tip="Spain win in 90&prime;: 55.8%"></span>
+          <span style="width:25.3%;background:var(--draw)" data-tip="Draw after 90&prime;: 25.3%"></span>
+          <span style="width:18.8%;background:var(--team-b)" data-tip="Belgium win in 90&prime;: 18.8%"></span>
+        </div>
+        <div class="prob-legend"><span>Spain in 90&prime; &middot; 55.8%</span><span>Draw &middot; 25.3%</span><span>Belgium in 90&prime; &middot; 18.8%</span></div>
+        <p class="advline">Advance: <b class="team-a-ink">Spain 71.0%</b> &middot; <b class="team-b-ink">Belgium 29.0%</b> &mdash; the model's biggest favorite of the round. <b style="color:var(--gold)">Ensemble v2: Spain 71.4%</b> &mdash; five models, one verdict; the most robust call of the weekend.</p>
+      </div>
+    </div>
+    <div class="board-body">
+      <div class="prose">
+        <h3>The story</h3>
+        <p>Spain have not conceded a goal at this World Cup. Not one. Unai Sim&oacute;n's shutout streak stands at <b>609 minutes &mdash; a men's World Cup record</b>, past the 517 of Italy 2006. And it's not keeper heroics: this is the same suffocation machine our Euro 2024 event data measured winning that tournament with a <b>PPDA of 10.9</b> (passes allowed per defensive action &mdash; lower = more aggressive) and the highest press line in the field (65.7). They smother you where you build.</p>
+        <p>Belgium are the opposite: gloriously, chaotically alive. Down 2&ndash;0 to Senegal with 20 minutes left &mdash; won 3&ndash;2 in the 125th minute. Benched De Bruyne <em>and</em> Doku in the round of 16 and hammered the USA 4&ndash;1 anyway, with Charles De Ketelaere (2G+1A) looking like the heir the golden generation never got. But the ledger is grim: <b>Amadou Onana's ACL rupture</b> removes their only true midfield destroyer, and Spain's whole game is midfield asphyxiation. The last time these teams met in a World Cup knockout &mdash; 1986 &mdash; Belgium won on penalties. Belgium have never lost to Spain at a World Cup. That's the thread they're hanging by.</p>
+      </div>
+      <div class="paths">
+        <div class="path">
+          <h4 class="team-a-ink">Spain's road (9 GF / 0 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">0&ndash;0</span><span class="op">Cape Verde &mdash; 27 shots, Vozinha &times;7 saves</span></li>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;0</span><span class="op">Saudi Arabia &mdash; Yamal 10&prime;, Oyarzabal &times;2, OG</span></li>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;0</span><span class="op">Uruguay &mdash; Baena</span></li>
+            <li><span class="st">R32</span><span class="sc">3&ndash;0</span><span class="op">Austria &mdash; Oyarzabal &times;2, Porro</span></li>
+            <li class="hl"><span class="st">R16</span><span class="sc">1&ndash;0</span><span class="op">Portugal &mdash; Merino 90+1&prime;, ends Ronaldo's last WC</span></li>
+          </ul>
+        </div>
+        <div class="path">
+          <h4 class="team-b-ink">Belgium's road (13 GF / 5 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;1</span><span class="op">Egypt &mdash; De Bruyne</span></li>
+            <li><span class="st">GRP</span><span class="sc">0&ndash;0</span><span class="op">Iran</span></li>
+            <li><span class="st">GRP</span><span class="sc">5&ndash;1</span><span class="op">New Zealand &mdash; Trossard &times;2, KDB, Lukaku, Saelemaekers</span></li>
+            <li class="hl"><span class="st">R32</span><span class="sc">3&ndash;2*</span><span class="op">Senegal aet &mdash; from 2&ndash;0 down; Tielemans 125&prime;</span></li>
+            <li><span class="st">R16</span><span class="sc">4&ndash;1</span><span class="op">USA &mdash; De Ketelaere &times;2, Vanaken, Lukaku</span></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Tale of the tape</h3>
+        <div class="tape">
+          <div class="tape-row"><span class="val a">1.80</span><div class="bar a"><i style="width:69%"></i></div><span class="lbl">goals / match &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">2.60</span></div>
+          <div class="tape-row"><span class="val a">0.00</span><div class="bar a"><i style="width:0%"></i></div><span class="lbl">conceded / match &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">1.00</span></div>
+          <div class="tape-row"><span class="val a">57</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">possession % &rsquo;26</span><div class="bar b"><i style="width:84%"></i></div><span class="val">48</span></div>
+          <div class="tape-row"><span class="val a">1.51</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">xG / match, Euro 2024</span><div class="bar b"><i style="width:73%"></i></div><span class="val">1.10</span></div>
+          <div class="tape-row"><span class="val a">0.92</span><div class="bar a"><i style="width:94%"></i></div><span class="lbl">xGA / match, Euro 2024</span><div class="bar b"><i style="width:100%"></i></div><span class="val">0.98</span></div>
+          <div class="tape-row"><span class="val a">10.9</span><div class="bar a"><i style="width:80%"></i></div><span class="lbl">PPDA, Euro 2024 (lower = fiercer press)</span><div class="bar b"><i style="width:100%"></i></div><span class="val">13.7</span></div>
+        </div>
+        <p class="tape-note">Euro 2024 rows computed from StatsBomb event data &mdash; Spain played 7 matches (won the title), Belgium 4 (out in the R16).</p>
+      </div>
+      <div>
+        <h3>Players to watch &mdash; projected for this match</h3>
+        <div class="players">
+          <div class="pcard a">
+            <div class="who"><span class="nm">Mikel Oyarzabal</span><span class="tm">Spain</span></div>
+            <div class="proj"><span>proj. goals <b>0.70</b></span><span>scores anytime <b>50%</b></span></div>
+            <div class="pmeter"><i style="width:50%"></i></div>
+            <div class="note">4 goals this tournament, quietly Spain's most clinical forward since he scored the Euro 2024 final winner &mdash; a game our event data has him leading in npxG efficiency.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Charles De Ketelaere</span><span class="tm">Belgium</span></div>
+            <div class="proj"><span>proj. goals <b>0.15</b></span><span>scores anytime <b>14%</b></span></div>
+            <div class="pmeter"><i style="width:14%"></i></div>
+            <div class="note">2G+1A demolition of the USA. The projection is low because the model expects Belgium to see very little of the ball &mdash; his chances will be transitions.</div>
+          </div>
+          <div class="pcard a">
+            <div class="who"><span class="nm">Lamine Yamal</span><span class="tm">Spain</span></div>
+            <div class="proj"><span>proj. goals <b>0.22</b> <em>if he plays</em></span><span>fitness doubt</span></div>
+            <div class="pmeter"><i style="width:20%"></i></div>
+            <div class="note">Hasn't played since June 27. At Euro 2024 (age 16!) he led Spain in chances created (14) and npxG+assists in our data. Even 30 minutes changes this match.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Leandro Trossard</span><span class="tm">Belgium</span></div>
+            <div class="proj"><span>17 chances created &rsquo;26</span><span>2nd in tournament</span></div>
+            <div class="pmeter"><i style="width:70%"></i></div>
+            <div class="note">Only Olise has created more this World Cup. Against a Spain team that allows almost nothing, Belgium's hopes route through his left half-space.</div>
+          </div>
+        </div>
+      </div>
+      <div class="duo">
+        <div>
+          <h3>Scoreline probabilities</h3>
+          <div class="heat" data-heat="9.4,7.5,3.0,0.8,0.2;14.8,11.7,4.6,1.2,0.2;11.6,9.2,3.6,1.0,0.2;6.1,4.8,1.9,0.5,0.1;2.4,1.9,0.7,0.2,0.0" data-a="Spain" data-b="Belgium"></div>
+          <div class="heat-axis">rows = <span class="axis-a">Spain</span> goals &middot; columns = <span class="axis-b">Belgium</span> goals &middot; most likely: <b>1&ndash;0 (14.8%)</b></div>
+        </div>
+        <div>
+          <h3>World Cup history</h3>
+          <div class="history"><ul>
+            <li><b>1986 quarterfinal:</b> 1&ndash;1 aet, Belgium won 5&ndash;4 on penalties (Pfaff the hero) &mdash; their first-ever semifinal run.</li>
+            <li><b>1990 group stage:</b> Spain 2&ndash;1.</li>
+            <li>Belgium have <b>never lost to Spain at a World Cup</b>. Spain have never trailed at this one.</li>
+          </ul></div>
+          <div class="verdict" style="margin-top:18px">
+            <span class="vh">The model says</span>
+            <b>Spain 71 / Belgium 29</b>, and 1&ndash;0 is the single most likely score in any quarterfinal. The shape of this match is already written: Spain will have ~60% of the ball, Belgium will get 3&ndash;4 transition moments, and the game turns on whether De Ketelaere or Trossard finishes one. <b>One stat to watch:</b> Sim&oacute;n's streak. It needs 91 more minutes to reach 700 &mdash; and Belgium's 2.6 goals/game says something has to give.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QF3 ================= -->
+<section class="match" id="qf3">
+  <div class="eyebrow">Quarterfinal 3 &middot; AFTER EXTRA TIME &middot; Hard Rock Stadium, Miami Gardens FL &middot; preview below preserved as written</div>
+  <h2>The Fairy Tale Against the Machine</h2>
+  <div class="verdict" style="margin:14px 0 18px">
+    <span class="vh">After extra time &mdash; Norway 1, England 2</span>
+    Schjelderup 36&prime;, Bellingham 45+2&prime; and 93&prime; &mdash; the winner three minutes into extra time, pouncing on a Nyland error from close range. The fairy tale fought: Heggem had a second Norway goal disallowed on review for a Haaland shove before the corner, and it took 120 minutes to put the story down. But <b>Haaland was silenced for the first time all tournament</b> &mdash; subbed off late, his 14-match international scoring streak dead, his xG share strangled by a back line that gave Norway just 0.68 xG in two hours. England's first semifinal since 2018, on a Bellingham brace, at 66.8% ensemble confidence &mdash; the chorus of six models was right, but the game was every bit as violent as the 3.02 combined-xG projection promised.
+  </div>
+  <div class="board">
+    <div class="board-head">
+      <div class="matchup">
+        <div class="team a team-a-ink">Norway</div><div class="vs">vs</div><div class="team b team-b-ink">England</div>
+      </div>
+      <div class="prob-strip">
+        <div class="prob-bar" role="img" aria-label="Regulation probabilities: Norway 26.1%, draw 23.2%, England 50.7%">
+          <span style="width:26.1%;background:var(--team-a)" data-tip="Norway win in 90&prime;: 26.1%"></span>
+          <span style="width:23.2%;background:var(--draw)" data-tip="Draw after 90&prime;: 23.2%"></span>
+          <span style="width:50.7%;background:var(--team-b)" data-tip="England win in 90&prime;: 50.7%"></span>
+        </div>
+        <div class="prob-legend"><span>Norway in 90&prime; &middot; 26.1%</span><span>Draw &middot; 23.2%</span><span>England in 90&prime; &middot; 50.7%</span></div>
+        <p class="advline">Advance: <b class="team-b-ink">England 63.7%</b> &middot; <b class="team-a-ink">Norway 36.3%</b> &mdash; and the highest combined expected goals (3.02) of the round. This is the one to watch with friends. <b style="color:var(--gold)">Ensemble v2: England 66.8%</b> &mdash; but Norway carries the widest uncertainty band in the field, and their Elo rating (2003) is the highest in Norwegian history.</p>
+      </div>
+    </div>
+    <div class="board-body">
+      <div class="prose">
+        <h3>The story</h3>
+        <p>Norway's men had played one knockout match in their entire World Cup history &mdash; 1938, a 2&ndash;1 extra-time loss to Italy &mdash; before this summer. Now they've won two in twelve days, the second of them <b>eliminating Brazil</b>, with Erling Haaland scoring in the 79th and 90th minutes. It is Norway's first men's quarterfinal ever, their first World Cup at all since 1998 (a tournament where, incidentally, they also beat Brazil &mdash; the men are still unbeaten against them). Haaland has <b>7 goals on 3.7 xG</b>: the most violent finishing overperformance in the field, from a man who does this every week in the Premier League.</p>
+        <p>England under Thomas Tuchel are the round's stylistic inverse: 65% possession, 15.6 shots a game, and the knockout resilience they historically lacked &mdash; they beat Mexico <em>at the Azteca</em>, with ten men, on Bellingham's two goals in 98 seconds. But the back line is patched: Quansah is suspended, Reece James is a hamstring doubt, Saka's Achilles is being managed. And Norway put at least one goal past everyone, including France. Both teams have scored <em>and</em> conceded in every Norway match this tournament. The nil-nil is nearly off the board (4.9%).</p>
+      </div>
+      <div class="paths">
+        <div class="path">
+          <h4 class="team-a-ink">Norway's road (12 GF / 9 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;1</span><span class="op">Iraq &mdash; Haaland &times;2, &Oslash;stig&aring;rd, OG</span></li>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;2</span><span class="op">Senegal &mdash; Haaland, Berg, OG</span></li>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;4</span><span class="op">France &mdash; Haaland</span></li>
+            <li><span class="st">R32</span><span class="sc">2&ndash;1</span><span class="op">Ivory Coast &mdash; Nusa, Haaland 86&prime;</span></li>
+            <li class="hl"><span class="st">R16</span><span class="sc">2&ndash;1</span><span class="op">BRAZIL &mdash; Haaland 79&prime;, 90&prime;; Nyland pen save</span></li>
+          </ul>
+        </div>
+        <div class="path">
+          <h4 class="team-b-ink">England's road (11 GF / 5 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;2</span><span class="op">Croatia &mdash; Kane &times;2, Bellingham, Rashford</span></li>
+            <li><span class="st">GRP</span><span class="sc">0&ndash;0</span><span class="op">Ghana</span></li>
+            <li><span class="st">GRP</span><span class="sc">2&ndash;0</span><span class="op">Panama &mdash; Bellingham, Kane</span></li>
+            <li><span class="st">R32</span><span class="sc">2&ndash;1</span><span class="op">DR Congo &mdash; Kane 75&prime;, 86&prime; (first ENG knockout brace since Lineker &rsquo;90)</span></li>
+            <li class="hl"><span class="st">R16</span><span class="sc">3&ndash;2</span><span class="op">Mexico at the Azteca &mdash; Bellingham &times;2 in 98 seconds, Kane pen, 10 men from 55&prime;</span></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Tale of the tape</h3>
+        <div class="tape">
+          <div class="tape-row"><span class="val a">2.40</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">goals / match &rsquo;26</span><div class="bar b"><i style="width:92%"></i></div><span class="val">2.20</span></div>
+          <div class="tape-row"><span class="val a">1.80</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">conceded / match &rsquo;26</span><div class="bar b"><i style="width:56%"></i></div><span class="val">1.00</span></div>
+          <div class="tape-row"><span class="val a">10.4</span><div class="bar a"><i style="width:67%"></i></div><span class="lbl">shots / match &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">15.6</span></div>
+          <div class="tape-row"><span class="val a">52</span><div class="bar a"><i style="width:80%"></i></div><span class="lbl">possession % &rsquo;26</span><div class="bar b"><i style="width:100%"></i></div><span class="val">65</span></div>
+          <div class="tape-row"><span class="val a">23</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">goals per shot % &rsquo;26 (finishing heat)</span><div class="bar b"><i style="width:61%"></i></div><span class="val">14</span></div>
+        </div>
+        <p class="tape-note">Norway is the one quarterfinalist with no StatsBomb event history (no major since 1998 &mdash; the data gap is the story). Their rows are 2026-tournament only; England's Euro 2024 profile from our data: 0.94 xG / 0.87 xGA per match under Southgate &mdash; Tuchel's version is a different animal.</p>
+      </div>
+      <div>
+        <h3>Players to watch &mdash; projected for this match</h3>
+        <div class="players">
+          <div class="pcard a">
+            <div class="who"><span class="nm">Erling Haaland</span><span class="tm">Norway</span></div>
+            <div class="proj"><span>proj. goals <b>0.72</b></span><span>scores anytime <b>51%</b></span></div>
+            <div class="pmeter"><i style="width:51%"></i></div>
+            <div class="note">7 goals in 5 games, scored in every one, fastest ever to 60 international goals (53 caps). 35&ndash;40% of Norway's non-penalty xG flows through him. Stop him, stop Norway &mdash; nobody has.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Harry Kane</span><span class="tm">England</span></div>
+            <div class="proj"><span>proj. goals <b>0.98</b></span><span>scores anytime <b>62%</b></span></div>
+            <div class="pmeter"><i style="width:62%"></i></div>
+            <div class="note">The single highest player projection of the round. 6 goals this tournament, 11 in his last 12 major-tournament knockout games. The model practically pencils him in.</div>
+          </div>
+          <div class="pcard a">
+            <div class="who"><span class="nm">Martin &Oslash;degaard</span><span class="tm">Norway</span></div>
+            <div class="proj"><span>the supply line</span><span>7 assists in qualifying</span></div>
+            <div class="pmeter"><i style="width:45%"></i></div>
+            <div class="note">Set up Nusa's opener vs Ivory Coast. England's double pivot will hunt him &mdash; if he finds half-spaces anyway, Haaland eats.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Jude Bellingham</span><span class="tm">England</span></div>
+            <div class="proj"><span>proj. goals <b>0.65</b></span><span>scores anytime <b>48%</b></span></div>
+            <div class="pmeter"><i style="width:48%"></i></div>
+            <div class="note">4 goals from midfield (Croatia, Panama, two in 98 seconds vs Mexico). At Euro 2024 our data logged him with 156 pressures &mdash; England's most aggressive presser. Against Norway's shaky exits, that's a weapon.</div>
+          </div>
+        </div>
+      </div>
+      <div class="duo">
+        <div>
+          <h3>Scoreline probabilities</h3>
+          <div class="heat" data-heat="4.9,8.8,7.9,4.7,2.1;6.0,10.7,9.6,5.7,2.6;3.7,6.6,5.9,3.5,1.6;1.5,2.7,2.4,1.4,0.6;0.5,0.8,0.7,0.4,0.2" data-a="Norway" data-b="England"></div>
+          <div class="heat-axis">rows = <span class="axis-a">Norway</span> goals &middot; columns = <span class="axis-b">England</span> goals &middot; most likely: <b>1&ndash;1 (10.7%)</b>, then 1&ndash;2 (9.6%)</div>
+        </div>
+        <div>
+          <h3>World Cup history</h3>
+          <div class="history"><ul>
+            <li>Norway and England have <b>never met at a men's World Cup</b>. (The women have, three times &mdash; England won the 2019 quarterfinal 3&ndash;0.)</li>
+            <li>Norway men's all-time WC record vs Brazil: <b>unbeaten</b> (won 2&ndash;1 in &rsquo;98, won 2&ndash;1 in &rsquo;26).</li>
+            <li>England have lost their last three WC quarterfinals against European opposition.</li>
+          </ul></div>
+          <div class="verdict" style="margin-top:18px">
+            <span class="vh">The model says</span>
+            <b>England 63.7 / Norway 36.3</b> &mdash; but with the fattest goal totals of the round. Norway concede 1.8 a game; England's defense is missing pieces; both teams' stars are in career-best scoring form. <b>One stat to watch:</b> Haaland's xG overperformance (+3.3). If regression arrives Saturday, England stroll. If it doesn't, Miami gets a legend chapter.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QF4 ================= -->
+<section class="match" id="qf4">
+  <div class="eyebrow">Quarterfinal 4 &middot; AFTER EXTRA TIME &middot; Arrowhead Stadium, Kansas City MO &middot; preview below preserved as written</div>
+  <h2>The Champion, the Clock, and the Wall of Switzerland</h2>
+  <div class="verdict" style="margin:14px 0 18px">
+    <span class="vh">After extra time &mdash; Argentina 3, Switzerland 1</span>
+    Mac Allister 10&prime; (heading in a Messi corner), Ndoye 67&prime;, &Aacute;lvarez 112&prime;, Lautaro 120+1&prime;. The tournament-form model's coin-flip warning aged beautifully: Switzerland equalized, dragged the champions past the 90th minute for the second straight round, and were within half an hour of penalties and Kobel-vs-Dibu &mdash; until <b>Embolo's second yellow for simulation (72&prime;)</b> tilted the extra time that &Aacute;lvarez's curler eventually settled. The strangest line of the night: <b>Messi didn't score</b> &mdash; his record streak of nine consecutive World Cup games with a goal, over. He supplied the corner instead. xG <b>2.00&ndash;0.53</b>; the ensemble said 66.7%, Elo's 77.4% was closest, and 1&ndash;0-at-90&prime; was in fact the score at 90&prime;... in the other direction of comfortable.
+  </div>
+  <div class="board">
+    <div class="board-head">
+      <div class="matchup">
+        <div class="team a team-a-ink">Argentina</div><div class="vs">vs</div><div class="team b team-b-ink">Switzerland</div>
+      </div>
+      <div class="prob-strip">
+        <div class="prob-bar" role="img" aria-label="Regulation probabilities: Argentina 47.9%, draw 27.4%, Switzerland 24.8%">
+          <span style="width:47.9%;background:var(--team-a)" data-tip="Argentina win in 90&prime;: 47.9%"></span>
+          <span style="width:27.4%;background:var(--draw)" data-tip="Draw after 90&prime;: 27.4%"></span>
+          <span style="width:24.8%;background:var(--team-b)" data-tip="Switzerland win in 90&prime;: 24.8%"></span>
+        </div>
+        <div class="prob-legend"><span>Argentina in 90&prime; &middot; 47.9%</span><span>Draw &middot; 27.4%</span><span>Switzerland in 90&prime; &middot; 24.8%</span></div>
+        <p class="advline">Advance: <b class="team-a-ink">Argentina 63.3%</b> &middot; <b class="team-b-ink">Switzerland 36.7%</b> &mdash; with the round's second-highest draw probability. Extra time feels live here. <b style="color:var(--gold)">Ensemble v2: Argentina 66.7%</b> &mdash; though the tournament-form model still calls it a coin flip (48.0%); Switzerland remain the round's live upset.</p>
+      </div>
+    </div>
+    <div class="board-body">
+      <div class="prose">
+        <h3>The story</h3>
+        <p>Lionel Messi is 39 years old, playing his sixth World Cup, and leading the Golden Boot with <b>8 goals</b>. Against Egypt he missed a penalty, watched his team fall 2&ndash;0 behind, then delivered the cross for Romero, scored the equalizer himself, and watched Enzo Fern&aacute;ndez win it in stoppage time &mdash; the first team in World Cup history to trail by two in the 75th minute of a knockout and win in regulation. He has now scored in <b>six consecutive World Cup knockout matches</b>, which no one had ever done. Every match may be his last. He keeps refusing to let it be.</p>
+        <p>Switzerland's counter-argument is 132 years of patience cashing in at once: first knockout win in 88 years (2&ndash;0 over Algeria), then their first shootout survival (4&ndash;3 over Colombia, Kobel's save the difference), and a defense that <b>has not trailed for a single minute all tournament</b>. Xhaka, at his fourth World Cup, is now Switzerland's most-capped player ever. The blueprint is obvious &mdash; 0&ndash;0 as deep as possible; they generated 0.35 xG against Colombia and celebrated like it was a plan, because it was. One problem: penalties mean Dibu Mart&iacute;nez, and nobody on earth wants penalties against Dibu Mart&iacute;nez.</p>
+      </div>
+      <div class="paths">
+        <div class="path">
+          <h4 class="team-a-ink">Argentina's road (14 GF / 5 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;0</span><span class="op">Algeria</span></li>
+            <li><span class="st">GRP</span><span class="sc">2&ndash;0</span><span class="op">Austria &mdash; Messi &times;2</span></li>
+            <li><span class="st">GRP</span><span class="sc">3&ndash;1</span><span class="op">Jordan &mdash; Lo Celso, Lautaro, Messi</span></li>
+            <li><span class="st">R32</span><span class="sc">3&ndash;2*</span><span class="op">Cape Verde aet &mdash; survived a scare</span></li>
+            <li class="hl"><span class="st">R16</span><span class="sc">3&ndash;2</span><span class="op">Egypt &mdash; from 2&ndash;0 down at 75&prime;; Enzo 90+2&prime;</span></li>
+          </ul>
+        </div>
+        <div class="path">
+          <h4 class="team-b-ink">Switzerland's road (9 GF / 3 GA)</h4>
+          <ul>
+            <li><span class="st">GRP</span><span class="sc">1&ndash;1</span><span class="op">Qatar &mdash; Embolo</span></li>
+            <li><span class="st">GRP</span><span class="sc">4&ndash;1</span><span class="op">Bosnia &amp; Herzegovina</span></li>
+            <li><span class="st">GRP</span><span class="sc">2&ndash;1</span><span class="op">Canada</span></li>
+            <li><span class="st">R32</span><span class="sc">2&ndash;0</span><span class="op">Algeria &mdash; Embolo 10&prime;, Ndoye 46&prime; (first KO win since 1938)</span></li>
+            <li class="hl"><span class="st">R16</span><span class="sc">0&ndash;0*</span><span class="op">Colombia &mdash; won 4&ndash;3 on pens; Kobel save, Vargas winner</span></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Tale of the tape</h3>
+        <div class="tape">
+          <div class="tape-row"><span class="val a">2.80</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">goals / match &rsquo;26</span><div class="bar b"><i style="width:64%"></i></div><span class="val">1.80</span></div>
+          <div class="tape-row"><span class="val a">1.00</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">conceded / match &rsquo;26</span><div class="bar b"><i style="width:60%"></i></div><span class="val">0.60</span></div>
+          <div class="tape-row"><span class="val a">1.90</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">xG / match &rsquo;26 (reported)</span><div class="bar b"><i style="width:95%"></i></div><span class="val">1.80</span></div>
+          <div class="tape-row"><span class="val a">2.02</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">xG / match, last major</span><div class="bar b"><i style="width:53%"></i></div><span class="val">1.07</span></div>
+          <div class="tape-row"><span class="val a">0.73</span><div class="bar a"><i style="width:78%"></i></div><span class="lbl">xGA / match, last major</span><div class="bar b"><i style="width:100%"></i></div><span class="val">0.94</span></div>
+          <div class="tape-row"><span class="val a">57.5</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">possession %, last major</span><div class="bar b"><i style="width:82%"></i></div><span class="val">47.0</span></div>
+        </div>
+        <p class="tape-note">"Last major" = Copa Am&eacute;rica 2024 (Argentina won it, conceding once in six games) / Euro 2024 (Switzerland, who were 3 penalty kicks from a semifinal). StatsBomb event data. Switzerland's reported 1.80 xG/match &rsquo;26 runs hot against their 0.35 vs Colombia &mdash; treat with salt.</p>
+      </div>
+      <div>
+        <h3>Players to watch &mdash; projected for this match</h3>
+        <div class="players">
+          <div class="pcard a">
+            <div class="who"><span class="nm">Lionel Messi</span><span class="tm">Argentina</span></div>
+            <div class="proj"><span>proj. goals <b>0.79</b></span><span>scores anytime <b>55%</b></span></div>
+            <div class="pmeter"><i style="width:55%"></i></div>
+            <div class="note">At WC 2022 our event data credits him with 32 shots and 16 chances created &mdash; the tournament's creative apex at 35. At 39 he's outscoring that version. Six straight knockout games with a goal.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Breel Embolo</span><span class="tm">Switzerland</span></div>
+            <div class="proj"><span>proj. goals <b>0.40</b></span><span>scores anytime <b>33%</b></span></div>
+            <div class="pmeter"><i style="width:33%"></i></div>
+            <div class="note">4 goals this tournament and Switzerland's entire Plan A in transition. Our Euro 2024 data had him leading the Swiss in npxG (1.57) &mdash; the profile has aged into the role.</div>
+          </div>
+          <div class="pcard a">
+            <div class="who"><span class="nm">Enzo Fern&aacute;ndez</span><span class="tm">Argentina</span></div>
+            <div class="proj"><span>the closer</span><span>90+2&prime; winner vs Egypt</span></div>
+            <div class="pmeter"><i style="width:40%"></i></div>
+            <div class="note">Scaloni's midfield metronome since 2022. Against a Swiss block, his line-breaking passes &mdash; not Messi dribbles &mdash; are the likeliest lockpick.</div>
+          </div>
+          <div class="pcard b">
+            <div class="who"><span class="nm">Gregor Kobel</span><span class="tm">Switzerland</span></div>
+            <div class="proj"><span>shootout save vs Colombia</span><span>0 KO goals conceded</span></div>
+            <div class="pmeter"><i style="width:60%"></i></div>
+            <div class="note">Sommer's heir has conceded zero knockout goals. If this goes to penalties: Kobel vs Dibu Mart&iacute;nez is the goalkeeping duel of the tournament.</div>
+          </div>
+        </div>
+      </div>
+      <div class="duo">
+        <div>
+          <h3>Scoreline probabilities</h3>
+          <div class="heat" data-heat="10.0,9.2,4.2,1.3,0.3;13.9,12.7,5.8,1.8,0.4;9.6,8.8,4.0,1.2,0.3;4.4,4.1,1.9,0.6,0.1;1.5,1.4,0.6,0.2,0.0" data-a="Argentina" data-b="Switzerland"></div>
+          <div class="heat-axis">rows = <span class="axis-a">Argentina</span> goals &middot; columns = <span class="axis-b">Switzerland</span> goals &middot; most likely: <b>1&ndash;0 (13.9%)</b>, then 1&ndash;1 (12.7%)</div>
+        </div>
+        <div>
+          <h3>World Cup history</h3>
+          <div class="history"><ul>
+            <li><b>1966 group stage:</b> Argentina 2&ndash;0.</li>
+            <li><b>2014 round of 16:</b> Argentina 1&ndash;0 aet &mdash; Di Mar&iacute;a in the 118th minute, &Aacute;ngel's pass from... Messi. Some things don't change.</li>
+            <li>Switzerland have <b>never beaten Argentina</b> in any competitive meeting.</li>
+          </ul></div>
+          <div class="verdict" style="margin-top:18px">
+            <span class="vh">The model says</span>
+            <b>Argentina 63.3 / Switzerland 36.7</b>, likeliest score 1&ndash;0 &mdash; which is precisely how these two settled it in 2014. Scaloni's Argentina concede 0.61&ndash;0.73 xGA/match across two straight trophies; Switzerland won't create much. <b>One stat to watch:</b> Messi's penalties. Two misses this tournament already &mdash; if Argentina get a third spot kick, the stadium will hold its breath twice.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SF1 ================= -->
+<section class="match" id="sf1">
+  <div class="eyebrow">Semifinal 1 &middot; FULL TIME &middot; AT&amp;T Stadium, Arlington TX &middot; Tuesday July 14</div>
+  <h2>The Empire Ends in Arlington</h2>
+  <div class="verdict" style="margin:14px 0 18px">
+    <span class="vh">Full time &mdash; France 0, Spain 2</span>
+    Oyarzabal from the spot 22&prime; (his 5th of the tournament), Pedro Porro 58&prime;. The scoreline flatters France. The team that had scored 16 goals and steamrolled everyone was held to <b>0.31 xG from 10 shots</b> &mdash; the front four that Norway's coach called the best in the competition produced, collectively, one-third of one expected goal. Spain took 1.63 xG from their own 10 shots and converted both on-target efforts. Clean sheet number six &mdash; a World Cup record &mdash; and France's run of consecutive finals ends at two. Rodri's midfield performance drew the word "masterclass" from most of the press box; the model just logs it as 90 more minutes of suppression.
+  </div>
+  <div class="board">
+    <div class="board-body">
+      <div class="duo">
+        <div class="prose" style="max-width:none">
+          <h3>What the models said &mdash; before kickoff</h3>
+          <p>Nobody was brave here. All six forecasters put the match within a whisker of even &mdash; the ensemble said <b>Spain 54.7%</b>, the widest any model went was tournament form's 62.1%, and the club prior actually leaned France (52.4%). Spain's win was the sixth straight match in which the eventual winner was the model favorite &mdash; but this was the round where confidence went to die: a six-model average of ~55% for a match that finished as a two-goal suppression job.</p>
+          <p>The result did violence to the title race: France had been the simulation's championship favorite (32.4%) since the night they dismantled Morocco. Ninety minutes later they were playing for bronze, and the crown passed back to the team the launch model had favored on day one.</p>
+        </div>
+        <div>
+          <h3>The tape, as played</h3>
+          <div class="tape">
+            <div class="tape-row"><span class="val a">0.31</span><div class="bar a"><i style="width:19%"></i></div><span class="lbl">xG</span><div class="bar b"><i style="width:100%"></i></div><span class="val">1.63</span></div>
+            <div class="tape-row"><span class="val a">10</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">shots</span><div class="bar b"><i style="width:100%"></i></div><span class="val">10</span></div>
+            <div class="tape-row"><span class="val a">3</span><div class="bar a"><i style="width:100%"></i></div><span class="lbl">shots on target</span><div class="bar b"><i style="width:67%"></i></div><span class="val">2</span></div>
+            <div class="tape-row"><span class="val a">49</span><div class="bar a"><i style="width:96%"></i></div><span class="lbl">possession %</span><div class="bar b"><i style="width:100%"></i></div><span class="val">51</span></div>
+          </div>
+          <p class="tape-note">Spain scored with both shots on target. France&ndash;Spain was the first semifinal since 2010 in which the losing side failed to reach 0.4 xG. Mbapp&eacute; stays on 8 goals &mdash; the Golden Boot holds its breath for the bronze final.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SF2 ================= -->
+<section class="match" id="sf2">
+  <div class="eyebrow">Semifinal 2 &middot; FULL TIME &middot; Mercedes-Benz Stadium, Atlanta GA &middot; Wednesday July 15</div>
+  <h2>Stoppage Time Belongs to Argentina</h2>
+  <div class="verdict" style="margin:14px 0 18px">
+    <span class="vh">Full time &mdash; England 1, Argentina 2</span>
+    Gordon 55&prime; against the run of play, and for thirty minutes England were headed to their first final since 1966 while being comprehensively outplayed &mdash; 36% possession, 0.53 xG to Argentina's 1.84. Then the champions did the thing they do: <b>Enzo Fern&aacute;ndez from twenty yards in the 85th, Lautaro Mart&iacute;nez heading the winner in the 92nd</b> &mdash; both goals assisted by Messi, 39 years old, playing his 11th match past the 85th minute of a major tournament knockout in four years. Argentina became the first team ever with <b>two second-half-stoppage-time winning goals in a single World Cup</b>. England's semifinal curse holds; the holders reach a second straight final; and the model chorus (ensemble 59.5% Argentina, all six agreed) gets its second unanimous round in a row &mdash; while noting, quietly, that it said nothing about the 92nd minute.
+  </div>
+  <div class="board">
+    <div class="board-body">
+      <div class="duo">
+        <div class="prose" style="max-width:none">
+          <h3>What the models said &mdash; before kickoff</h3>
+          <p>Unanimous, and mildly confident: <b>Argentina 59.5%</b> from the ensemble, with Elo boldest at 63.8% and the club prior &mdash; still blind to Messi's Inter Miami form &mdash; barely over the line at 50.8%. It's the fourth time in six matches that Elo was the most aggressive forecaster on the eventual winner, a pattern that decides the model scoreboard below.</p>
+          <p>The deeper pattern is Argentina's: across six knockout rounds of this and the last World Cup, they have now trailed in the second half four times and lost none of them. The dynamic filter, which watches a decade at a time, has quietly raised Argentina's latent attack state to its highest value since data begins in 2012 &mdash; late goals are goals too, and 12 of their 19 have come after the 75th minute.</p>
+        </div>
+        <div>
+          <h3>The tape, as played</h3>
+          <div class="tape">
+            <div class="tape-row"><span class="val a">0.53</span><div class="bar a"><i style="width:29%"></i></div><span class="lbl">xG</span><div class="bar b"><i style="width:100%"></i></div><span class="val">1.84</span></div>
+            <div class="tape-row"><span class="val a">5</span><div class="bar a"><i style="width:33%"></i></div><span class="lbl">shots</span><div class="bar b"><i style="width:100%"></i></div><span class="val">15</span></div>
+            <div class="tape-row"><span class="val a">36</span><div class="bar a"><i style="width:56%"></i></div><span class="lbl">possession %</span><div class="bar b"><i style="width:100%"></i></div><span class="val">64</span></div>
+            <div class="tape-row"><span class="val a">1</span><div class="bar a"><i style="width:50%"></i></div><span class="lbl">goals after 84&prime;</span><div class="bar b"><i style="width:100%"></i></div><span class="val">2</span></div>
+          </div>
+          <p class="tape-note">Messi's two assists take him to 8G + 4A &mdash; 33 career World Cup goal contributions, the all-time record. England to the bronze final; Argentina to a date with the only defense of the tournament better than their own.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="keyline">
+
+<!-- ================= SIMULATION ================= -->
+<section id="sim">
+  <div class="eyebrow">100,000 bracket simulations &middot; QF &rarr; SF &rarr; Final &middot; Model A launch numbers, preserved &middot; outcome noted below</div>
+  <h2>Who Lifts It in New Jersey?</h2>
+  <p class="sect-sub">Running every remaining path through the launch model, as published July 9. Spain's zero-conceded defense makes them the quiet favorite; Argentina's trophy-hardened floor keeps them close; and the France&ndash;Morocco winner walks into the bracket's softest semifinal slot. (The ensemble built afterward disagrees in interesting ways &mdash; keep scrolling.)</p>
+  <div class="simgrid">
+    <div class="simrow champ"><span class="nm">Spain</span><div class="track"><i style="width:100%" data-tip="Title 25.9% · Final 43.0% · SF 71.0%"></i></div><span class="nums"><b>25.9%</b> title &middot; 43.0 final</span></div>
+    <div class="simrow"><span class="nm">Argentina</span><div class="track"><i style="width:85%" data-tip="Title 22.0% · Final 40.5% · SF 63.4%"></i></div><span class="nums"><b>22.0%</b> title &middot; 40.5 final</span></div>
+    <div class="simrow"><span class="nm">France</span><div class="track"><i style="width:53%" data-tip="Title 13.6% · Final 26.1% · SF 54.7%"></i></div><span class="nums"><b>13.6%</b> title &middot; 26.1 final</span></div>
+    <div class="simrow"><span class="nm">England</span><div class="track"><i style="width:52%" data-tip="Title 13.4% · Final 29.3% · SF 63.9%"></i></div><span class="nums"><b>13.4%</b> title &middot; 29.3 final</span></div>
+    <div class="simrow"><span class="nm">Morocco</span><div class="track"><i style="width:36%" data-tip="Title 9.3% · Final 19.8% · SF 45.3%"></i></div><span class="nums"><b>9.3%</b> title &middot; 19.8 final</span></div>
+    <div class="simrow"><span class="nm">Switzerland</span><div class="track"><i style="width:30%" data-tip="Title 7.7% · Final 18.4% · SF 36.6%"></i></div><span class="nums"><b>7.7%</b> title &middot; 18.4 final</span></div>
+    <div class="simrow"><span class="nm">Belgium</span><div class="track"><i style="width:16%" data-tip="Title 4.2% · Final 11.1% · SF 29.0%"></i></div><span class="nums"><b>4.2%</b> title &middot; 11.1 final</span></div>
+    <div class="simrow"><span class="nm">Norway</span><div class="track"><i style="width:15%" data-tip="Title 3.8% · Final 11.7% · SF 36.1%"></i></div><span class="nums"><b>3.8%</b> title &middot; 11.7 final</span></div>
+  </div>
+  <p class="sect-sub" style="margin-top:18px">Most likely final: <b>Spain vs Argentina (&asymp;17%)</b> &mdash; the Euro champion against the World champion, Rodri against Messi, and a rematch of the "Finalissima" lineage. The model's dream scenario is also its median one, which almost never happens. <b style="color:var(--gold)">Except this time it did.</b> Three of four quarterfinal favorites advanced (Norway's fairy tale fell in extra time), both semifinal favorites advanced, and the one-in-six median final is the one being played at MetLife tomorrow. The launch model's title podium &mdash; Spain, then Argentina &mdash; is now, literally, the matchup.</p>
+</section>
+
+<hr class="keyline">
+
+<!-- ================= GOLDEN BOOT ================= -->
+<section id="boot">
+  <div class="eyebrow">The Golden Boot race &middot; current &rarr; projected final tally &middot; updated July 18, before the bronze final</div>
+  <h2>Messi 8, Mbapp&eacute; 8 &mdash; One Game Each to Settle It</h2>
+  <p class="sect-sub">Still a dead heat &mdash; and now a scheduling duel. Neither scored in the semifinals (Spain's defense saw to Mbapp&eacute;; Switzerland ended Messi's nine-game scoring streak the round before). Mbapp&eacute; gets his last audition <b>today</b> against England's leaky back line in the bronze final; Messi answers <b>tomorrow</b> against the best defense of the century. Projections below use each team's remaining fixture at ensemble scoring rates. If they finish level, the tiebreaker is assists &mdash; where Messi's four loom large.</p>
+  <div class="boot">
+    <div class="bootrow"><span class="nm">Lionel Messi<small>Argentina &middot; plays the Final</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="span" style="left:66.6%;width:3.4%"></span><span class="dot now" style="left:calc(66.6% - 7px)" data-tip="now: 8 (7 matches, +4 assists)"></span><span class="dot fut" style="left:calc(70% - 7px)" data-tip="projected: 8.4"></span></div>
+      <span class="nums">8 &rarr; <b>8.4</b></span></div>
+    <div class="bootrow"><span class="nm">Kylian Mbapp&eacute;<small>France &middot; bronze final today</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="span" style="left:66.6%;width:5.9%"></span><span class="dot now" style="left:calc(66.6% - 7px)" data-tip="now: 8 (7 matches)"></span><span class="dot fut" style="left:calc(72.5% - 7px)" data-tip="projected: 8.7"></span></div>
+      <span class="nums">8 &rarr; <b>8.7</b></span></div>
+    <div class="bootrow"><span class="nm">Erling Haaland<small>Norway &middot; eliminated</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="dot now" style="left:calc(58.3% - 7px)" data-tip="final tally: 7 — silenced by England in the QF"></span></div>
+      <span class="nums">7 &middot; done</span></div>
+    <div class="bootrow"><span class="nm">Harry Kane<small>England &middot; bronze final today</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="span" style="left:50%;width:4.2%"></span><span class="dot now" style="left:calc(50% - 7px)" data-tip="now: 6"></span><span class="dot fut" style="left:calc(54.2% - 7px)" data-tip="projected: 6.5"></span></div>
+      <span class="nums">6 &rarr; <b>6.5</b></span></div>
+    <div class="bootrow"><span class="nm">Jude Bellingham<small>England &middot; bronze final today</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="span" style="left:50%;width:4.2%"></span><span class="dot now" style="left:calc(50% - 7px)" data-tip="now: 6 — QF brace vs Norway"></span><span class="dot fut" style="left:calc(54.2% - 7px)" data-tip="projected: 6.5"></span></div>
+      <span class="nums">6 &rarr; <b>6.5</b></span></div>
+    <div class="bootrow"><span class="nm">Ousmane Demb&eacute;l&eacute;<small>France &middot; bronze final today</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="span" style="left:41.7%;width:4.1%"></span><span class="dot now" style="left:calc(41.7% - 7px)" data-tip="now: 5"></span><span class="dot fut" style="left:calc(45.8% - 7px)" data-tip="projected: 5.5"></span></div>
+      <span class="nums">5 &rarr; <b>5.5</b></span></div>
+    <div class="bootrow"><span class="nm">Mikel Oyarzabal<small>Spain &middot; plays the Final</small></span>
+      <div class="dumbtrack"><span class="rail"></span><span class="span" style="left:41.7%;width:4.1%"></span><span class="dot now" style="left:calc(41.7% - 7px)" data-tip="now: 5 — 3 in knockouts"></span><span class="dot fut" style="left:calc(45.8% - 7px)" data-tip="projected: 5.5"></span></div>
+      <span class="nums">5 &rarr; <b>5.5</b></span></div>
+  </div>
+  <p class="sect-sub" style="margin-top:18px">A week ago, two players projected to break Gerd M&uuml;ller's post-1970 barrier of 10. Then the knockout rounds remembered what defenses are for: <b>the top four scorers have combined for exactly one goal since the quarterfinals began</b> (Bellingham's brace aside). M&uuml;ller's 10 and Fontaine's 13 sleep safely for another cycle &mdash; but an 8-goal, 4-assist tournament at age 39 may be the more permanent kind of record.</p>
+</section>
+
+<hr class="keyline">
+
+<!-- ================= FORECAST LAB ================= -->
+<style>
+  .lab-models { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 22px 0 10px; }
+  .lab-models .cell { background: var(--card); border: 1px solid var(--hairline); border-radius: 6px; padding: 15px 17px; box-shadow: var(--shadow); }
+  .lab-models .cell h3 { margin: 4px 0 6px; font-size: 14.5px; }
+  .lab-models .cell p { margin: 0; font-size: 12.8px; color: var(--ink-2); }
+  .lab-models .sector { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .m-dyn { color: var(--mdl-dyn); } .m-frm { color: var(--mdl-frm); } .m-clb { color: var(--mdl-clb); }
+  :root { --mdl-dyn: #4a3aa7; --mdl-frm: #1baf7a; --mdl-clb: #eda100; --mdl-elo: #e34948; }
+  @media (prefers-color-scheme: dark) { :root { --mdl-dyn: #9085e9; --mdl-frm: #199e70; --mdl-clb: #c98500; --mdl-elo: #e66767; } }
+  :root[data-theme="dark"] { --mdl-dyn: #9085e9; --mdl-frm: #199e70; --mdl-clb: #c98500; --mdl-elo: #e66767; }
+  :root[data-theme="light"] { --mdl-dyn: #4a3aa7; --mdl-frm: #1baf7a; --mdl-clb: #eda100; --mdl-elo: #e34948; }
+
+  .bt-table { border-collapse: collapse; font-size: 13.5px; margin-top: 14px; min-width: 480px; }
+  .bt-table th, .bt-table td { padding: 7px 16px 7px 0; text-align: left; border-bottom: 1px solid var(--hairline); }
+  .bt-table th { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+  .bt-table td { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  .bt-table td:first-child { color: var(--ink); font-weight: 700; }
+  .bt-table tr.win td { color: var(--ink); } .bt-table tr.win td:first-child { color: var(--mdl-frm); }
+  .bt-table td b.rowbest { color: var(--gold); }
+  .bt-table tr.total td { border-top: 2px solid var(--hairline); font-weight: 700; color: var(--ink); }
+  .bt-scroll { overflow-x: auto; }
+
+  .strip-block { margin-top: 26px; }
+  .strip-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .strip-head .t { font-weight: 800; font-size: 15px; }
+  .strip-head .e { font-family: var(--mono); font-size: 12.5px; color: var(--gold); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .strip { position: relative; height: 42px; margin-top: 8px; }
+  .strip .rail { position: absolute; top: 19px; left: 0; right: 0; height: 4px; border-radius: 2px; background: var(--hairline); }
+  .strip .mid { position: absolute; top: 12px; left: 50%; width: 1px; height: 18px; background: var(--ink-3); opacity: .55; }
+  .strip .band { position: absolute; top: 17px; height: 8px; border-radius: 4px; background: var(--mdl-dyn); opacity: .18; }
+  .strip .pt { position: absolute; top: 14px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--paper); }
+  .strip .pt.a { background: var(--draw); }
+  .strip .pt.dyn { background: var(--mdl-dyn); }
+  .strip .pt.frm { background: var(--mdl-frm); }
+  .strip .pt.clb { background: var(--mdl-clb); }
+  .strip .pt.elo { background: var(--mdl-elo); }
+  .strip .pt.ens { background: var(--gold); width: 16px; height: 16px; top: 13px; transform: rotate(45deg); border-radius: 3px; }
+  .strip-axis { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--ink-3); margin-top: 2px; }
+  .lab-legend { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); margin-top: 20px; }
+  .lab-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .lab-legend i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .lab-legend i.ens { border-radius: 2px; transform: rotate(45deg); }
+
+  .titlecmp { display: grid; gap: 7px; margin-top: 18px; }
+  .tc-row { display: grid; grid-template-columns: 110px 1fr 150px; gap: 12px; align-items: center; }
+  .tc-row .nm { font-weight: 800; font-size: 13.5px; text-transform: uppercase; }
+  .tc-track { position: relative; height: 18px; background: var(--card); border: 1px solid var(--hairline); border-radius: 4px; }
+  .tc-track .old { position: absolute; top: 3px; bottom: 3px; left: 0; border-radius: 3px; background: var(--draw); }
+  .tc-track .new { position: absolute; top: 7px; bottom: 7px; left: 0; border-radius: 2px; background: var(--gold); }
+  .tc-row .nums { font-family: var(--mono); font-size: 12px; color: var(--ink-2); text-align: right; font-variant-numeric: tabular-nums; }
+  .tc-row .nums b { color: var(--gold); }
+  @media (max-width: 760px) {
+    .lab-models { grid-template-columns: 1fr 1fr; }
+    .tc-row { grid-template-columns: 84px 1fr 118px; }
+  }
+</style>
+<section id="lab">
+  <div class="eyebrow">The Forecast Lab v2 &middot; methods borrowed from other industries &middot; six matches scored, one to go</div>
+  <h2>Five Models Walk Into a Stadium</h2>
+  <p class="sect-sub">The launch-day model (call it <b>Model A</b>) was one equation. This is a real ensemble &mdash; four more forecasters, each imported from a field that isn't soccer, combined the way meteorologists combine weather models: weighted by <em>measured</em> skill on past tournaments, not by which one sounds cleverest. Every knockout forecast on this page was published before its match kicked off; the scoreboard below settles who was right. Version 2 data: the full international results history (every match since 1872), real per-match xG for the 2026 games, and a classic Elo forecaster.</p>
+
+  <div class="lab-models">
+    <div class="cell">
+      <div class="sector">Model A &middot; launch blend</div>
+      <h3>Weighted xG Poisson</h3>
+      <p>60% 2026 form, 25% last major, 15% WC 2022. Simple, transparent, no opponent adjustment &mdash; its known flaw. Frozen on July 9 and never updated: the control group.</p>
+    </div>
+    <div class="cell">
+      <div class="sector" style="color:var(--mdl-dyn)">Signal processing / econometrics</div>
+      <h3>Dynamic state-space</h3>
+      <p>A Kalman-filtered Poisson (a dynamic GLM, West &amp; Harrison style). Team strength is a latent state that drifts through time; every international since 2012 updates it, friendlies at half gain. It has watched Morocco's entire decade-long rise &mdash; and it's the one model that called France&ndash;Morocco a coin flip. It regrets that now.</p>
+    </div>
+    <div class="cell">
+      <div class="sector" style="color:var(--mdl-frm)">Demand forecasting</div>
+      <h3>Tournament form</h3>
+      <p>This World Cup only, on xG-blended pseudo-goals (60% xG, 40% goals) from the live match data &mdash; the "naive seasonal" benchmark every forecasting textbook warns is embarrassingly hard to beat. Won three of the six knockout rounds on the scoreboard.</p>
+    </div>
+    <div class="cell">
+      <div class="sector" style="color:var(--mdl-elo)">Chess, 1960</div>
+      <h3>Elo ratings</h3>
+      <p>Arpad Elo's chess system, computed fresh from the results history with football conventions (K by competition, goal-diff multiplier). Current field, post-semifinals: <b>Spain 2259, Argentina 2250</b> &mdash; #1 and #2 in the world, nine points apart &mdash; then France 2156, England 2108. It backtested best (80% accuracy), and it is winning the live scoreboard too.</p>
+    </div>
+    <div class="cell">
+      <div class="sector" style="color:var(--mdl-clb)">Economic nowcasting</div>
+      <h3>Club-form prior</h3>
+      <p>Like satellite parking-lot data for GDP: 1,800 club matches from the 2025/26 big-five leagues rate each squad's players' clubs, then tilt the forecast. Still can't see Messi (Inter Miami isn't big-five data) &mdash; and it has paid for that blindness on the scoreboard.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:34px 0 4px">The backtest &mdash; 30 real knockout ties, WC 2022 + Euro 2024, forecast from pre-knockout data only</h3>
+  <div class="bt-scroll">
+  <table class="bt-table">
+    <thead><tr><th>Model</th><th>Brier score &darr;</th><th>Log loss &darr;</th><th>Picked the winner</th></tr></thead>
+    <tbody>
+      <tr class="win"><td>Elo (1960s chess math)</td><td>0.165</td><td>0.507</td><td>80%</td></tr>
+      <tr class="win"><td>Tournament form (xG)</td><td>0.165</td><td>0.502</td><td>73%</td></tr>
+      <tr><td>Dynamic state-space</td><td>0.182</td><td>0.546</td><td>70%</td></tr>
+      <tr><td>Coin flip</td><td>0.250</td><td>0.693</td><td>50%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="sect-sub" style="margin-top:12px">Every model improved with the richer data (the dynamic filter most: 0.214 &rarr; 0.182), but the podium belongs to the two simplest ideas in the room &mdash; "how are they playing this month" and "a rating system invented for chess in 1960." Weights follow the evidence: <b>30% form, 30% Elo, 28% dynamic, 12% club prior</b>. Nobody's model is magic; everybody's model beats a coin.</p>
+
+  <h3 style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:36px 0 0">Where the models agreed &mdash; and where they fought &middot; all seven knockout forecasts</h3>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t">France advance vs Morocco &mdash; FINAL: France 2&ndash;0 &#10003;</span><span class="e">ensemble said 65.1% &middot; form's 80/20 was closest</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="band" style="left:22.2%;width:52.3%" data-tip="dynamic model 90% credible interval: 22–75%"></span>
+      <span class="pt dyn" style="left:calc(46.9% - 7px)" data-tip="dynamic: 46.9%"></span>
+      <span class="pt clb" style="left:calc(51.2% - 7px)" data-tip="club prior: 51.2%"></span>
+      <span class="pt a" style="left:calc(54.7% - 7px)" data-tip="Model A: 54.7%"></span>
+      <span class="pt elo" style="left:calc(66.9% - 7px)" data-tip="Elo: 66.9%"></span>
+      <span class="pt frm" style="left:calc(80.1% - 7px)" data-tip="tournament form: 80.1%"></span>
+      <span class="pt ens" style="left:calc(65.1% - 8px)" data-tip="ensemble: 65.1%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">The widest model disagreement of the round &mdash; a 33-point spread &mdash; and the verdict was emphatic: <b>tournament form was right</b> (2&ndash;0, xG 3.04&ndash;0.14; Morocco's worst attacking output of the tournament by a mile). The dynamic filter's romance with Morocco's decade of data was the Lab's first public faceplant.</p>
+  </div>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t">Spain advance vs Belgium &mdash; FINAL: Spain 2&ndash;1 &#10003;</span><span class="e">ensemble 71.4% &middot; the most confident call, and the most correct</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="band" style="left:33.9%;width:53.2%" data-tip="dynamic model 90% credible interval: 34–87%"></span>
+      <span class="pt clb" style="left:calc(62.4% - 7px)" data-tip="club prior: 62.4%"></span>
+      <span class="pt dyn" style="left:calc(64.1% - 7px)" data-tip="dynamic: 64.1%"></span>
+      <span class="pt a" style="left:calc(71% - 7px)" data-tip="Model A: 71.0%"></span>
+      <span class="pt elo" style="left:calc(74.8% - 7px)" data-tip="Elo: 74.8%"></span>
+      <span class="pt frm" style="left:calc(79.5% - 7px)" data-tip="tournament form: 79.5%"></span>
+      <span class="pt ens" style="left:calc(71.4% - 8px)" data-tip="ensemble: 71.4%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">Five independent methods, one tight cluster, and the outcome the cluster predicted: Spain led the xG 1.96&ndash;0.34 and never trailed. Form (79.5%) was closest for the second match running. This is what a robust forecast looks like.</p>
+  </div>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t">Norway advance vs England &mdash; FINAL: England 2&ndash;1 aet &#10003;</span><span class="e">ensemble 33.2% Norway &middot; the chorus was right, in 120 minutes</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="band" style="left:12%;width:57.5%" data-tip="dynamic model 90% credible interval: 12–70%"></span>
+      <span class="pt clb" style="left:calc(26% - 7px)" data-tip="club prior: 26.0%"></span>
+      <span class="pt frm" style="left:calc(32% - 7px)" data-tip="tournament form: 32.0%"></span>
+      <span class="pt elo" style="left:calc(35.3% - 7px)" data-tip="Elo: 35.3%"></span>
+      <span class="pt dyn" style="left:calc(35.8% - 7px)" data-tip="dynamic: 35.8%"></span>
+      <span class="pt a" style="left:calc(36.3% - 7px)" data-tip="Model A: 36.3%"></span>
+      <span class="pt ens" style="left:calc(33.2% - 8px)" data-tip="ensemble: 33.2%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">Every model said England; England needed a 93rd-minute Bellingham goal off a keeper error to prove them right. The club prior &mdash; which could see that Norway's squad plays for smaller clubs than its Elo suggests &mdash; posted the round's single best Brier (.067). The one-in-three fairy tale died at one-in-three odds, which is exactly how probability is supposed to feel.</p>
+  </div>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t">Argentina advance vs Switzerland &mdash; FINAL: Argentina 3&ndash;1 aet &#10003;</span><span class="e">ensemble 66.7% &middot; Elo's 77.4% closest; form's coin flip nearly cashed</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="band" style="left:41.1%;width:48.8%" data-tip="dynamic model 90% credible interval: 41–90%"></span>
+      <span class="pt frm" style="left:calc(48% - 7px)" data-tip="tournament form: 48.0%"></span>
+      <span class="pt a" style="left:calc(63.3% - 7px)" data-tip="Model A: 63.3%"></span>
+      <span class="pt dyn" style="left:calc(70.6% - 7px)" data-tip="dynamic: 70.6%"></span>
+      <span class="pt clb" style="left:calc(72.7% - 7px)" data-tip="club prior: 72.7%"></span>
+      <span class="pt elo" style="left:calc(77.4% - 7px)" data-tip="Elo: 77.4%"></span>
+      <span class="pt ens" style="left:calc(66.7% - 8px)" data-tip="ensemble: 66.7%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">The genuine model fight of the round, and both sides got to feel right: it was 1&ndash;1 in the 90th minute (form's case) before Argentina's extra-time class and Embolo's red card settled it (Elo's case, at Elo's confidence). The long-memory models won the argument &mdash; a pattern to remember for tomorrow, because they're the ones calling the Final even.</p>
+  </div>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t">Spain advance vs France &mdash; FINAL: Spain 2&ndash;0 &#10003;</span><span class="e">ensemble 54.7% &middot; six timid models, one emphatic result</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="pt clb" style="left:calc(47.6% - 7px)" data-tip="club prior: 47.6%"></span>
+      <span class="pt elo" style="left:calc(52.6% - 7px)" data-tip="Elo: 52.6%"></span>
+      <span class="pt dyn" style="left:calc(55.5% - 7px)" data-tip="dynamic: 55.5%"></span>
+      <span class="pt a" style="left:calc(58.8% - 7px)" data-tip="Model A: 58.8%"></span>
+      <span class="pt frm" style="left:calc(62.1% - 7px)" data-tip="tournament form: 62.1%"></span>
+      <span class="pt ens" style="left:calc(54.7% - 8px)" data-tip="ensemble: 54.7%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">The whole Lab huddled within eight points of a coin flip for a match Spain controlled from the 22nd minute. Only the club prior picked France &mdash; its second miss, and its costliest. The lesson the ensemble can't learn mid-tournament: Spain's suppression doesn't show up in win probability until you watch it delete a 2.14-xG-per-game attack in real time.</p>
+  </div>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t">Argentina advance vs England &mdash; FINAL: Argentina 2&ndash;1 &#10003;</span><span class="e">ensemble 59.5% &middot; unanimous, and right in the 92nd minute</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="pt clb" style="left:calc(50.8% - 7px)" data-tip="club prior: 50.8%"></span>
+      <span class="pt frm" style="left:calc(58.2% - 7px)" data-tip="tournament form: 58.2%"></span>
+      <span class="pt a" style="left:calc(59.1% - 7px)" data-tip="Model A: 59.1%"></span>
+      <span class="pt dyn" style="left:calc(59.8% - 7px)" data-tip="dynamic: 59.8%"></span>
+      <span class="pt elo" style="left:calc(63.8% - 7px)" data-tip="Elo: 63.8%"></span>
+      <span class="pt ens" style="left:calc(59.5% - 8px)" data-tip="ensemble: 59.5%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">All six models picked Argentina; England led from the 55th to the 85th anyway, which is the difference between a probability and a promise. Elo, boldest at 63.8%, banked its fourth scoreboard win. The xG (1.84&ndash;0.53 Argentina) says the models underrated the champions if anything.</p>
+  </div>
+
+  <div class="strip-block">
+    <div class="strip-head"><span class="t" style="color:var(--gold)">THE FINAL &mdash; Spain advance vs Argentina &middot; tomorrow 3pm ET</span><span class="e">ensemble: Spain 59.3%</span></div>
+    <div class="strip">
+      <span class="rail"></span><span class="mid"></span>
+      <span class="band" style="left:23.4%;width:53.1%" data-tip="dynamic model 90% credible interval: 23–77%"></span>
+      <span class="pt dyn" style="left:calc(50.1% - 7px)" data-tip="dynamic: 50.1%"></span>
+      <span class="pt elo" style="left:calc(51.4% - 7px)" data-tip="Elo: 51.4%"></span>
+      <span class="pt a" style="left:calc(53% - 7px)" data-tip="Model A: 53.0%"></span>
+      <span class="pt clb" style="left:calc(55% - 7px)" data-tip="club prior: 55.0%"></span>
+      <span class="pt frm" style="left:calc(79.2% - 7px)" data-tip="tournament form: 79.2%"></span>
+      <span class="pt ens" style="left:calc(59.3% - 8px)" data-tip="ensemble: 59.3%"></span>
+    </div>
+    <div class="strip-axis"><span>0%</span><span>50%</span><span>100%</span></div>
+    <p class="sect-sub" style="font-size:13.5px;margin-top:6px">Look at the shape of it: <b>four models pinned to the coin-flip line, and form off alone at 79%</b> &mdash; the exact inverse of QF1, where form was the lone wolf and was right. The scoreboard's two best models (Elo, form) disagree by 28 points, the largest gap they've had all tournament. Elo says these are the two strongest teams it has ever rated at a World Cup final; form says Spain's month has simply been better than everyone's, Argentina included. The ensemble splits the difference at 59.3 &mdash; and the dynamic filter's credible interval (23&ndash;77%) is the Lab's way of admitting that a one-off final between these two is barely a forecastable event.</p>
+  </div>
+
+  <div class="lab-legend">
+    <span><i style="background:var(--draw)"></i>Model A</span>
+    <span><i style="background:var(--mdl-dyn)"></i>dynamic state-space</span>
+    <span><i style="background:var(--mdl-frm)"></i>tournament form</span>
+    <span><i style="background:var(--mdl-elo)"></i>Elo</span>
+    <span><i style="background:var(--mdl-clb)"></i>club prior</span>
+    <span><i class="ens" style="background:var(--gold)"></i>ensemble</span>
+    <span><i style="background:var(--mdl-dyn);opacity:.25;border-radius:3px;width:22px"></i>90% credible interval</span>
+  </div>
+
+  <h3 style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:40px 0 4px">The model scoreboard &mdash; Brier per finished match, scored on pre-match forecasts (lower = better)</h3>
+  <div class="bt-scroll">
+  <table class="bt-table">
+    <thead><tr><th>Match</th><th>Elo</th><th>Form</th><th>Ensemble</th><th>Model A</th><th>Dynamic</th><th>Club</th></tr></thead>
+    <tbody>
+      <tr><td>QF1 &middot; France 2&ndash;0 Morocco</td><td>.109</td><td><b class="rowbest">.039</b></td><td>.121</td><td>.205</td><td>.282</td><td>.238</td></tr>
+      <tr><td>QF2 &middot; Spain 2&ndash;1 Belgium</td><td>.063</td><td><b class="rowbest">.042</b></td><td>.082</td><td>.084</td><td>.129</td><td>.141</td></tr>
+      <tr><td>QF3 &middot; England 2&ndash;1 Norway aet</td><td>.124</td><td>.102</td><td>.110</td><td>.132</td><td>.129</td><td><b class="rowbest">.067</b></td></tr>
+      <tr><td>QF4 &middot; Argentina 3&ndash;1 Switzerland aet</td><td><b class="rowbest">.051</b></td><td>.270</td><td>.111</td><td>.135</td><td>.086</td><td>.075</td></tr>
+      <tr><td>SF1 &middot; Spain 2&ndash;0 France</td><td>.225</td><td><b class="rowbest">.144</b></td><td>.205</td><td>.170</td><td>.198</td><td>.274</td></tr>
+      <tr><td>SF2 &middot; Argentina 2&ndash;1 England</td><td><b class="rowbest">.131</b></td><td>.174</td><td>.164</td><td>.167</td><td>.161</td><td>.242</td></tr>
+      <tr class="total"><td>Mean (6 matches)</td><td><b class="rowbest">.117</b></td><td>.129</td><td>.132</td><td>.149</td><td>.164</td><td>.173</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="sect-sub" style="margin-top:12px"><b>Form wins the battles; Elo wins the war.</b> Tournament form took three of the six rounds outright but torched itself on the Switzerland coin-flip call; Elo never finished worse than fourth in any match and picked <b>all six winners</b> &mdash; as did, remarkably, Model A, the "flawed" launch blend, which beat two of its fancier successors. The ensemble did exactly what an ensemble should: never the best, never the worst, second overall. The backtest's forecast about the forecasters (Elo and form on the podium) has, itself, verified. One match left to settle it &mdash; and Elo's lead is larger than any single match can erase, so the Lab has a champion regardless of Sunday: <b style="color:var(--mdl-elo)">the 1960s chess math</b>.</p>
+
+  <h3 style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:40px 0 4px">Title odds &mdash; launch day &rarr; the eve of the Final</h3>
+  <p class="sect-sub">Gray bar = Model A on July 9, before a quarterfinal was kicked. Gold = the ensemble today, with every result folded into every model. Six teams' gold bars are now zero, which is the least forgiving chart this page has ever displayed. France's story is the cruelest: their QF1 demolition of Morocco made them the title favorite (32.4% after the post-QF1 rerun) &mdash; for exactly five days.</p>
+  <div class="titlecmp">
+    <div class="tc-row"><span class="nm">Spain</span><div class="tc-track"><span class="old" style="width:44%" data-tip="Model A, Jul 9: 25.9%"></span><span class="new" style="width:100%" data-tip="ensemble, Jul 18: 59.3%"></span></div><span class="nums">25.9 &rarr; <b>59.3%</b></span></div>
+    <div class="tc-row"><span class="nm">Argentina</span><div class="tc-track"><span class="old" style="width:37%" data-tip="Model A, Jul 9: 22.0%"></span><span class="new" style="width:69%" data-tip="ensemble, Jul 18: 40.7%"></span></div><span class="nums">22.0 &rarr; <b>40.7%</b></span></div>
+    <div class="tc-row"><span class="nm">France</span><div class="tc-track"><span class="old" style="width:23%" data-tip="Model A, Jul 9: 13.6% — peaked at 32.4% after QF1"></span></div><span class="nums">13.6 &rarr; 0 &middot; SF</span></div>
+    <div class="tc-row"><span class="nm">England</span><div class="tc-track"><span class="old" style="width:23%" data-tip="Model A, Jul 9: 13.4%"></span></div><span class="nums">13.4 &rarr; 0 &middot; SF</span></div>
+    <div class="tc-row"><span class="nm">Morocco</span><div class="tc-track"><span class="old" style="width:16%" data-tip="Model A, Jul 9: 9.3%"></span></div><span class="nums">9.3 &rarr; 0 &middot; QF</span></div>
+    <div class="tc-row"><span class="nm">Switzerland</span><div class="tc-track"><span class="old" style="width:13%" data-tip="Model A, Jul 9: 7.7%"></span></div><span class="nums">7.7 &rarr; 0 &middot; QF</span></div>
+    <div class="tc-row"><span class="nm">Belgium</span><div class="tc-track"><span class="old" style="width:7%" data-tip="Model A, Jul 9: 4.2%"></span></div><span class="nums">4.2 &rarr; 0 &middot; QF</span></div>
+    <div class="tc-row"><span class="nm">Norway</span><div class="tc-track"><span class="old" style="width:6%" data-tip="Model A, Jul 9: 3.8%"></span></div><span class="nums">3.8 &rarr; 0 &middot; QF</span></div>
+  </div>
+  <p class="sect-sub" style="margin-top:16px">The two teams the launch model ranked #1 and #2 on July 9 are the two teams playing on July 19, in the final it called most likely. That's either a modest toy model having a very good month, or the rare tournament where the chalk held. (It's both. It's mostly the second one.) The engine lives in <span style="font-family:var(--mono)">footycast/</span> &mdash; one command re-ran everything for tonight's update.</p>
+</section>
+
+<hr class="keyline">
+
+<!-- ================= METHOD ================= -->
+<section class="method" id="method">
+  <div class="eyebrow">Methodology, caveats &amp; sources</div>
+  <h2 style="font-size:24px">How This Was Built</h2>
+  <p><b>Local data.</b> Team and player profiles come from StatsBomb open event data: 123 matches involving these eight teams across WC 2018, WC 2022, Euro 2020, Euro 2024, Copa Am&eacute;rica 2024, and AFCON 2023 &mdash; every pass, shot, pressure, and carry (~3,400 events per match). Historical head-to-heads and records come from the Fjelstul World Cup Database (all 964 men's matches, 1930&ndash;2022). 2026 tournament results, form, and injuries were compiled July 9, 2026 from public reporting; knockout results, xG, and Final team news were folded in on July 18 (sources below).</p>
+  <p><b>Model A (launch).</b> Each team's attack/defense rating blends 2026 per-match xG and xGA (60%), their most recent major tournament from event data (25%), and WC 2022 (15%). Ratings produce Poisson goal expectancies per match; draws in the knockout resolve by a regulation-strength-weighted coin flip standing in for extra time and penalties. The bracket runs 100,000 Monte Carlo iterations. Frozen at launch, deliberately: it serves as the control for the fancier models &mdash; and, six matches in, it has picked every winner.</p>
+  <p><b>The ensemble (Forecast Lab, v2).</b> Four further models: a dynamic Poisson state-space filter (extended-Kalman updates on latent attack/defense states across every men's international since 2012 &mdash; 49,505-match results history, friendlies at half gain, time-gap-scaled process noise); a tournament-form Poisson on xG-blended pseudo-goals (60% xG / 40% goals, per-match xG from the live 2026 dataset, validated against known results); classic football Elo computed from scratch (K by competition, goal-difference multiplier, no snapshot leakage); and a club-form prior fit on 1,800 matches of 2025/26 big-five-league results mapped through each squad's core players. Weights come from a genuine out-of-sample backtest &mdash; all models forecast the WC 2022 and Euro 2024 knockouts using only pre-knockout data (Brier: Elo 0.165, form 0.165, dynamic 0.182, coin flip 0.250, n=30).</p>
+  <p><b>The scoreboard (added July 18).</b> Every finished knockout match is scored on forecasts refit from data strictly before its date &mdash; the dynamic filter, form model, and Elo are rolled back match by match, so no forecast ever sees its own future (results on the same calendar day are excluded both ways; the data has day, not hour, granularity). Knockout results after the datasets' snapshots enter through a manual results table with reported xG, which also now feeds the Elo updates. Brier = (forecast &minus; outcome)&sup2; on the advance probability; extra-time and penalty wins count the same as regulation ones, as the forecasts intended.</p>
+  <p><b>Honest caveats.</b> This is a toy model built in an afternoon and updated in an evening, not FiveThirtyEight. It doesn't adjust for opponent strength within tournaments, doesn't regress hot finishing, doesn't model red cards (Embolo's changed QF4), game states (Argentina's entire personality), or the difference between a final and any other match. The final forecast treats Sunday as a neutral fixture between two rating vectors; it is also Messi's last World Cup match, in front of 82,500 people, for the largest prize in the sport, and no Poisson process knows what that does to anyone. Where the model and the market disagree, the market is probably right and the model is more fun. Not gambling advice; the author's stake is joy.</p>
+  <h3>Reporting sources</h3>
+  <ul class="srcs">
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/760511/belgium-spain">ESPN &mdash; Spain 2&ndash;1 Belgium (QF2, stats &amp; xG)</a></li>
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/760512/england-norway">ESPN &mdash; England 2&ndash;1 Norway aet (QF3, stats &amp; xG)</a></li>
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/760513/switzerland-argentina">ESPN &mdash; Argentina 3&ndash;1 Switzerland aet (QF4, stats &amp; xG)</a></li>
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/760514">ESPN &mdash; Spain 2&ndash;0 France (SF1, stats &amp; xG)</a></li>
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/760515/argentina-england">ESPN &mdash; Argentina 2&ndash;1 England (SF2, stats &amp; xG)</a></li>
+    <li><a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-belgium-match-report-highlights">FIFA &mdash; Spain&ndash;Belgium match report</a></li>
+    <li><a href="https://www.npr.org/2026/07/11/nx-s1-5890169/2026-world-cup-fifa-england-norway-quarterfinal">NPR &mdash; England edge Norway</a></li>
+    <li><a href="https://www.espn.com/soccer/story/_/id/49339250/erling-haaland-england-subbed-late-norway-world-cup">ESPN &mdash; Haaland silenced</a></li>
+    <li><a href="https://www.skysports.com/football/news/11095/13561909/world-cup-2026-argentina-xx-switzerland">Sky Sports &mdash; Argentina 3&ndash;1 Switzerland</a></li>
+    <li><a href="https://www.aljazeera.com/sports/liveblog/2026/7/14/france-vs-spain-live-fifa-world-cup-2026-semifinal">Al Jazeera &mdash; France 0&ndash;2 Spain liveblog</a></li>
+    <li><a href="https://www.espn.com/soccer/story/_/id/49369105/england-argentina-2026-fifa-world-cup-semifinal-final">ESPN &mdash; Argentina stun England</a></li>
+    <li><a href="https://www.espn.com/soccer/story/_/id/49370934/fifa-world-cup-final-argentina-vs-spain-need-know-predictions-odds">ESPN &mdash; Final preview, predictions &amp; odds</a></li>
+    <li><a href="https://www.foxsports.com/stories/soccer/argentina-vs-spain-2026-world-cup-numbers">FOX Sports &mdash; the Final by the numbers</a></li>
+    <li><a href="https://www.rotowire.com/soccer/article/spain-vs-argentina-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-final-123191">RotoWire &mdash; Final lineups &amp; team news</a></li>
+    <li><a href="https://www.aljazeera.com/sports/2026/7/17/france-england-fifa-world-cup-third-place-playoff-predictions-kickoff">Al Jazeera &mdash; bronze final preview</a></li>
+    <li><a href="https://www.aljazeera.com/sports/2026/7/8/fifa-world-cup-2026-quarterfinal-fixtures-match-previews-schedule">Al Jazeera &mdash; quarterfinal fixtures &amp; previews</a></li>
+    <li><a href="https://www.espn.com/soccer/story/_/id/49253939/spain-goalkeeper-unai-simon-sets-world-cup-record-clean-sheets">ESPN &mdash; Sim&oacute;n's clean-sheet record</a></li>
+    <li><a href="https://www.espn.com/soccer/story/_/id/49298508/belgium-amadou-onana-world-cup-suffering-acl-injury">ESPN &mdash; Onana ACL injury</a></li>
+    <li><a href="https://www.aljazeera.com/sports/2026/7/5/haaland-scores-twice-as-norway-stun-brazil-2-1-in-world-cup-2026-last-16">Al Jazeera &mdash; Norway stun Brazil</a></li>
+    <li><a href="https://www.aljazeera.com/sports/2026/7/6/bellingham-inspires-ten-man-england-to-beat-mexico-3-2-in-last-16-thriller">Al Jazeera &mdash; England beat Mexico at the Azteca</a></li>
+    <li><a href="https://www.skysports.com/football/argentina-vs-egypt/report/549861">Sky Sports &mdash; Argentina 3&ndash;2 Egypt</a></li>
+    <li><a href="https://github.com/statsbomb/open-data">StatsBomb Open Data (event data, CC-style license)</a></li>
+    <li><a href="https://github.com/jfjelstul/worldcup">Fjelstul World Cup Database (CC-BY-SA 4.0)</a></li>
+    <li><a href="https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017">International results 1872&ndash;2026 (Mart J&uuml;risoo, Kaggle, CC0)</a></li>
+    <li>World Cup 2026 live match &amp; xG data (Kaggle, validated vs match reports)</li>
+  </ul>
+  <p style="margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Data &copy; their respective owners &middot; StatsBomb open data used per its license &middot; Fjelstul World Cup Database &copy; Joshua C. Fjelstul, CC-BY-SA 4.0 &middot; Built July 9, 2026, before QF1 kickoff &middot; Updated July 18, the eve of the Final. Whatever happens at MetLife: the model regrets nothing.</p>
+</section>
+
+</div>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  // score-matrix heatmaps
+  var ramp = ['--heat-1','--heat-2','--heat-3','--heat-4','--heat-5','--heat-6','--heat-7','--heat-8'];
+  document.querySelectorAll('.heat').forEach(function (h) {
+    var rows = h.getAttribute('data-heat').split(';').map(function (r) { return r.split(',').map(Number); });
+    var a = h.getAttribute('data-a'), b = h.getAttribute('data-b');
+    var max = 0;
+    rows.forEach(function (r) { r.forEach(function (v) { if (v > max) max = v; }); });
+    var frag = document.createDocumentFragment();
+    var corner = document.createElement('div'); corner.className = 'corner'; frag.appendChild(corner);
+    for (var c = 0; c < 5; c++) { var hx = document.createElement('div'); hx.className = 'hx'; hx.textContent = c; frag.appendChild(hx); }
+    rows.forEach(function (r, i) {
+      var hy = document.createElement('div'); hy.className = 'hy'; hy.textContent = i; frag.appendChild(hy);
+      r.forEach(function (v, j) {
+        var cell = document.createElement('div'); cell.className = 'cell';
+        var idx = Math.min(ramp.length - 1, Math.floor((v / max) * ramp.length));
+        cell.style.background = 'var(' + ramp[idx] + ')';
+        cell.style.color = idx >= 5 ? 'var(--heat-ink-hi)' : (idx >= 2 ? 'var(--ink)' : 'var(--ink-3)');
+        cell.textContent = v >= 2 ? v.toFixed(0) : '';
+        cell.setAttribute('data-tip', a + ' ' + i + '–' + j + ' ' + b + ': ' + v.toFixed(1) + '%');
+        frag.appendChild(cell);
+      });
+    });
+    h.appendChild(frag);
+  });
+
+  // shared tooltip
+  var tip = document.getElementById('tip');
+  document.addEventListener('mousemove', function (e) {
+    var t = e.target.closest('[data-tip]');
+    if (t) {
+      tip.textContent = t.getAttribute('data-tip');
+      tip.style.left = e.clientX + 'px';
+      tip.style.top = e.clientY + 'px';
+      tip.style.opacity = '1';
+    } else {
+      tip.style.opacity = '0';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
